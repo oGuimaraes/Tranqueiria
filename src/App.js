@@ -1,21 +1,42 @@
-import React from 'react';
+import React , {Component} from 'react';
 import './App.css';
-import { createStore} from 'redux'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { clickButton } from './actions';
 
-function App() {
-    function timeline(state=[], action){
-        return state;
-    }
-    const store = createStore(timeline);
-  return (
-      <div className="App" style={{ paddingTop: '10px' }}>
-        <input type='text' />
-        <button>
-          Click me!
-        </button>
-        <h1>teste</h1>
-      </div>
-  );
+
+class App extends Component {
+  state = {
+    inputValue: ''
+  }
+  inputChange = event => {
+    this.setState({
+      inputValue: event.target.value
+    })
+  }
+  render(){
+    const {clickButton,newValue} = this.props;
+    const {inputValue} = this.state;
+    return (
+        <div className="App" style={{ paddingTop: '10px' }}>
+          <input
+          onChange={this.inputChange}
+          type='text'
+          value={inputValue}
+          />
+          <button onClick={()=>clickButton(inputValue)}>
+            Click me!
+          </button>
+          <h1>{newValue}</h1>
+        </div>  
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = store =>  ({
+  newValue: store.clickState.newValue
+});
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({clickButton},dispatch);
+
+export default connect(mapStateToProps,mapDispatchToProps) (App);
