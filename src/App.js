@@ -3,6 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { clickButton } from './actions';
+import { Text } from './components/Text';
 
 
 class App extends Component {
@@ -15,7 +16,7 @@ class App extends Component {
     })
   }
   render(){
-    const {clickButton,newValue} = this.props;
+    const {clickButton} = this.props;
     const {inputValue} = this.state;
     return (
         <div className="App" style={{ paddingTop: '10px' }}>
@@ -27,16 +28,18 @@ class App extends Component {
           <button onClick={()=>clickButton(inputValue)}>
             Click me!
           </button>
-          <h1>{newValue}</h1>
+          <Text/>
         </div>  
     );
   }
 }
 
-const mapStateToProps = store =>  ({
+const mapStateToProps = store => { 
+  return({
   newValue: store.clickState.newValue
 });
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({clickButton},dispatch);
-
+}
+const mapDispatchToProps = dispatch =>{
+  return(bindActionCreators({clickButton},dispatch));
+}
 export default connect(mapStateToProps,mapDispatchToProps) (App);
