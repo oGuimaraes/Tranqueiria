@@ -1,21 +1,32 @@
-import React from 'react';
-import './App.css';
-import { createStore} from 'redux'
+import React, { Component } from 'react';
+import './App.scss';
+import { BrowserRouter as Router, Route  } from 'react-router-dom';
+import Header from './components/Header';
+import axios from 'axios';
 
-function App() {
-    function timeline(state=[], action){
-        return state;
+export class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      products:[]
     }
-    const store = createStore(timeline);
-  return (
-      <div className="App" style={{ paddingTop: '10px' }}>
-        <input type='text' />
-        <button>
-          Click me!
-        </button>
-        <h1>teste</h1>
-      </div>
-  );
+  }
+  componentDidMount(){
+    axios.get('https://cors-anywhere.herokuapp.com/https://funil-mock.herokuapp.com/example1').then(response=>{
+      console.log("to aqui")
+      this.setState({products:response.data})
+    })
+  }
+  render() {
+      return (
+        <Router>
+          <div className="App">
+              <Header></Header>
+              <Route path="/a">aaaa</Route>
+          </div>
+        </Router>
+      )
+  }
 }
 
 export default App;
