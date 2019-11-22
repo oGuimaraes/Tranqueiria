@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Route  } from 'react-router-dom';
-import Header from './components/Header';
+import { connect } from "react-redux";
+import { setProducts } from './js/actions/index'
+import Header from './js/components/Header';
 import axios from 'axios';
-import Card from './components/Card'
+import Card from './js/components/Card'
 
+const mapStateToProps = state => {
+  return { products: state.products};
+};
+const mapDispatchToProps = (dispatch) =>({
+  setProducts: (products) => dispatch(setProducts(products))
+});
 
 export class App extends Component {
   constructor(props){
@@ -22,8 +30,10 @@ export class App extends Component {
       response = await axios.get('https://cors-anywhere.herokuapp.com/https://funil-mock.herokuapp.com/example1')
     } catch(error){
       console.log("Error ",error)
-    }
-    this.setState({products:response.data.data,loading:false})
+    }  
+    this.props.setProducts(response.data.data)
+    //Passar o state de loading para a store do redux depois
+    this.setState({loading:false})
   }
   renderCard = (product) =>{
 
@@ -31,8 +41,9 @@ export class App extends Component {
       <Card product ={product}/>
     )
   }
+  // Gera um numero randomico para que seja selecionado um produto aleatorio do array
   randomNumber = ()=>{
-    let x = Math.ceil(Math.random()*this.state.products.length)%this.state.products.length
+    let x = Math.ceil(Math.random()*this.props.products.length)%this.props.products.length
     return(x)
   }
   render() {
@@ -42,11 +53,11 @@ export class App extends Component {
           <div className="App">
               <Header></Header>
               <Route path="/"></Route>
-              {loading ? "Segura ae" : this.renderCard(this.state.products[this.randomNumber()])}
+              {loading ? "Segura ae" : this.renderCard(this.props.products[this.randomNumber()])}
           </div>
         </Router>
       )
   }
 }
 
-export default App;
+export default connect(mapStateToProps,mapDispatchToProps)(App);
