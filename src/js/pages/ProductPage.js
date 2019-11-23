@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import  Card  from '../components/Card'
+import  Product  from '../components/Product'
 
 const mapStateToProps = state => {
     return { products: state.products};
@@ -9,7 +9,7 @@ const mapStateToProps = state => {
 export class ProductPage extends Component {
     renderCard = (product) =>{
         return(
-          <Card product ={product}/>
+          <Product product ={product}/>
         )
     }
     renderCardGroup = () =>{
