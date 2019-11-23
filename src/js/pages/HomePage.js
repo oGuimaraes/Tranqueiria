@@ -24,7 +24,7 @@ export class HomePage extends Component {
     render() {
         return (
             <div>
-                {/* aqui virá o carousel */}
+                {/* Aqui virá o carousel */}
                 {this.renderCardGroup()}
             </div>
         )

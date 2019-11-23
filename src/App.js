@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
-import {BrowserRouter as Router, Route  } from 'react-router-dom';
+import {Router,Route ,Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 import { setProducts } from './js/actions/index'
 import Header from './js/components/Header';
@@ -9,8 +9,13 @@ import HomePage from './js/pages/HomePage';
 import ProductPage from './js/pages/ProductPage';
 
 
+import history from './history';
+
+
+
+
 const mapStateToProps = state => {
-  return { products: state.products};
+  return { products: state.products,searchElement:state.searchElement};
 };
 const mapDispatchToProps = (dispatch) =>({
   setProducts: (products) => dispatch(setProducts(products))
@@ -40,13 +45,16 @@ export class App extends Component {
   render() {
     const {loading} = this.state
       return (
-        <Router>
+        <Router history ={history}>
           <div className="App">
               <Header></Header>
+              {/* implementar uma loading screen futuramente */}
               {loading ? "Segura ae" : 
               <div>
-              <Route exact path="/" component={HomePage}/>
-              <Route exact path="/:id" component={ProductPage}/>
+              <Switch>
+                <Route exact path="/" component={HomePage}/>
+                <Route exact path="/:id" component={ProductPage}/>
+              </Switch>
               </div>
       }
           </div>
