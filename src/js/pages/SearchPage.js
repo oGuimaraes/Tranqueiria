@@ -13,17 +13,17 @@ export class SearchPage extends Component {
         }
         console.log(this.state.searchElement)
     }
-    componentWillReceiveProps(nextProps) {
-        this.setState({ searchResult: [...nextProps.products.filter(product => product.name.includes(nextProps.searchElement) )] })
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     this.setState({ searchResult: [...nextProps.products.filter(product => product.name.includes(nextProps.searchElement) )] })
+    // }
     static getDerivedStateFromProps(nextProps, prevState) {
         return {
-         show: nextProps.show,
+            searchResult: [...nextProps.products.filter(product => product.name.includes(nextProps.searchElement) )]
         };
     }
     render() {
         return (
-            <div>
+            <div className="SearchPage">
                 {/* FilterMenu */}
                 {/* Container>Search Text + Ordenação + Card Group + Paginação */}
                 <CardGroup products={this.state.searchResult}/>

@@ -12,7 +12,7 @@ export class CardGroup extends Component {
             <Card key={product.id-1} product ={product}/>
         )   
         return (
-            <div className="CardGroup">
+            <div className="cardGroup">
                 {cards}
             </div>
         )
