@@ -26,6 +26,7 @@ export class SearchPage extends Component {
             <div className="SearchPage">
                 {/* FilterMenu */}
                 {/* Container>Search Text + Ordenação + Card Group + Paginação */}
+        <       h5>Busca por "{this.props.searchElement}"</h5>
                 <CardGroup products={this.state.searchResult}/>
             </div>
         )
