@@ -1,36 +1,54 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import CardGroup  from '../components/CardGroup'
+import SortDropdown from '../components/SortDropdown'
+import OrganizeProducts from '../components/OrganizeProducts';
+import {setSort} from '../actions/index'
 
 const mapStateToProps = state => {
-    return { products: state.products,searchElement:state.searchElement};
+    return { 
+        products: state.products,
+        searchElement:state.searchElement,
+        filter:state.filter,
+        sort:state.sort
+    };
 };
+const mapDispatchToProps = (dispatch) =>({
+    setSort: (sortOption) => dispatch(setSort(sortOption))
+});
 export class SearchPage extends Component {
     constructor(props){
         super(props)
         this.state = {
-            searchResult: [...this.props.products.filter(product => product.name.includes(this.props.searchElement) )]
+            searchResult: [...this.props.products.filter(product => product.name.toLowerCase().includes(this.props.searchElement.toLowerCase()) )],
+            filter:this.props.filter,
+            sort:this.props.sort
         }
-        console.log(this.state.searchElement)
     }
     // componentWillReceiveProps(nextProps) {
     //     this.setState({ searchResult: [...nextProps.products.filter(product => product.name.includes(nextProps.searchElement) )] })
     // }
     static getDerivedStateFromProps(nextProps, prevState) {
         return {
-            searchResult: [...nextProps.products.filter(product => product.name.includes(nextProps.searchElement) )]
+            searchResult: [...nextProps.products.filter(product => product.name.toLowerCase().includes(nextProps.searchElement.toLowerCase()) )],
+            filter:nextProps.filter,
+            sort:nextProps.sort
         };
+    }
+    componentWillUnmount(){
+        this.props.setSort('')
     }
     render() {
         return (
             <div className="SearchPage">
                 {/* FilterMenu */}
                 {/* Container>Search Text + Ordenação + Card Group + Paginação */}
-        <       h5>Busca por "{this.props.searchElement}"</h5>
-                <CardGroup products={this.state.searchResult}/>
+                <h5>Busca por "{this.props.searchElement}"</h5>
+                <SortDropdown></SortDropdown>
+
+                <OrganizeProducts products={this.state.searchResult}/>
             </div>
         )
     }
 }
 
-export default connect(mapStateToProps)(SearchPage)
+export default connect(mapStateToProps,mapDispatchToProps)(SearchPage)
