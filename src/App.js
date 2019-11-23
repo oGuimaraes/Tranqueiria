@@ -7,6 +7,7 @@ import Header from './js/components/Header';
 import axios from 'axios';
 import HomePage from './js/pages/HomePage';
 import ProductPage from './js/pages/ProductPage';
+import SearchPage from './js/pages/SearchPage'
 
 
 import history from './history';
@@ -33,7 +34,7 @@ export class App extends Component {
   async _setState(){
     let response=[]
     try{
-      response = await axios.get('https://cors-anywhere.herokuapp.com/https://funil-mock.herokuapp.com/example1')
+      response = await axios.get('https://cors-anywhere.herokuapp.com/https://funil-mock.herokuapp.com/example1 ')
     } catch(error){
       console.log("Error ",error)
     }  
@@ -54,9 +55,10 @@ export class App extends Component {
               <Switch>
                 <Route exact path="/" component={HomePage}/>
                 <Route exact path="/:id" component={ProductPage}/>
+                <Route path="/search/" component={SearchPage}/>
               </Switch>
               </div>
-      }
+              }
           </div>
         </Router>
       )
