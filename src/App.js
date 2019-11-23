@@ -46,7 +46,7 @@ export class App extends Component {
               {loading ? "Segura ae" : 
               <div>
               <Route exact path="/" component={HomePage}/>
-              <Route exact path="/id" component={ProductPage}/>
+              <Route exact path="/:id" component={ProductPage}/>
               </div>
       }
           </div>

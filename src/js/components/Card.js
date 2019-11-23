@@ -10,7 +10,7 @@ export class Card extends Component {
             <CardBoot style={{ width: '18rem' }}>
                 <CardBoot.Img variant="top" src={image} />
                 <CardBoot.Body>
-                 <Link to="/id">{name}{id}</Link>
+                 <Link  to={`/${id}`}>{name}{id}</Link>
                     <CardBoot.Text>
                         Categoria: {category}
                         <br/>

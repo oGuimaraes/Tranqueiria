@@ -14,8 +14,8 @@ export class ProductPage extends Component {
     }
     renderCardGroup = () =>{
         return(
-            <div>
-                <h1>Teste</h1>
+            <div className="cardGroup">
+                {this.renderCard(this.props.products[this.props.match.params.id-1])}
             </div>
         )
     }
@@ -29,4 +29,4 @@ export class ProductPage extends Component {
     }
 }
 
-export default ProductPage;
+export default connect(mapStateToProps)(ProductPage)
