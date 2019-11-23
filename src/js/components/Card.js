@@ -8,9 +8,9 @@ export class Card extends Component {
         const {image,name,brand,category,currency,price,color,id} = this.props.product
         return (
             <CardBoot style={{ width: '18rem' }}>
-                <CardBoot.Img variant="top" src={image} />
+                <Link to={`/${id}`}><CardBoot.Img variant="top" src={image} /></Link>
                 <CardBoot.Body>
-                 <Link  to={`/${id}`}>{name}{id}</Link>
+                 <Link  to={`/${id}`}>{name}</Link>
                     <CardBoot.Text>
                         Categoria: {category}
                         <br/>
@@ -22,7 +22,6 @@ export class Card extends Component {
 
                         </canvas>
                     </CardBoot.Text>
-                    <Button variant="primary">Go somewhere</Button>
                 </CardBoot.Body>
             </CardBoot>
         )
