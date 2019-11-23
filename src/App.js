@@ -6,6 +6,7 @@ import { setProducts } from './js/actions/index'
 import Header from './js/components/Header';
 import axios from 'axios';
 import HomePage from './js/pages/HomePage';
+import ProductPage from './js/pages/ProductPage';
 
 
 const mapStateToProps = state => {
@@ -43,8 +44,11 @@ export class App extends Component {
           <div className="App">
               <Header></Header>
               {loading ? "Segura ae" : 
+              <div>
               <Route exact path="/" component={HomePage}/>
-              }
+              <Route exact path="/id" component={ProductPage}/>
+              </div>
+      }
           </div>
         </Router>
       )
