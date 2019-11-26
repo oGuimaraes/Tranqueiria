@@ -8,11 +8,11 @@ export class Product extends Component {
         const {image,name,brand,category,currency,price,color,id} = this.props.product
         return (
             <CardBoot style={{ width: '56rem' }}>
-                <div class="row">
-                <div class="col-md-6">
+                <div className="row">
+                <div className="col-md-6">
                 <CardBoot.Img variant="top" style={{ width: '28rem' }} src={image} />
                 </div>
-                <div class="col-md-6">
+                <div className="col-md-6">
                 <CardBoot.Body>
                 <CardBoot.Title>{name}</CardBoot.Title>
                     <CardBoot.Text>
