@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { DropdownButton } from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {setSort} from '../actions/index'
-import {A_a_Z,Z_a_A,brand,category,priceBaA,priceAaB} from '../constants/sort-types'
+import {A_a_Z,Z_a_A,brand,category,priceBaA,priceAaB, color} from '../constants/sort-types'
 
 const mapStateToProps = state => ({
     sort:state.sort
@@ -34,6 +34,7 @@ export class SortDropdown extends Component {
                 {this.renderButton(category,"Categoria")}
                 {this.renderButton(priceBaA,"Preço: baixo a alto")}
                 {this.renderButton(priceAaB,"Preço: alto a baixo")}
+                {this.renderButton(color,"Cor")}
             </DropdownButton>
         )
     }
