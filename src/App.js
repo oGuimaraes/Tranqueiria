@@ -30,7 +30,7 @@ export class App extends Component {
     let response = [];
     try {
       response = await axios.get(
-        "https://cors-anywhere.herokuapp.com/https://funil-mock.herokuapp.com/"
+        "https://cors-anywhere.herokuapp.com/https://funil-mock.herokuapp.com/example1"
       );
     } catch (error) {
       console.log("Error ", error);
