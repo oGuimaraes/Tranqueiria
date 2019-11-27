@@ -1,2 +1,6 @@
 export const A_a_Z = 'AaZ'
 export const Z_a_A = 'ZaA'
+export const brand = 'brand'
+export const category = 'category'
+export const priceBaA = 'priceBaA'
+export const priceAaB = 'priceAaB'

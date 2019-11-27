@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import CardGroup  from '../components/CardGroup'
 import {connect} from 'react-redux'
-import {A_a_Z,Z_a_A} from '../constants/sort-types'
+import {A_a_Z,Z_a_A,brand,category,priceAaB,priceBaA} from '../constants/sort-types'
+import {compararAaZ,compararZaA,compararBrand,compararCategory,compararPriceAaB,compararPriceBaA} from '../functions'
 
 const mapStateToProps = state =>{
     return({
@@ -9,18 +10,28 @@ const mapStateToProps = state =>{
         sort:state.sort
     })
 };
-const compararAaZ = (a, b)=> {
-    return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-}
-const compararZaA = (a, b)=> {
-    return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
-}
+
+
 const ordenar = (nextProps)=>{
     if(nextProps.sort === A_a_Z){
         return [...nextProps.products.sort(compararAaZ)]
     }
     else if(nextProps.sort === Z_a_A){
         return [...nextProps.products.sort(compararZaA)]
+    }
+    else if(nextProps.sort === brand){
+        return [...nextProps.products.sort(compararBrand)]
+    }
+    else if(nextProps.sort === category){
+        return [...nextProps.products.sort(compararCategory)]
+    }
+    //alterar o metodo de ordenação para utilizar um couting sort 
+    else if(nextProps.sort === priceAaB){
+        return [...nextProps.products.sort(compararPriceAaB)]
+    }
+    else if(nextProps.sort === priceBaA){
+        console.log("Passou aqui")
+        return [...nextProps.products.sort(compararPriceBaA)]
     }
     return [...nextProps.products]
 }
