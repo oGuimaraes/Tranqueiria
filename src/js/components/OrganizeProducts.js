@@ -18,10 +18,11 @@ const filtrar = (viewProducts,nextProps) =>{
         nextProps.filter.brand.map(brand=> 
             newViewProducts = [...viewProducts.filter(product => product.brand === brand)]
         )
-        console.log('aaaa')
     }
     if(nextProps.filter.category.length>0){
-
+        nextProps.filter.category.map(category=> 
+            newViewProducts = [...viewProducts.filter(product => product.category === category)]
+        )
     }
     return newViewProducts
 }
