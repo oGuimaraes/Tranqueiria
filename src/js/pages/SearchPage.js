@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import SortDropdown from '../components/SortDropdown'
 import OrganizeProducts from '../components/OrganizeProducts';
 import {setSort} from '../actions/index'
+import FilterMenu from '../components/FilterMenu'
 
 const mapStateToProps = state => {
     return { 
@@ -29,7 +30,7 @@ export class SearchPage extends Component {
     // }
     static getDerivedStateFromProps(nextProps, prevState) {
         return {
-            searchResult: [...nextProps.products.filter(product => product.name.toLowerCase().includes(nextProps.searchElement.toLowerCase()) )],
+            searchResult: [...nextProps.products.filter(product => product.name.toLowerCase().includes(nextProps.searchElement.toLowerCase()))],
             filter:nextProps.filter,
             sort:nextProps.sort
         };
@@ -42,9 +43,9 @@ export class SearchPage extends Component {
             <div className="SearchPage">
                 {/* FilterMenu */}
                 {/* Container>Search Text + Ordenação + Card Group + Paginação */}
-                <h5>Busca por "{this.props.searchElement}"</h5>
+                <h5 className="searchFor">Busca por "{this.props.searchElement}"</h5>
                 <SortDropdown></SortDropdown>
-
+                <FilterMenu products={this.state.searchResult}></FilterMenu>
                 <OrganizeProducts products={this.state.searchResult}/>
             </div>
         )

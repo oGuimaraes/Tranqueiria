@@ -3,7 +3,8 @@ import { SEARCH_ELEMENT,SET_PRODUCTS,SET_FILTER,SET_SORT } from '../constants/ac
 const initialState = {
     products:[],
     searchElement:'',
-    filter:'',
+    filter:{category:[],brand:[]},
+    changeFilter:'',
     sort:'batatinha'
 }
 
@@ -26,6 +27,11 @@ function rootReducer(state = initialState,action){
     else if(action.type===SET_SORT){
         return Object.assign({}, state, {
             sort: action.payload
+        });
+    }
+    else if(action.type==='changeFilter'){
+        return Object.assign({}, state, {
+            changeFilter: action.payload
         });
     }
     return state;

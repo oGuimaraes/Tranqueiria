@@ -7,10 +7,24 @@ import {compararAaZ,compararZaA,compararBrand,compararCategory,compararPriceAaB,
 const mapStateToProps = state =>{
     return({
         filter:state.filter,
-        sort:state.sort
+        sort:state.sort,
+        changeFilter:state.changeFilter
     })
 };
 
+const filtrar = (viewProducts,nextProps) =>{
+    let newViewProducts = viewProducts
+    if(nextProps.filter.brand.length>0){
+        nextProps.filter.brand.map(brand=> 
+            newViewProducts = [...viewProducts.filter(product => product.brand === brand)]
+        )
+        console.log('aaaa')
+    }
+    if(nextProps.filter.category.length>0){
+
+    }
+    return newViewProducts
+}
 
 const ordenar = (nextProps)=>{
     if(nextProps.sort === A_a_Z){
@@ -46,8 +60,11 @@ export class OrganizeProducts extends Component {
         };
     }
     static getDerivedStateFromProps(nextProps, prevState) {
+        let viewProducts = ordenar(nextProps)
+        viewProducts = filtrar(viewProducts,nextProps)
+        
         return {
-            viewProduct: ordenar(nextProps)
+            viewProduct: viewProducts
         };
     }
     render() {

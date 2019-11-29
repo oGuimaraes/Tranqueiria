@@ -3,4 +3,24 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content:space-evenly;
+    grid-area: cardGroup;
+}
+.SearchPage .dropdown{
+    grid-area: sortButton;
+    float: right;
+    display: relative;
+}
+.SearchPage .searchFor{
+    grid-area: searchFor;
+}
+.SearchPage .filterMenu{
+    grid-area: filterMenu;
+}
+.SearchPage {
+    display: grid;
+    grid-template-columns: 20% auto;
+    grid-template-rows: 100px auto;
+    grid-template-areas: 
+    "searchFor sortButton"
+    "filterMenu cardGroup";
 }

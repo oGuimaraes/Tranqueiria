@@ -12,3 +12,6 @@ export function setFilter(payload){
 export function setSort(payload){
     return{ type: SET_SORT,payload }
 };
+export function changeFilter(payload){
+    return{type:'changeFilter',payload}
+};
