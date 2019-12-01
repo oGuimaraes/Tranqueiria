@@ -1,4 +1,4 @@
-import { SEARCH_ELEMENT,SET_PRODUCTS,SET_FILTER,SET_SORT, ADD_CART_PRODUCT } from '../constants/action-types'
+import { SEARCH_ELEMENT,SET_PRODUCTS,SET_FILTER,SET_SORT, ADD_CART_PRODUCT, REMOVE_CART_PRODUCT, CHANGE_QUANTITY_PRODUCT} from '../constants/action-types'
 
 export function changeSearchElement(payload){
     return { type: SEARCH_ELEMENT,payload }
@@ -16,5 +16,11 @@ export function changeFilter(payload){
     return{type:'changeFilter',payload}
 };
 export function addCartProduct(payload){
-    return{type: ADD_CART_PRODUCT, payload: payload }
+    return{type: ADD_CART_PRODUCT, payload}
 ;}
+export function removeCartProduct(payload){
+    return{type: REMOVE_CART_PRODUCT, payload}
+;}
+export function changeQuantityProduct(productId, quantity){
+    return{type: CHANGE_QUANTITY_PRODUCT, payload: { productId, quantity }}
+}

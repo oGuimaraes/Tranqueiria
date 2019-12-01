@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { Card as CardBoot , Button} from 'react-bootstrap';
-import {Link} from 'react-router-dom'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import * as Actions from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
