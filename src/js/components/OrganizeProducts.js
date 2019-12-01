@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import CardGroup  from '../components/CardGroup'
 import {connect} from 'react-redux'
 import {A_a_Z,Z_a_A,brand,category,priceAaB,priceBaA,color} from '../constants/sort-types'
-import {compararAaZ,compararZaA,compararBrand,compararCategory,compararPriceAaB,compararPriceBaA,compararColor,colourNameToHex} from '../functions'
+import {compararAaZ,compararZaA,compararBrand,compararCategory,compararPriceAaB,compararPriceBaA,compararColor,colourNameToHex,computeColorDistance} from '../functions'
 import { Pagination } from 'react-bootstrap'
 
 const mapStateToProps = state =>{
@@ -12,19 +12,7 @@ const mapStateToProps = state =>{
         changeFilter:state.changeFilter
     })
 };
-const computeColorDistance = (color1,color2) => {
-    console.log(color1)
-    console.log(color2)
-    let r1 = parseInt(color1.substring(1,3),16)
-    let g1 = parseInt(color1.substring(3,5),16)
-    let b1 = parseInt(color1.substring(5,7),16)
-    let r2 = parseInt(color2.substring(1,3),16)
-    let g2 = parseInt(color2.substring(3,5),16)
-    let b2 = parseInt(color2.substring(5,7),16)
-    let distance = Math.sqrt(Math.pow((r2-r1),2)+Math.pow((g2-g1),2)+Math.pow((b2-b1),2))
-    let percent = (1 -(distance/Math.sqrt(Math.pow((255),2)+Math.pow((255),2)+Math.pow((255),2))))
-    return percent 
-}
+
 const filtrar = (viewProducts,nextProps) =>{
     let newViewProducts = viewProducts
     if(nextProps.filter.type===brand)
@@ -67,7 +55,8 @@ export class OrganizeProducts extends Component {
     constructor(props){
         super(props)
         this.state = {
-            viewProduct: this.props.products
+            viewProduct: this.props.products,
+            active:1,
         };
     }
     static getDerivedStateFromProps(nextProps, prevState) {
@@ -78,27 +67,36 @@ export class OrganizeProducts extends Component {
             viewProduct: viewProducts
         };
     }
-    
+    changeActivePage(number){
+        this.setState({active:number})
+    }
+    renderPaginationButton(number){
+        return(
+            <button key={number} onClick={this.changeActivePage.bind(this,number)}>
+                {number}
+            </button>
+        )
+    }
     render() {
-        let active = 1;
         let items = [];
-        let pagesNumber = this.state.viewProduct.length/15
+        let pagesNumber = Math.ceil(this.state.viewProduct.length/15)
         for (let number = 1; number <= pagesNumber; number++) {
         items.push(
-            <Pagination.Item key={number} active={number === active}>
-            {number}
-            </Pagination.Item>,
+            this.renderPaginationButton(number),
         );
         }
-
         const paginationBasic = (
             <div>
                 <Pagination size="lg">{items}</Pagination>
             </div>
         );
+        let viewProductPagination = [];
+        for(let i=15*(this.state.active-1);i<15*this.state.active&&i<this.state.viewProduct.length;i++){
+            viewProductPagination.push(this.state.viewProduct[i])
+        }
         return (
             <div className='containerProducts'>
-            <CardGroup products={this.state.viewProduct}/>
+            <CardGroup products={viewProductPagination}/>
             {paginationBasic}
             </div>
         )

@@ -66,3 +66,16 @@ export const colourNameToHex = (colour) =>{
     }
     
 }
+export const computeColorDistance = (color1,color2) => {
+    console.log(color1)
+    console.log(color2)
+    let r1 = parseInt(color1.substring(1,3),16)
+    let g1 = parseInt(color1.substring(3,5),16)
+    let b1 = parseInt(color1.substring(5,7),16)
+    let r2 = parseInt(color2.substring(1,3),16)
+    let g2 = parseInt(color2.substring(3,5),16)
+    let b2 = parseInt(color2.substring(5,7),16)
+    let distance = Math.sqrt(Math.pow((r2-r1),2)+Math.pow((g2-g1),2)+Math.pow((b2-b1),2))
+    let percent = (1 -(distance/Math.sqrt(Math.pow((255),2)+Math.pow((255),2)+Math.pow((255),2))))
+    return percent 
+}
