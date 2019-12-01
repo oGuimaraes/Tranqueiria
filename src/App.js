@@ -4,10 +4,12 @@ import { Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { setProducts } from "./js/actions/index";
 import Header from "./js/components/Header";
+import Footer from "./js/components/Footer";
 import axios from "axios";
 import HomePage from "./js/pages/HomePage";
 import ProductPage from "./js/pages/ProductPage";
 import SearchPage from "./js/pages/SearchPage";
+import CategoryPage from "./js/pages/CategoryPage";
 
 import history from "./history";
 
@@ -55,9 +57,11 @@ export class App extends Component {
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/product/:id" component={ProductPage} />
                 <Route path="/search/" component={SearchPage} />
+                <Route path="/category/" component={CategoryPage} />
               </Switch>
             </div>
           )}
+          <Footer />
         </div>
       </Router>
     );
