@@ -36,7 +36,15 @@ export class App extends Component {
     } catch (error) {
       console.log("Error ", error);
     }
+    console.log(response.data.data)
+
+    const a = response.data.data.map(item => (
+        {...item, image: `${item.image}/?${item.id}` }
+    ));
+    
+
     this.props.setProducts(response.data.data);
+    // this.props.setProducts(a);
     //Passar o state de loading para a store do redux depois
     this.setState({ loading: false });
   }
@@ -49,7 +57,7 @@ export class App extends Component {
           <Header></Header>
           {/* implementar uma loading screen futuramente */}
           {loading ? (
-            "Segura ae"
+            "Loading Page ..."
           ) : (
             <div>
               <Switch>
@@ -60,6 +68,7 @@ export class App extends Component {
               </Switch>
             </div>
           )}
+          {/* <Footer /> */}
         </div>
       </Router>
     );
