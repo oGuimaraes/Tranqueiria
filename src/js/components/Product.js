@@ -2,8 +2,17 @@ import React, { Component } from 'react'
 import { Card as CardBoot , Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import * as Actions from '../actions';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 export class Product extends Component {
+
+    handleClickAddToCart = () => {
+        const {addCartProduct, product} = this.props;
+        addCartProduct(product);
+    }
+
     render() {
         const {image,name,brand,category,currency,price,color,id} = this.props.product
         return (
@@ -26,7 +35,7 @@ export class Product extends Component {
 
                         </canvas>
                     </CardBoot.Text>
-                    <Button variant="primary">Adicionar ao Carrinho</Button>
+                    <Button variant="primary" onClick={this.handleClickAddToCart} >Adicionar ao Carrinho</Button>
                 </CardBoot.Body>
                 </div>
                 </div>
@@ -35,4 +44,10 @@ export class Product extends Component {
     }
 }
 
-export default Product
+const mapDispatchToProps = dispatch => 
+  bindActionCreators(Actions, dispatch);
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Product);
