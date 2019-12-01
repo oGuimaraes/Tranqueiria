@@ -15,23 +15,25 @@ export class SearchBar extends Component {
     changeInput = (e) => this.setState({searchElement: e.target.value});
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.changeSearchElement(this.state.searchElement)
-        const searchElement = this.state.searchElement
-        this.setState({searchElement: ''});
-        this.props.history.push(`/search/${searchElement}`);
+        if(this.state.searchElement!==''){  
+            this.props.changeSearchElement(this.state.searchElement)
+            const searchElement = this.state.searchElement
+            this.setState({searchElement: ''});
+            this.props.history.push(`/search/${searchElement}`);
+        }
     }
     render() {
         return (
             <React.Fragment>
-            <form onSubmit={this.onSubmit} id="formSearch">
-                <input
-                type="text" 
-                id="searchBar"
-                value={this.state.searchElement}
-                onChange={this.changeInput}
-                placeholder="Buscar"></input>
-                <button type="submit" value="submit" id="Button">Buscar</button>
-            </form>
+                <form onSubmit={this.onSubmit} id="formSearch">
+                    <input
+                    type="text" 
+                    id="searchBar"
+                    value={this.state.searchElement}
+                    onChange={this.changeInput}
+                    placeholder="Buscar"></input>
+                    <button type="submit" value="submit" id="Button">Buscar</button>
+                </form>
             </React.Fragment>
         )
     }

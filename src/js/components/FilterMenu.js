@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {setFilter,changeFilter} from '../actions/index'
-import CheckBox from '../components/CheckBox'
-import {brand,category} from '../constants/filter-types'
-import { DropdownButton } from 'react-bootstrap'
+import {brand,category,color} from '../constants/filter-types'
+import { DropdownButton} from 'react-bootstrap'
 
 const mapStateToProps = state => {
     return { 
@@ -33,6 +32,11 @@ export class FilterMenu extends Component {
             filter.filterOption=filterOption
             this.props.changeFilter(filterOption)
         }
+        else if(type===color){
+            filter.type=type
+            filter.filterOption=filterOption
+            this.props.changeFilter(filterOption)
+        }
         console.log(filter)
         this.props.setFilter(filter)
     }
@@ -55,6 +59,7 @@ export class FilterMenu extends Component {
 
     renderDropdownBrand(){
         let brs = []
+        //Alterar o for abaixo por um map
         for(let i =0;i<this.props.products.length;i++){
             if(brs.indexOf(this.props.products[i].brand)<0){
                 brs.push(this.props.products[i].brand)
@@ -67,9 +72,22 @@ export class FilterMenu extends Component {
         return(
             <div>
                 <DropdownButton id="dropdown-button" title="Marca:">                
-                    {/* {this.renderButton(brand,"Fay and Sons")}
-                    {this.renderButton(brand,"Gottlieb - Schroeder")} */}
                     {brands}
+                </DropdownButton>
+            </div>
+        )
+    }
+    renderDropdownColor(){
+        return(
+            <div>
+                <DropdownButton id="dropdown-button" title="Cor">
+                    {this.renderButton(color,"red",0)}
+                    {this.renderButton(color,"orange",1)}
+                    {this.renderButton(color,"yellow",2)}
+                    {this.renderButton(color,"green",3)}
+                    {this.renderButton(color,"blue",4)}
+                    {this.renderButton(color,"indigo",5)}
+                    {this.renderButton(color,"violet",6)}
                 </DropdownButton>
             </div>
         )
@@ -100,11 +118,13 @@ export class FilterMenu extends Component {
         this.updateFilter('clear')
     }
     render() {
+        
         return (
             <div className = "filterMenu">
                 {this.renderButton("clear","Limpar Filtro")} 
                 {this.renderDropdownBrand()}
                 {this.renderDropdownCategory()}
+                {this.renderDropdownColor()}
             </div>
         )
     }

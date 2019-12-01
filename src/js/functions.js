@@ -25,13 +25,13 @@ export const compararPriceAaB = (a,b) =>{
     return 0
 }
 export const compararColor = (a,b) =>{
-    if(parseInt(colourNameToHex(a.color),'0x')<parseInt(colourNameToHex(b.color),'0x'))
+    if(parseInt(colourNameToHex(a.color),16)<parseInt(colourNameToHex(b.color),16))
         return -1
-    else if(parseInt(colourNameToHex(a.color),'0x')>parseInt(colourNameToHex(b.color),'0x'))
+    else if(parseInt(colourNameToHex(a.color),16)>parseInt(colourNameToHex(b.color),16))
         return 1
     return 0
 }
-const colourNameToHex = (colour) =>{
+export const colourNameToHex = (colour) =>{
     var colours = {"aliceblue":"#f0f8ff","antiquewhite":"#faebd7","aqua":"#00ffff","aquamarine":"#7fffd4","azure":"#f0ffff",
     "beige":"#f5f5dc","bisque":"#ffe4c4","black":"#000000","blanchedalmond":"#ffebcd","blue":"#0000ff","blueviolet":"#8a2be2","brown":"#a52a2a","burlywood":"#deb887",
     "cadetblue":"#5f9ea0","chartreuse":"#7fff00","chocolate":"#d2691e","coral":"#ff7f50","cornflowerblue":"#6495ed","cornsilk":"#fff8dc","crimson":"#dc143c","cyan":"#00ffff",
@@ -55,13 +55,14 @@ const colourNameToHex = (colour) =>{
     "tan":"#d2b48c","teal":"#008080","thistle":"#d8bfd8","tomato":"#ff6347","turquoise":"#40e0d0",
     "violet":"#ee82ee",
     "wheat":"#f5deb3","white":"#ffffff","whitesmoke":"#f5f5f5",
-    "yellow":"#ffff00","yellowgreen":"#9acd32"};
+    "yellow":"#ffff00","yellowgreen":"#9acd32","sky blue":" #87CEEB","mint green":"#98ff98"};
 
     if (typeof colours[colour.toLowerCase()] != 'undefined'){
-        console.log(colour)
-        console.log(colours[colour.toLowerCase()])
         return colours[colour.toLowerCase()];
     }
-
-    return false;
+    else{
+        console.log(colour)
+        return false;
+    }
+    
 }
