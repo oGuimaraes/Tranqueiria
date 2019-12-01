@@ -1,11 +1,11 @@
-import { SEARCH_ELEMENT,SET_PRODUCTS,SET_FILTER,SET_SORT, ADD_CART_PRODUCT } from '../constants/action-types'
+import { SEARCH_ELEMENT,SET_PRODUCTS,SET_FILTER,SET_SORT, ADD_CART_PRODUCT, REMOVE_CART_PRODUCT } from '../constants/action-types'
 
 const initialState = {
     products:[],
     searchElement:'',
     filter:{type:'',filterOption:''},
     changeFilter:'',
-    sort:'batatinha',
+    sort:'',
     cart: []
 }
 
@@ -37,6 +37,12 @@ function rootReducer(state = initialState,action){
     } else if (action.type===ADD_CART_PRODUCT){
         return Object.assign({}, state, {
             cart: [...state.cart, action.payload]
+        })
+    }else if (action.type===REMOVE_CART_PRODUCT){
+        return Object.assign({}, state, {
+            cart: state.cart.filter(product => {
+                return product.id !== action.payload;
+            })
         })
     }
     return state;
