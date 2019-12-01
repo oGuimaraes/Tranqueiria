@@ -1,0 +1,13 @@
+.cards-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.row {
+    justify-content: center;
+}
+
+.card {
+    min-width: 300px;
+}
