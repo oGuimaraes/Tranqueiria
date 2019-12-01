@@ -5,12 +5,14 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import * as Actions from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { withRouter } from "react-router-dom";
 
 export class Product extends Component {
 
     handleClickAddToCart = () => {
         const {addCartProduct, product} = this.props;
         addCartProduct(product);
+        this.props.history.push(`/cart/`);
     }
 
     render() {
@@ -47,7 +49,7 @@ export class Product extends Component {
 const mapDispatchToProps = dispatch => 
   bindActionCreators(Actions, dispatch);
 
-export default connect(
+export default withRouter(connect(
   null,
   mapDispatchToProps
-)(Product);
+)(Product));

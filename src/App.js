@@ -8,6 +8,7 @@ import axios from "axios";
 import HomePage from "./js/pages/HomePage";
 import ProductPage from "./js/pages/ProductPage";
 import SearchPage from "./js/pages/SearchPage";
+import CartPage from "./js/pages/CartPage"
 
 import history from "./history";
 
@@ -55,6 +56,7 @@ export class App extends Component {
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/product/:id" component={ProductPage} />
                 <Route path="/search/" component={SearchPage} />
+                <Route path="/cart/" component={CartPage} />
               </Switch>
             </div>
           )}
