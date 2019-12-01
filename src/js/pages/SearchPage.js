@@ -41,7 +41,6 @@ export class SearchPage extends Component {
     render() {
         return (
             <div className="SearchPage">
-                {/* FilterMenu */}
                 {/* Container>Search Text + Ordenação + Card Group + Paginação */}
                 <h5 className="searchFor">Busca por "{this.props.searchElement}"</h5>
                 <SortDropdown></SortDropdown>

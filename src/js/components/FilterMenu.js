@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {setFilter,changeFilter} from '../actions/index'
 import CheckBox from '../components/CheckBox'
 import {brand,category} from '../constants/filter-types'
+import { DropdownButton } from 'react-bootstrap'
 
 const mapStateToProps = state => {
     return { 
@@ -14,78 +15,84 @@ const mapDispatchToProps = (dispatch) =>({
     changeFilter: (cf) => dispatch(changeFilter(cf))
 });
 export class FilterMenu extends Component {
+
     updateFilter=(type,filterOption)=>{
         let filter = this.props.filter
         if(type==='clear'){
-            filter.brand = []
-            filter.category = []
+            filter.type=''
+            filter.filterOption=''
+            this.props.changeFilter('')
         }
         else if(type===brand){
-            let index = filter.brand.indexOf(filterOption);
-            if(index>-1){
-                filter.brand.splice(index,1)
-                this.props.changeFilter('')
-            }
-            else{
-                filter.brand.push(filterOption)
-                this.props.changeFilter(filterOption)
-            }
+            filter.type=type
+            filter.filterOption=filterOption
+            this.props.changeFilter(filterOption)
         }
         else if(type===category){
-            let index = filter.category.indexOf(filterOption);
-            if(index>-1){
-                filter.category.splice(index,1)
-                this.props.changeFilter('')
-            }
-            else{
-                filter.category.push(filterOption)
-                this.props.changeFilter(filterOption)
-            }
+            filter.type=type
+            filter.filterOption=filterOption
+            this.props.changeFilter(filterOption)
         }
         console.log(filter)
         this.props.setFilter(filter)
     }
-    renderCheckBrand(){
+
+    btnStyle = () =>{
+        return{textDecoration:'none',
+        width:'100%',
+        border:'none',
+        background:'none'}
+    }
+    renderButton = (type,title,key=0) =>{
+        return (
+            <button 
+                key={key}
+                onClick={() =>this.updateFilter(type,title)} 
+                style={this.btnStyle()}>
+                {title}</button>
+        )
+    }
+
+    renderDropdownBrand(){
+        let brs = []
+        for(let i =0;i<this.props.products.length;i++){
+            if(brs.indexOf(this.props.products[i].brand)<0){
+                brs.push(this.props.products[i].brand)
+            }
+        }
+        console.log(brs)
+        const brands = brs.map((br,index) => 
+            this.renderButton(brand,br,index)
+        )
         return(
             <div>
-                <h5>Marca</h5>
-                <CheckBox updateFilter={this.updateFilter} type={brand} title='Fay and Sons'/>
-                <br></br>
-                <CheckBox updateFilter={this.updateFilter} type={brand} title='Gottlieb - Schroeder'/>
+                <DropdownButton id="dropdown-button" title="Marca:">                
+                    {/* {this.renderButton(brand,"Fay and Sons")}
+                    {this.renderButton(brand,"Gottlieb - Schroeder")} */}
+                    {brands}
+                </DropdownButton>
             </div>
         )
     }
-    renderCheckCategory(){
+    renderDropdownCategory(){
         return(
-            <div>
-                <h5>Categoria</h5>
-                <CheckBox updateFilter={this.updateFilter} type={category} title='Shoes'/>
-                <br></br>
-                <CheckBox updateFilter={this.updateFilter} type={category} title='Sports'/>
-                <br></br>
-                <CheckBox updateFilter={this.updateFilter} type={category} title='Toys'/>
-                <br></br>
-                <CheckBox updateFilter={this.updateFilter} type={category} title='Outdoors'/>
-                <br></br>
-                <CheckBox updateFilter={this.updateFilter} type={category} title='Tools'/>
-                <br></br>
-                <CheckBox updateFilter={this.updateFilter} type={category} title='Beauty'/>
-                <br></br>
-                <CheckBox updateFilter={this.updateFilter} type={category} title='Health'/>
-                <br></br>
-                <CheckBox updateFilter={this.updateFilter} type={category} title='Home'/>
-                <br></br>
-                <CheckBox updateFilter={this.updateFilter} type={category} title='Clothing'/>
-                <br></br>
-                <CheckBox updateFilter={this.updateFilter} type={category} title='Baby'/>
-                <br></br>
-                <CheckBox updateFilter={this.updateFilter} type={category} title='Kids'/>
-                <br></br>
-                <CheckBox updateFilter={this.updateFilter} type={category} title='Garden'/>
-                <br></br>
-                <CheckBox updateFilter={this.updateFilter} type={category} title='Grocery'/>
-                <br></br>
-                <CheckBox updateFilter={this.updateFilter} type={category} title='Electronics'/>
+            <div className="dropdown">
+                <DropdownButton id="dropdown-button" title="Categoria:">           
+                    {this.renderButton(category,"Shoes",0)}
+                    {this.renderButton(category,"Sports",1)}
+                    {this.renderButton(category,"Toys",2)}
+                    {this.renderButton(category,"Outdoors",3)}
+                    {this.renderButton(category,"Tools",4)}
+                    {this.renderButton(category,"Beauty",5)}
+                    {this.renderButton(category,"Health",6)}
+                    {this.renderButton(category,"Home",7)}
+                    {this.renderButton(category,"Clothing",8)}
+                    {this.renderButton(category,"Baby",9)}
+                    {this.renderButton(category,"Kids",10)}
+                    {this.renderButton(category,"Garden",11)}
+                    {this.renderButton(category,"Grocery",12)}
+                    {this.renderButton(category,"Electronics",13)}
+                </DropdownButton>
             </div>
         )
     }
@@ -95,8 +102,9 @@ export class FilterMenu extends Component {
     render() {
         return (
             <div className = "filterMenu">
-                {this.renderCheckBrand()}
-                {this.renderCheckCategory()}
+                {this.renderButton("clear","Limpar Filtro")} 
+                {this.renderDropdownBrand()}
+                {this.renderDropdownCategory()}
             </div>
         )
     }

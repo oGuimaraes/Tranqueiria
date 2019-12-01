@@ -13,17 +13,12 @@ const mapStateToProps = state =>{
 };
 
 const filtrar = (viewProducts,nextProps) =>{
+    console.log('aaaa')
     let newViewProducts = viewProducts
-    if(nextProps.filter.brand.length>0){
-        nextProps.filter.brand.map(brand=> 
-            newViewProducts = [...viewProducts.filter(product => product.brand === brand)]
-        )
-    }
-    if(nextProps.filter.category.length>0){
-        nextProps.filter.category.map(category=> 
-            newViewProducts = [...viewProducts.filter(product => product.category === category)]
-        )
-    }
+    if(nextProps.filter.type===brand)
+        newViewProducts = [...viewProducts.filter(product => product.brand === nextProps.filter.filterOption)]
+    else if(nextProps.filter.type===category)
+        newViewProducts = [...viewProducts.filter(product => product.category === nextProps.filter.filterOption)]
     return newViewProducts
 }
 

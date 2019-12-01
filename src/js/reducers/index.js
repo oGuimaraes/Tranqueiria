@@ -3,7 +3,7 @@ import { SEARCH_ELEMENT,SET_PRODUCTS,SET_FILTER,SET_SORT } from '../constants/ac
 const initialState = {
     products:[],
     searchElement:'',
-    filter:{category:[],brand:[]},
+    filter:{type:'',filterOption:''},
     changeFilter:'',
     sort:'batatinha'
 }

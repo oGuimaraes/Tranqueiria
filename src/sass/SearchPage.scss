@@ -15,7 +15,10 @@
 }
 .SearchPage .filterMenu{
     grid-area: filterMenu;
+    display: flex;
+    flex-direction: column;
 }
+
 .SearchPage {
     display: grid;
     grid-template-columns: 20% auto;
