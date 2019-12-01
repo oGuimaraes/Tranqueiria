@@ -18,7 +18,8 @@ export class Card extends Component {
     return (
       <CardBoot style={{ width: "18rem" }}>
         <Link to={`/product/${id}`}>
-          <CardBoot.Img variant="top" src={image+"?"+Math.floor(Math.random() * 1000)} />
+          {/* <CardBoot.Img variant="top" src={image+"?"+Math.floor(Math.random() * 1000)} /> */ }
+          <CardBoot.Img variant="top" src={image+"?"+id} />
         </Link>
         <CardBoot.Body>
           <Link to={`/product/${id}`}>{name}</Link>
