@@ -32,7 +32,7 @@ const filtrar = (viewProducts,nextProps) =>{
     else if(nextProps.filter.type===category)
         newViewProducts = [...viewProducts.filter(product => product.category === nextProps.filter.filterOption)]
     else if(nextProps.filter.type===color){
-        newViewProducts = [...viewProducts.filter(product =>computeColorDistance(colourNameToHex(product.color),colourNameToHex(nextProps.filter.filterOption))>0.75)]
+        newViewProducts = [...viewProducts.filter(product =>computeColorDistance(colourNameToHex(product.color),colourNameToHex(nextProps.filter.filterOption))>0.80)]
     }
     return newViewProducts
 }

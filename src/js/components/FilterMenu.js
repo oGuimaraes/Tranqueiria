@@ -88,6 +88,7 @@ export class FilterMenu extends Component {
                     {this.renderButton(color,"blue",4)}
                     {this.renderButton(color,"indigo",5)}
                     {this.renderButton(color,"violet",6)}
+                    {this.renderButton(color,"grey",7)}
                 </DropdownButton>
             </div>
         )
