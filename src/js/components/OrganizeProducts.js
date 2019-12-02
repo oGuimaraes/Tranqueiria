@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import CardGroup  from '../components/CardGroup'
 import {connect} from 'react-redux'
 import {A_a_Z,Z_a_A,brand,category,priceAaB,priceBaA,color} from '../constants/sort-types'
-import {compararAaZ,compararZaA,compararBrand,compararCategory,compararPriceAaB,compararPriceBaA,compararColor,colourNameToHex,computeColorDistance} from '../functions'
+import {compararAaZ,compararZaA,compararBrand,compararCategory,compararPriceAaB,compararPriceBaA,compararColor,colourNameToHex,computeColorDistance,btnStyle} from '../functions'
 import { Pagination } from 'react-bootstrap'
 
 const mapStateToProps = state =>{
@@ -70,24 +70,40 @@ export class OrganizeProducts extends Component {
     changeActivePage(number){
         this.setState({active:number})
     }
-    renderPaginationButton(number){
-        return(
-            <button key={number} onClick={this.changeActivePage.bind(this,number)}>
-                {number}
-            </button>
-        )
+    // renderPaginationButton(number){
+    //     return(
+    //         <button key={number} onClick={this.changeActivePage.bind(this,number)}>
+    //             {number}
+    //         </button>
+    //     )
+    // }
+    handleClickStart(){
+        this.setState({active:1})
+    }
+    handleClickPrevious(){
+        if(this.state.active!==1)
+        this.setState({active:this.state.active-1})
+    }
+    handleClickNext(pagesNumber){
+        if(this.state.active!==pagesNumber)
+        this.setState({active:this.state.active+1})
+    }
+    handleClickEnd(pagesNumber){
+        this.setState({active:pagesNumber})
     }
     render() {
         let items = [];
         let pagesNumber = Math.ceil(this.state.viewProduct.length/15)
-        for (let number = 1; number <= pagesNumber; number++) {
-        items.push(
-            this.renderPaginationButton(number),
-        );
-        }
+        
         const paginationBasic = (
             <div>
-                <Pagination size="lg">{items}</Pagination>
+                <Pagination size="lg">
+                    <button onClick={this.handleClickStart.bind(this)} style={btnStyle()}>Inicio</button>
+                    <button onClick={this.handleClickPrevious.bind(this)} style={btnStyle()}>Anterior</button>
+                            <h4>{this.state.active}</h4>
+                    <button onClick={this.handleClickNext.bind(this,pagesNumber)} style={btnStyle()}>Proximo</button>
+                    <button onClick={this.handleClickEnd.bind(this,pagesNumber)} style={btnStyle()}>Fim</button>
+                </Pagination>
             </div>
         );
         let viewProductPagination = [];
@@ -96,8 +112,8 @@ export class OrganizeProducts extends Component {
         }
         return (
             <div className='containerProducts'>
-            <CardGroup products={viewProductPagination}/>
-            {paginationBasic}
+                <CardGroup products={viewProductPagination}/>
+                {paginationBasic}
             </div>
         )
     }
