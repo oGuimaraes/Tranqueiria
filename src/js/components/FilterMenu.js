@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {setFilter,changeFilter} from '../actions/index'
 import {brand,category,color} from '../constants/filter-types'
-import { DropdownButton} from 'react-bootstrap'
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';

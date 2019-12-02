@@ -24,7 +24,9 @@
 .SearchPage .filterMenu .dropdownFilter{
     width: 100%;
 }
-
+.SearchPage .dropdownSort{
+    width: 30%;
+}
 .SearchPage {
     display: grid;
     grid-template-columns: 20% auto;
