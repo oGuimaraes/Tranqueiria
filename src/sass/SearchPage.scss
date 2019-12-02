@@ -7,8 +7,6 @@
 }
 .SearchPage .dropdown{
     grid-area: sortButton;
-    float: right;
-    display: relative;
 }
 .SearchPage .searchFor{
     grid-area: searchFor;
@@ -17,6 +15,14 @@
     grid-area: filterMenu;
     display: flex;
     flex-direction: column;
+    background-color: #EFEFEF;
+    border: 2px solid #999999;
+    min-height: 300px;
+    max-height: 300px;
+    border-radius: 5px;
+}
+.SearchPage .filterMenu .dropdownFilter{
+    width: 100%;
 }
 
 .SearchPage {
