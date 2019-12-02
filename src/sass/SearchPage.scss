@@ -5,9 +5,6 @@
     justify-content:space-evenly;
     grid-area: cardGroup;
 }
-.SearchPage .dropdown{
-    grid-area: sortButton;
-}
 .SearchPage .searchFor{
     grid-area: searchFor;
 }
@@ -26,6 +23,7 @@
 }
 .SearchPage .dropdownSort{
     width: 30%;
+    // grid-area: sortButton;
 }
 .SearchPage {
     display: grid;

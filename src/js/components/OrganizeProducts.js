@@ -93,7 +93,7 @@ export class OrganizeProducts extends Component {
     }
     render() {
         let items = [];
-        let pagesNumber = Math.ceil(this.state.viewProduct.length/15)
+        let pagesNumber = Math.ceil(this.state.viewProduct.length/10)
         
         const paginationBasic = (
             <div>
