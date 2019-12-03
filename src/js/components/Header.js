@@ -1,21 +1,19 @@
 import React, { Component } from 'react'
 import SearchBar from './SearchBar'
+import SearchAppBar from './SearchAppBar'
 import Button from './Button'
 import {Link} from 'react-router-dom'
 import {DropdownButton} from 'react-bootstrap'
 import DropdownItem from './DropdownItem'
 import { connect } from 'react-redux';
 
-
-// import { Button, ButtonToolbar, Dropdown } from 'react-bootstrap';
-// import logoImg from '../img/logo.svg'
-
 export class Header extends Component {
    
     render() {
         const {cart} = this.props;
         return (
-            
+            <div>
+                <SearchAppBar />
             <div>
                 <div id = "headerTop">
                     {/* <img src={logoImg} alt="logo"></img> */}
@@ -52,6 +50,7 @@ export class Header extends Component {
                         <DropdownItem to="/" title="c"/>
                     </DropdownButton>
                 </div>
+            </div>
             </div>
         )
     }
