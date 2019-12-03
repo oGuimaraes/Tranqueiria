@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Card as CardBoot, Button, Form } from "react-bootstrap";
+import StarRating from "../components/StarRating";
 
 export default class ProductRating extends Component {
   render() {
@@ -22,8 +23,7 @@ export default class ProductRating extends Component {
                 <Form.Control type="name" placeholder="Insira seu nome" />
                 <Form.Label>Email:</Form.Label>
                 <Form.Control type="email" placeholder="Insira email" />
-                <Form.Label>Nota:</Form.Label>
-                <Form.Control type="rate" placeholder="Rate" />
+                <StarRating />
                 <Button variant="primary" type="submit">
                   Avaliar
                 </Button>
