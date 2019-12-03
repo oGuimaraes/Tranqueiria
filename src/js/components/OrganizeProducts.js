@@ -100,11 +100,11 @@ export class OrganizeProducts extends Component {
         const paginationBasic = (
             <div>
                 <Pagination size="lg">
-                    <button onClick={this.handleClickStart.bind(this)} style={btnStyle()}>Inicio</button>
-                    <button onClick={this.handleClickPrevious.bind(this)} style={btnStyle()}>Anterior</button>
-                            <h4>{this.state.active}</h4>
-                    <button onClick={this.handleClickNext.bind(this,pagesNumber)} style={btnStyle()}>Proximo</button>
-                    <button onClick={this.handleClickEnd.bind(this,pagesNumber)} style={btnStyle()}>Fim</button>
+                    <Button onClick={this.handleClickStart.bind(this)}>Inicio</Button>
+                    <Button onClick={this.handleClickPrevious.bind(this)}>Anterior</Button>
+                    <h4 className="pageActive">{this.state.active}</h4>
+                    <Button onClick={this.handleClickNext.bind(this,pagesNumber)}>Proximo</Button>
+                    <Button onClick={this.handleClickEnd.bind(this,pagesNumber)}>Fim</Button>
                 </Pagination>
             </div>
         );
