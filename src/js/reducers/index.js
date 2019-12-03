@@ -1,4 +1,4 @@
-import { SEARCH_ELEMENT,SET_PRODUCTS,SET_FILTER,SET_SORT, ADD_CART_PRODUCT, REMOVE_CART_PRODUCT, CHANGE_QUANTITY_PRODUCT } from '../constants/action-types'
+import { SEARCH_ELEMENT,CATEGORY_GROUP,CATEGORY_ELEMENT,SET_PRODUCTS,SET_FILTER,SET_SORT, ADD_CART_PRODUCT, REMOVE_CART_PRODUCT, CHANGE_QUANTITY_PRODUCT } from '../constants/action-types'
 
 const initialState = {
     products:[],
@@ -6,6 +6,8 @@ const initialState = {
     filter:{type:'',filterOption:''},
     changeFilter:'',
     sort:'',
+    categoryGroup:'',
+    categoryElement:'',
     cart: []
 }
 
@@ -13,6 +15,16 @@ function rootReducer(state = initialState,action){
     if(action.type===SEARCH_ELEMENT){
         return Object.assign({}, state, {
             searchElement: action.payload
+        });
+    }
+    else if(action.type===CATEGORY_GROUP){
+        return Object.assign({}, state, {
+            categoryGroup: action.payload
+        });
+    }
+    else if(action.type===CATEGORY_ELEMENT){
+        return Object.assign({}, state, {
+            categoryElement: action.payload
         });
     }
     else if(action.type===SET_PRODUCTS){

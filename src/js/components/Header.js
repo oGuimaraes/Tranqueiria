@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import SearchBar from './SearchBar'
 import Button from './Button'
 import {Link} from 'react-router-dom'
-import {DropdownButton} from 'react-bootstrap'
-import DropdownItem from './DropdownItem'
 import { connect } from 'react-redux';
+import CategoryDriver from './CategoryDriver';
 
 
 // import { Button, ButtonToolbar, Dropdown } from 'react-bootstrap';
@@ -26,31 +25,7 @@ export class Header extends Component {
                     
                 </div>
                 <div id="headerBot">
-                    <DropdownButton id="dropdown-button" title="Grupo 1">
-                        <DropdownItem to="/" title="a"/>
-                        <DropdownItem to="/" title="b"/>
-                        <DropdownItem to="/" title="c"/>
-                    </DropdownButton>
-                    <DropdownButton id="dropdown-button" title="Grupo 2">
-                        <DropdownItem to="/" title="a"/>
-                        <DropdownItem to="/" title="b"/>
-                        <DropdownItem to="/" title="c"/>
-                    </DropdownButton>
-                    <DropdownButton id="dropdown-button" title="Grupo 3">
-                        <DropdownItem to="/" title="a"/>
-                        <DropdownItem to="/" title="b"/>
-                        <DropdownItem to="/" title="c"/>
-                    </DropdownButton>
-                    <DropdownButton id="dropdown-button" title="Grupo 4">
-                        <DropdownItem to="/" title="a"/>
-                        <DropdownItem to="/" title="b"/>
-                        <DropdownItem to="/" title="c"/>
-                    </DropdownButton>
-                    <DropdownButton id="dropdown-button" title="Grupo 5">
-                        <DropdownItem to="/" title="a"/>
-                        <DropdownItem to="/" title="b"/>
-                        <DropdownItem to="/" title="c"/>
-                    </DropdownButton>
+                    <CategoryDriver />
                 </div>
             </div>
         )
