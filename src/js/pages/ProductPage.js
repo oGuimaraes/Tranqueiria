@@ -1,32 +1,31 @@
-import React, { Component } from 'react'
-import {connect} from 'react-redux'
-import  Product  from '../components/Product'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import Product from "../components/Product";
+import ProductRating from "../components/ProductRating";
 
 const mapStateToProps = state => {
-    return { products: state.products};
+  return { products: state.products };
 };
 
 export class ProductPage extends Component {
-    renderCard = (product) =>{
-        return(
-          <Product product ={product}/>
-        )
-    }
-    renderCardGroup = () =>{
-        return(
-            <div className="cardGroup">
-                {this.renderCard(this.props.products[this.props.match.params.id-1])}
-            </div>
-        )
-    }
-    render() {
-        return (
-            <div>
-                {/* aqui virá o carousel */}
-                {this.renderCardGroup()}
-            </div>
-        )
-    }
+  renderCard = product => {
+    return (
+      <div>
+        <Product product={product} />
+        <ProductRating product={product} />
+      </div>
+    );
+  };
+  renderCardGroup = () => {
+    return (
+      <div className="cardGroup">
+        {this.renderCard(this.props.products[this.props.match.params.id - 1])}
+      </div>
+    );
+  };
+  render() {
+    return <div>{this.renderCardGroup()}</div>;
+  }
 }
 
-export default connect(mapStateToProps)(ProductPage)
+export default connect(mapStateToProps)(ProductPage);
