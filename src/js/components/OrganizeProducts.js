@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {A_a_Z,Z_a_A,brand,category,priceAaB,priceBaA,color} from '../constants/sort-types'
 import {compararAaZ,compararZaA,compararBrand,compararCategory,compararPriceAaB,compararPriceBaA,compararColor,colourNameToHex,computeColorDistance,btnStyle} from '../functions'
 import { Pagination } from 'react-bootstrap'
+import { Button } from '@material-ui/core'
 
 const mapStateToProps = state =>{
     return({
@@ -93,7 +94,8 @@ export class OrganizeProducts extends Component {
     }
     render() {
         let items = [];
-        let pagesNumber = Math.ceil(this.state.viewProduct.length/10)
+        let numOfCards = 9
+        let pagesNumber = Math.ceil(this.state.viewProduct.length/numOfCards)
         
         const paginationBasic = (
             <div>
@@ -107,7 +109,7 @@ export class OrganizeProducts extends Component {
             </div>
         );
         let viewProductPagination = [];
-        for(let i=15*(this.state.active-1);i<15*this.state.active&&i<this.state.viewProduct.length;i++){
+        for(let i=numOfCards*(this.state.active-1);i<numOfCards*this.state.active&&i<this.state.viewProduct.length;i++){
             viewProductPagination.push(this.state.viewProduct[i])
         }
         return (
