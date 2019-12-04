@@ -15,6 +15,7 @@ export default class StarRating extends Component {
       <StarRatings
         rating={rating}
         numberOfStars={5}
+        isSelectable={false}
         starDimension="32px"
         starHoverColor="#1976d2"
         starRatedColor="#1976d2"

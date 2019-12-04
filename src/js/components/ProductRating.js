@@ -5,8 +5,10 @@ import { bindActionCreators } from "redux";
 import { Card as CardBoot, Button, Form } from "react-bootstrap";
 import StarRating from "../components/StarRating";
 
+const initialCurrentComment = { name: "", email: "", rating: 0, comment: "" };
+
 class ProductRating extends Component {
-  state = { currentComment: { name: "", email: "", rating: 0, comment: "" } };
+  state = { currentComment: initialCurrentComment };
 
   handleChangeInput = event => {
     const { currentComment } = this.state;
@@ -39,6 +41,10 @@ class ProductRating extends Component {
     event.preventDefault();
 
     addComment(productId, currentComment);
+
+    this.setState({
+      currentComment: initialCurrentComment
+    });
   };
 
   showComment(element, index, array) {
@@ -87,12 +93,12 @@ class ProductRating extends Component {
                   placeholder="Insira seu nome"
                   onChange={this.handleChangeInput}
                 />
-                <Form.Label>Email:</Form.Label>
+                <Form.Label>E-mail:</Form.Label>
                 <Form.Control
                   type="email"
                   name="email"
                   value={email}
-                  placeholder="Insira email"
+                  placeholder="Insira e-mail"
                   onChange={this.handleChangeInput}
                 />
                 <Form.Label>Comentário:</Form.Label>
