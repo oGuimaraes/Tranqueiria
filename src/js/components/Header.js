@@ -7,6 +7,7 @@ import {DropdownButton} from 'react-bootstrap'
 import DropdownItem from './DropdownItem'
 import { connect } from 'react-redux';
 
+
 export class Header extends Component {
    
     render() {
@@ -15,6 +16,9 @@ export class Header extends Component {
             <div>
                 <SearchAppBar />
             <div>
+            <div className="search-bar-mobile">
+                <SearchBar />
+            </div>
                 <div id = "headerTop">
                     {/* <img src={logoImg} alt="logo"></img> */}
                     <Link to="/" style={{textDecoration:'none',color:'white'}}><h1 id="siteName">Tranqueiria</h1></Link>
@@ -23,7 +27,7 @@ export class Header extends Component {
                     <Button to="/login" title="Entrar"/>
                     
                 </div>
-                <div id="headerBot">
+                <div class="header-bot" id="headerBot">
                     <DropdownButton id="dropdown-button" title="Grupo 1">
                         <DropdownItem to="/" title="a"/>
                         <DropdownItem to="/" title="b"/>

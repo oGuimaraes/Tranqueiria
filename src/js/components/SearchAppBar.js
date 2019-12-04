@@ -14,7 +14,9 @@ import logoImg from '../../img/logo.svg';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import {changeSearchElement} from '../actions/index'
 import SearchBar from './SearchBar'
-
+import {connect} from 'react-redux'
+import { withRouter } from "react-router-dom";
+import  SearchAppBar  from '../components/SearchAppBar';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -77,7 +79,6 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }));
-
 
 export default function PrimarySearchAppBar() {
 
@@ -181,7 +182,6 @@ export default function PrimarySearchAppBar() {
              <SearchBar />       
           </div>
 
-
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
@@ -211,6 +211,7 @@ export default function PrimarySearchAppBar() {
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
               color="inherit"
+              className="btn-menu-mobile"
             >
               <MoreIcon />
             </IconButton>
@@ -221,8 +222,15 @@ export default function PrimarySearchAppBar() {
       {renderMenu}
     </div>
   );
+  
 }
 
-const mapDispatchToProps = (dispatch) =>({
-    changeSearchElement: (searchElement) => dispatch(changeSearchElement(searchElement))
+const mapStateToProps = state => ({
+    cart: state.cart
 });
+
+const mapDispatchToProps = (dispatch) =>({
+  changeSearchElement: (searchElement) => dispatch(changeSearchElement(searchElement))
+});
+
+

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import  CardProductCart  from '../components/CardProductCart';
-import { withRouter } from "react-router-dom";
-import { OrganizeProducts } from '../components/OrganizeProducts';
 
 export class CartPage extends Component {
 
