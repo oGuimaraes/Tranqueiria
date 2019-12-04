@@ -29,13 +29,13 @@ export class CategoryPage extends Component {
     // componentWillReceiveProps(nextProps) {
     //     this.setState({ searchResult: [...nextProps.products.filter(product => product.name.includes(nextProps.searchElement) )] })
     // }
-    static getDerivedStateFromProps(nextProps, prevState) {
-        return {
-            categoryResult: [...this.props.products.filter(product => product.category === this.props.categoryElement)],
-            filter:nextProps.filter,
-            sort:nextProps.sort
-        };
-    }
+    //static getDerivedStateFromProps(nextProps, prevState) {
+    //    return {
+    //        categoryResult: [...this.props.products.filter(product => product.category === this.props.categoryElement)],
+    //        filter:nextProps.filter,
+    //        sort:nextProps.sort
+    //    };
+    //}
     componentWillUnmount(){
         this.props.setSort('')
     }
