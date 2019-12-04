@@ -1,0 +1,69 @@
+.CategoryPage .containerProducts{
+    grid-area: cardGroup;
+}
+
+.CategoryPage {
+    background-color: #f6f6f6;
+}
+
+.CategoryPage .containerProducts .cardGroup{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    
+}
+.CategoryPage .containerMigalhaSortDropdown{
+    grid-area: filter;
+    display:flex;
+    justify-content: space-between;
+    padding: 2%;
+    align-items:baseline;
+    margin: 0px 2%
+}
+// .CategoryPage .CategoryFor{
+//     padding: 6px;
+// }
+.CategoryPage .filterMenu{
+    grid-area: filterMenu;
+    display: flex;
+    flex-direction: column;
+    background-color: #EFEFEF;
+    border: 2px solid #999999;
+    min-height: 300px;
+    max-height: 300px;
+    border-radius: 5px;
+    margin: 15% 0px 0px 10px;
+}
+.CategoryPage .filterMenu .dropdownFilter{
+    width: 100%;
+}
+.CategoryPage .dropdownSort{
+    width: 35%;
+}
+.CategoryPage {
+    display: grid;
+    grid-template-columns: 20% auto;
+    grid-template-rows: 100px auto;
+    grid-template-areas: 
+    "filterMenu filter"
+    "filterMenu cardGroup";
+}
+.CategoryPage .pagination{
+    justify-content: space-evenly;
+    align-items:baseline;
+}
+
+@media screen and (max-width: 615px) {
+    .CategoryPage {
+        display: grid;
+        grid-template-columns: 0% auto;
+    }
+
+    .CategoryPage .filterMenu {
+        display: none;
+    }
+
+
+}
+

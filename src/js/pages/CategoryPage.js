@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import SortDropdown from '../components/SortDropdown'
+import SortDropdownCategory from '../components/SortDropdownCategory'
 import OrganizeProducts from '../components/OrganizeProducts';
 import {setSort} from '../actions/index'
-import FilterMenu from '../components/FilterMenu'
+import FilterMenuCategory from '../components/FilterMenuCategory'
 
 const mapStateToProps = state => {
     return { 
@@ -40,9 +40,11 @@ export class CategoryPage extends Component {
         return (
             <div className="CategoryPage">
                 {/* Container>Search Text + Ordenação + Card Group + Paginação */}
-                <h5 className="CategoryName"> {this.props.categoryGroup} > {this.props.categoryElement}</h5>
-                <SortDropdown></SortDropdown>
-                <FilterMenu products={this.state.categoryResult}></FilterMenu>
+                <div className="containerMigalhaSortDropdown">
+                    <h5 className="CategoryName"> {this.props.categoryGroup} > {this.props.categoryElement}</h5>
+                    <SortDropdownCategory></SortDropdownCategory>
+                </div>
+                <FilterMenuCategory products={this.state.categoryResult}></FilterMenuCategory>
                 <OrganizeProducts products={this.state.categoryResult}/>
             </div>
         )

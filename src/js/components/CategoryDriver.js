@@ -6,11 +6,14 @@ import Button from './Button'
 import {Link} from 'react-router-dom'
 import {DropdownButton} from 'react-bootstrap'
 import DropdownItem from './DropdownItem'
+import {setFilter,changeFilter} from '../actions/index'
 
 
 const mapDispatchToProps = (dispatch) =>({
   changeCategoryGroup: (categoryGroup) => dispatch(changeCategoryGroup(categoryGroup)),
-  changeCategoryElement: (categoryElement) => dispatch(changeCategoryElement(categoryElement))
+  changeCategoryElement: (categoryElement) => dispatch(changeCategoryElement(categoryElement)),
+  setFilter: (filterOption) => dispatch(setFilter(filterOption)),
+  changeFilter: (cf) => dispatch(changeFilter(cf))
 });
 
 export class CategoryDriver extends Component {
@@ -84,6 +87,8 @@ export class CategoryDriver extends Component {
         return(
             //console.log(group),
             //console.log(element),
+            this.props.setFilter({type:'',filterOption:''}),
+            this.props.changeFilter(''),
             this.props.changeCategoryGroup(group),
             this.props.changeCategoryElement(element),
             this.props.history.push(`/category/${element}`)
