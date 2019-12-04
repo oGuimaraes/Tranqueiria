@@ -1,6 +1,11 @@
 .SearchPage .containerProducts{
     grid-area: cardGroup;
 }
+
+.SearchPage {
+    background-color: #f6f6f6;
+}
+
 .SearchPage .cardGroup{
     display: flex;
     flex-direction: row;
@@ -9,7 +14,7 @@
     
 }
 .SearchPage .containerSearchForSortDropdown{
-    grid-area: teste;
+    grid-area: filter;
     display:flex;
     justify-content: space-between;
     padding: 2%;
@@ -34,17 +39,31 @@
     width: 100%;
 }
 .SearchPage .dropdownSort{
-    width: 30%;
+    width: 35%;
 }
 .SearchPage {
     display: grid;
     grid-template-columns: 20% auto;
     grid-template-rows: 100px auto;
     grid-template-areas: 
-    "filterMenu teste"
+    "filterMenu filter"
     "filterMenu cardGroup";
 }
 .SearchPage .pagination{
     justify-content: space-evenly;
     align-items:baseline;
 }
+
+@media screen and (max-width: 615px) {
+    .SearchPage {
+        display: grid;
+        grid-template-columns: 0% auto;
+    }
+
+    .SearchPage .filterMenu {
+        display: none;
+    }
+
+
+}
+

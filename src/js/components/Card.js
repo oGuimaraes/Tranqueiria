@@ -13,13 +13,14 @@ export class Card extends Component {
       currency,
       price,
       color,
-      id
-    } = this.props.product;
+      id } = this.props.product;
     return (
-      <CardBoot style={{ width: "18rem" ,backgroundColor:'#F3F0F0',border: '1px solid black',margin:'5px'}}>
+      <CardBoot className="product-card">
         <Link to={`/product/${id}`}>
           {/* <CardBoot.Img variant="top" src={image+"?"+Math.floor(Math.random() * 1000)} /> */ }
-          <CardBoot.Img variant="top" src={image+"?"+id} />
+          <div className="image">
+            <CardBoot.Img className="product-cart-image" variant="top" src={image+"?"+id} />
+          </div>
         </Link>
         <CardBoot.Body>
           <Link to={`/product/${id}`}>{name}</Link>
@@ -29,7 +30,7 @@ export class Card extends Component {
             Marca: {brand}
             <br />
             {/* INTL NUMBER FORMAT */}
-            {currency}: {price}
+            R$: {price}
             <canvas
               width="20px"
               height="20px"

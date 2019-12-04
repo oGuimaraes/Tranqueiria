@@ -181,7 +181,7 @@ export class FilterMenu extends Component {
     render() {
         
         return (
-            <div className = "filterMenu">
+            <div className="filterMenu">
                 <h3>Filtrar por:</h3>
                 {this.renderDropdownBrand()}
                 {this.renderDropdownCategory()}

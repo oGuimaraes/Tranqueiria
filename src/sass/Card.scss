@@ -1,0 +1,19 @@
+.product-card {
+    width:18rem;
+    background-color:FFFFFF;
+    margin: 5px;
+    min-height: 286px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    font-family: GothamLight, sans-serif
+}
+
+.product-card a{
+    min-height: 214px;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    min-height: 214px;
+    background-color: #b5d3f1
+}
