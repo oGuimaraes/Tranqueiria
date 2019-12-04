@@ -6,6 +6,7 @@ import Button from './Button'
 import {Link} from 'react-router-dom'
 import {DropdownButton} from 'react-bootstrap'
 import DropdownItem from './DropdownItem'
+import "../../sass/HeaderButtom.scss"
 
 
 const mapDispatchToProps = (dispatch) =>({
@@ -96,7 +97,7 @@ export class CategoryDriver extends Component {
                 {this.state.itens.map(elemento => 
                         <DropdownButton className="" id="dropdown-button" key={elemento.title} title={elemento.title}>
                             {elemento.categories.map(iteration =>
-                            <Link to={`/category/${iteration.item}`}><button key={iteration.item} onClick={() => this.onHandleClick(elemento.title, iteration.item)}>{iteration.item}</button></Link>)}
+                            <Link to={`/category/${iteration.item}`}><button key={iteration.item} className="Header-Buttom" onClick={() => this.onHandleClick(elemento.title, iteration.item)}>{iteration.item}</button></Link>)}
                                 {/*<DropdownItem to={`/category/${iteration.item}`} key={iteration.item} onClick={() => this.onHandleClick.bind(this, elemento.title, iteration.item)} title={iteration.item}/>)}*/}
                         </DropdownButton>
                 )}
