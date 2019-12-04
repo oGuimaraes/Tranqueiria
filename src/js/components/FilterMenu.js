@@ -154,6 +154,8 @@ export class FilterMenu extends Component {
                     value={this.state.filterOption}
                     onChange={this.handleChangeCategory}
                     >
+                        <MenuItem value={"Books"}>Books</MenuItem>
+                        <MenuItem value={"Movies"}>Movies</MenuItem>
                         <MenuItem value={"Shoes"}>Shoes</MenuItem>
                         <MenuItem value={"Sports"}>Sports</MenuItem>
                         <MenuItem value={"Toys"}>Toys</MenuItem>
