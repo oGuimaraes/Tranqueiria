@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {A_a_Z,Z_a_A,brand,category,priceAaB,priceBaA,color} from '../constants/sort-types'
 import {compararAaZ,compararZaA,compararBrand,compararCategory,compararPriceAaB,compararPriceBaA,compararColor,colourNameToHex,computeColorDistance,btnStyle} from '../functions'
 import { Pagination } from 'react-bootstrap'
+import { Button } from '@material-ui/core'
 
 const mapStateToProps = state =>{
     return({
@@ -93,21 +94,22 @@ export class OrganizeProducts extends Component {
     }
     render() {
         let items = [];
-        let pagesNumber = Math.ceil(this.state.viewProduct.length/10)
+        let numOfCards = 9
+        let pagesNumber = Math.ceil(this.state.viewProduct.length/numOfCards)
         
         const paginationBasic = (
             <div>
                 <Pagination size="lg">
-                    <button onClick={this.handleClickStart.bind(this)} style={btnStyle()}>Inicio</button>
-                    <button onClick={this.handleClickPrevious.bind(this)} style={btnStyle()}>Anterior</button>
-                            <h4>{this.state.active}</h4>
-                    <button onClick={this.handleClickNext.bind(this,pagesNumber)} style={btnStyle()}>Proximo</button>
-                    <button onClick={this.handleClickEnd.bind(this,pagesNumber)} style={btnStyle()}>Fim</button>
+                    <Button onClick={this.handleClickStart.bind(this)}>Inicio</Button>
+                    <Button onClick={this.handleClickPrevious.bind(this)}>Anterior</Button>
+                    <h4 className="pageActive">{this.state.active}</h4>
+                    <Button onClick={this.handleClickNext.bind(this,pagesNumber)}>Proximo</Button>
+                    <Button onClick={this.handleClickEnd.bind(this,pagesNumber)}>Fim</Button>
                 </Pagination>
             </div>
         );
         let viewProductPagination = [];
-        for(let i=15*(this.state.active-1);i<15*this.state.active&&i<this.state.viewProduct.length;i++){
+        for(let i=numOfCards*(this.state.active-1);i<numOfCards*this.state.active&&i<this.state.viewProduct.length;i++){
             viewProductPagination.push(this.state.viewProduct[i])
         }
         return (
