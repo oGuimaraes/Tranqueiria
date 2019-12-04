@@ -11,6 +11,9 @@ import ProductPage from "./js/pages/ProductPage";
 import SearchPage from "./js/pages/SearchPage";
 import CategoryPage from "./js/pages/CategoryPage";
 import CartPage from "./js/pages/CartPage"
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
 
 import history from "./history";
 
@@ -33,13 +36,12 @@ export class App extends Component {
     let response = [];
     try {
       response = await axios.get(
-        "https://cors-anywhere.herokuapp.com/https://funil-mock.herokuapp.com/example1"
+        "https://cors-anywhere.herokuapp.com/https://funil-mock.herokuapp.com/1000"
       );
     } catch (error) {
       console.log("Error ", error);
     }
-    //console.log(response.data.data)
-
+    
     const a = response.data.data.map(item => (
         {...item, image: `${item.image}/?${item.id}` }
     ));
