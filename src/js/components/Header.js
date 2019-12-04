@@ -26,38 +26,11 @@ export class Header extends Component {
                         <Button to="/cart" title={`Carrinho (${cart.length}) `}/>
                         <Button to="/login" title="Entrar"/>
                     </div>
+                    
                     <div class="header-bot" id="headerBot">
-                        <DropdownButton id="dropdown-button" title="Grupo 1">
-                            <DropdownItem to="/" title="a"/>
-                            <DropdownItem to="/" title="b"/>
-                            <DropdownItem to="/" title="c"/>
-                        </DropdownButton>
-                        <DropdownButton id="dropdown-button" title="Grupo 2">
-                            <DropdownItem to="/" title="a"/>
-                            <DropdownItem to="/" title="b"/>
-                            <DropdownItem to="/" title="c"/>
-                        </DropdownButton>
-                        <DropdownButton id="dropdown-button" title="Grupo 3">
-                            <DropdownItem to="/" title="a"/>
-                            <DropdownItem to="/" title="b"/>
-                            <DropdownItem to="/" title="c"/>
-                        </DropdownButton>
-                        <DropdownButton id="dropdown-button" title="Grupo 4">
-                            <DropdownItem to="/" title="a"/>
-                            <DropdownItem to="/" title="b"/>
-                            <DropdownItem to="/" title="c"/>
-                        </DropdownButton>
-                        <DropdownButton id="dropdown-button" title="Grupo 5">
-                            <DropdownItem to="/" title="a"/>
-                            <DropdownItem to="/" title="b"/>
-                            <DropdownItem to="/" title="c"/>
-                        </DropdownButton>
-
-                    <div id="headerBot">
                         <CategoryDriver />
                     </div>
                 </div>
-            </div>
         )
     }
 }

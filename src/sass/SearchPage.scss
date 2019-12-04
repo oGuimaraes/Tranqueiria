@@ -1,6 +1,11 @@
 .SearchPage .containerProducts{
     grid-area: cardGroup;
 }
+
+.SearchPage {
+    background-color: #f6f6f6;
+}
+
 .SearchPage .cardGroup{
     display: flex;
     flex-direction: row;
@@ -34,7 +39,7 @@
     width: 100%;
 }
 .SearchPage .dropdownSort{
-    width: 30%;
+    width: 35%;
 }
 .SearchPage {
     display: grid;
