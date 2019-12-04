@@ -90,7 +90,7 @@ export class CategoryDriver extends Component {
         return (
             <React.Fragment>
                 {this.state.itens.map(elemento => 
-                        <DropdownButton id="dropdown-button" key={elemento.title} title={elemento.title}>
+                        <DropdownButton className="" id="dropdown-button" key={elemento.title} title={elemento.title}>
                             {elemento.categories.map(iteration =>
                                 <DropdownItem to={`/category/${iteration.item}`} key={iteration.item} onClick={() => this.onHandleClick.bind(this, elemento.title, iteration.item)} title={iteration.item}/>)}
                         </DropdownButton>
