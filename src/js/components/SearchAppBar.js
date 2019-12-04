@@ -17,6 +17,7 @@ import SearchBar from './SearchBar'
 import {connect} from 'react-redux'
 import { withRouter } from "react-router-dom";
 import  SearchAppBar  from '../components/SearchAppBar';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -80,7 +81,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+function PrimarySearchAppBar(props) {
 
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -162,7 +163,7 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
-
+  const {cart} = props;
   return (
     <div className={classes.grow}>
       <AppBar className="app-bar" position="static">
@@ -173,11 +174,11 @@ export default function PrimarySearchAppBar() {
             color="inherit"
             aria-label="open drawer"
           >
-            <img className="logo-image d-inline-block align-top" src={logoImg}/>
+            <Link to ='/'><img className="logo-image d-inline-block align-top" src={logoImg}/></Link>
           </IconButton>
-          <Typography className={classes.title, 'company-name'} variant="h6" noWrap>
+          <Link to='/' style={{color:'white',textDecoration:'none'}}><Typography className={classes.title, 'company-name'} variant="h6" noWrap>
             Tranqueiria
-          </Typography>
+          </Typography></Link>
           <div className="search-section">
              <SearchBar />       
           </div>
@@ -185,16 +186,17 @@ export default function PrimarySearchAppBar() {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <ShoppingCartIcon />
+              <Badge badgeContent={cart.length} color="secondary">
+              <Link to="/cart" style={{color:'white'}}><ShoppingCartIcon /></Link>
               </Badge>
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
+              <Badge badgeContent={0} color="secondary">
                 <PersonIcon />
               </Badge>
             </IconButton>
-            <IconButton
+            
+            {/* <IconButton
               edge="end"
               aria-label="account of current user"
               aria-controls={menuId}
@@ -202,7 +204,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-            </IconButton>
+            </IconButton> */}
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
@@ -226,11 +228,13 @@ export default function PrimarySearchAppBar() {
 }
 
 const mapStateToProps = state => ({
-    cart: state.cart
+    cart: state.cart  
 });
 
 const mapDispatchToProps = (dispatch) =>({
   changeSearchElement: (searchElement) => dispatch(changeSearchElement(searchElement))
 });
+
+export default connect(mapStateToProps,mapDispatchToProps)(PrimarySearchAppBar);
 
 
