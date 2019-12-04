@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Product from "../components/Product";
+import Recommendations from "../components/Recommendations";
 import ProductRating from "../components/ProductRating";
 
 const mapStateToProps = state => {
@@ -12,6 +13,7 @@ export class ProductPage extends Component {
     return (
       <div>
         <Product product={product} />
+        <Recommendations />
         <ProductRating product={product} />
       </div>
     );
