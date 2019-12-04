@@ -41,9 +41,18 @@ class ProductRating extends Component {
     addComment(productId, currentComment);
   };
 
+  showComment(element, index, array) {
+    console.log("a[" + index + "] = " + element);
+  }
+
   render() {
     const { comments } = this.props.product;
     const { name, email, rating, comment } = this.state.currentComment;
+
+    const totalRating =
+      comments.length != 0
+        ? comments.reduce((acc, cur) => acc + cur.rating, 0) / comments.length
+        : 0;
 
     return (
       <CardBoot style={{ width: "56rem" }}>
@@ -51,13 +60,19 @@ class ProductRating extends Component {
           <div className="col-md-6">
             <CardBoot.Body>
               <CardBoot.Title>Avaliação de Clientes</CardBoot.Title>
-
               <CardBoot.Text>
-                {comments.length != 0
-                  ? comments.reduce((acc, cur) => acc + cur.rating, 0) /
-                    comments.length
-                  : 0}
+                Média de Avaliações: {totalRating.toFixed(2)}
+                <StarRating rating={totalRating} changeRatingValue={null} />
               </CardBoot.Text>
+              <CardBoot.Title>Comentários</CardBoot.Title>
+              <CardBoot className="commentsContainer">
+                {comments.map(({ name, comment }, commentKey) => (
+                  <div key={commentKey}>
+                    <h3>{name}</h3>
+                    <p>{comment}</p>
+                  </div>
+                ))}
+              </CardBoot>
             </CardBoot.Body>
           </div>
           <div className="col-md-6">
@@ -89,13 +104,21 @@ class ProductRating extends Component {
                   placeholder="Insira seu comentário"
                   onChange={this.handleChangeInput}
                 />
-                <StarRating
-                  rating={rating}
-                  changeRatingValue={this.handleChangeRating}
-                />
-                <Button variant="primary" type="submit">
-                  Avaliar
-                </Button>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    padding: "8px"
+                  }}
+                >
+                  <StarRating
+                    rating={rating}
+                    changeRatingValue={this.handleChangeRating}
+                  />
+                  <Button variant="primary" type="submit">
+                    Avaliar
+                  </Button>
+                </div>
               </Form>
             </CardBoot.Body>
           </div>
