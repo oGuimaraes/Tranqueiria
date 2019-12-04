@@ -9,8 +9,8 @@ import DropdownItem from './DropdownItem'
 
 
 const mapDispatchToProps = (dispatch) =>({
-  //changeCategoryGroup: (categoryGroup) => dispatch(changecategoryGroup(categoryGroup)),
-  //changeCategoryElement: (categoryElement) => dispatch(changecategoryElement(categoryElement))
+  //changeCategoryGroup: (categoryGroup) => dispatch(changeCategoryGroup(categoryGroup)),
+  changeCategoryElement: (categoryElement) => dispatch(changeCategoryElement(categoryElement))
 });
 
 export class CategoryDriver extends Component {
@@ -80,10 +80,14 @@ export class CategoryDriver extends Component {
         }
         this.onHandleClick=this.onHandleClick.bind(this);
     }
-    onHandleClick(group, element){
-            this.props.changeCategoryGroup(group);
-            this.props.changeCategoryElement(element);
-            this.props.history.push(`/category/${element}`);
+    onHandleClick = (group, element) => {
+        return(
+            console.log(group),
+            console.log(element),
+            //this.props.changeCategoryGroup(group),
+            this.props.changeCategoryElement(element),
+            this.props.history.push(`/category/${element}`)
+        )
     }
     render() {
         
@@ -92,7 +96,8 @@ export class CategoryDriver extends Component {
                 {this.state.itens.map(elemento => 
                         <DropdownButton className="" id="dropdown-button" key={elemento.title} title={elemento.title}>
                             {elemento.categories.map(iteration =>
-                                <DropdownItem to={`/category/${iteration.item}`} key={iteration.item} onClick={() => this.onHandleClick.bind(this, elemento.title, iteration.item)} title={iteration.item}/>)}
+                            <Link to={`/category/${iteration.item}`}><button key={iteration.item} onClick={() => this.onHandleClick(elemento.title, iteration.item)}>{iteration.item}</button></Link>)}
+                                {/*<DropdownItem to={`/category/${iteration.item}`} key={iteration.item} onClick={() => this.onHandleClick.bind(this, elemento.title, iteration.item)} title={iteration.item}/>)}*/}
                         </DropdownButton>
                 )}
             </React.Fragment>

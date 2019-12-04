@@ -16,6 +16,8 @@ import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 
 import history from "./history";
+import { CircularProgress } from "@material-ui/core";
+
 
 const mapStateToProps = state => {
   return { products: state.products, searchElement: state.searchElement };
@@ -61,7 +63,9 @@ export class App extends Component {
           <Header></Header>
           {/* implementar uma loading screen futuramente */}
           {loading ? (
-            "Loading Page ..."
+            <div style={{display: 'flex',justifyContent:'center'}}>
+              <CircularProgress/>
+            </div>
           ) : (
             <div>
               <Switch>

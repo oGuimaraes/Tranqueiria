@@ -64,7 +64,6 @@ export const colourNameToHex = (colour) =>{
         console.log(colour)
         return false;
     }
-    
 }
 export const btnStyle = () =>{
     return{textDecoration:'none',

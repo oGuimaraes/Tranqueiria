@@ -17,6 +17,7 @@ import SearchBar from './SearchBar'
 import {connect} from 'react-redux'
 import { withRouter } from "react-router-dom";
 import  SearchAppBar  from '../components/SearchAppBar';
+import LoginModal from './LoginModal'
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
@@ -86,7 +87,8 @@ function PrimarySearchAppBar(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
+  const [logado,setLogado] = React.useState(false);
+  const [user,setUser] = React.useState('');
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -106,7 +108,10 @@ function PrimarySearchAppBar(props) {
   const handleMobileMenuOpen = event => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
+  const handleLogin = (user) =>{
+    setUser(user)
+    setLogado(true)
+  };
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -190,11 +195,15 @@ function PrimarySearchAppBar(props) {
               <Link to="/cart" style={{color:'white'}}><ShoppingCartIcon /></Link>
               </Badge>
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={0} color="secondary">
-                <PersonIcon />
-              </Badge>
-            </IconButton>
+            {logado ? (
+              <div className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit">
+                Olá, {user}
+              </div>
+            ):(
+              <LoginModal handleLogin={handleLogin}></LoginModal>
+            )}
+            
+
             
             {/* <IconButton
               edge="end"
