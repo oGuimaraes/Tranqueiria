@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {changeCategoryElement} from '../actions/index'
+import {changeCategoryElement, changeCategoryGroup} from '../actions/index'
 import {connect} from 'react-redux'
 import { withRouter } from "react-router-dom";
 import Button from './Button'
@@ -9,7 +9,7 @@ import DropdownItem from './DropdownItem'
 
 
 const mapDispatchToProps = (dispatch) =>({
-  //changeCategoryGroup: (categoryGroup) => dispatch(changeCategoryGroup(categoryGroup)),
+  changeCategoryGroup: (categoryGroup) => dispatch(changeCategoryGroup(categoryGroup)),
   changeCategoryElement: (categoryElement) => dispatch(changeCategoryElement(categoryElement))
 });
 
@@ -82,9 +82,9 @@ export class CategoryDriver extends Component {
     }
     onHandleClick = (group, element) => {
         return(
-            console.log(group),
-            console.log(element),
-            //this.props.changeCategoryGroup(group),
+            //console.log(group),
+            //console.log(element),
+            this.props.changeCategoryGroup(group),
             this.props.changeCategoryElement(element),
             this.props.history.push(`/category/${element}`)
         )
