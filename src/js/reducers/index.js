@@ -61,7 +61,7 @@ function rootReducer(state = INITIAL_STATE, action) {
         return product.id !== action.payload;
       });
       return Object.assign({}, state, {
-        cart: [...products, product]
+        cart: [...products]
       });
     } else {
       return Object.assign({}, state, {
