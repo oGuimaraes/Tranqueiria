@@ -2,8 +2,23 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {setFilter,changeFilter} from '../actions/index'
 import {brand,category,color} from '../constants/filter-types'
-import { DropdownButton} from 'react-bootstrap'
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
+import { makeStyles } from '@material-ui/core/styles';
 
+
+const useStyles = makeStyles(theme => ({
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: 120,
+    },
+    selectEmpty: {
+      marginTop: theme.spacing(2),
+    },
+}));
+//const classes = useStyles();
 const mapStateToProps = state => {
     return { 
         filter:state.filter
@@ -14,6 +29,12 @@ const mapDispatchToProps = (dispatch) =>({
     changeFilter: (cf) => dispatch(changeFilter(cf))
 });
 export class FilterMenu extends Component {
+    constructor(props){
+        super(props)
+        this.state={
+            filterOption:''
+        }
+    }
 
     updateFilter=(type,filterOption)=>{
         let filter = this.props.filter
@@ -21,6 +42,7 @@ export class FilterMenu extends Component {
             filter.type=''
             filter.filterOption=''
             this.props.changeFilter('')
+            this.setState({filterOption:''})
         }
         else if(type===brand){
             filter.type=type
@@ -56,7 +78,10 @@ export class FilterMenu extends Component {
                 {title}</button>
         )
     }
-
+    handleChangeBrand =event=>{
+        this.updateFilter(brand,event.target.value)
+        this.setState({filterOption:event.target.value})
+    };
     renderDropdownBrand(){
         let brs = []
         //Alterar o for abaixo por um map
@@ -66,52 +91,85 @@ export class FilterMenu extends Component {
             }
         }
         console.log(brs)
-        const brands = brs.map((br,index) => 
-            this.renderButton(brand,br,index)
+        const brands = brs.map((br,index) =>
+            <MenuItem value={br}>{br}</MenuItem> 
         )
         return(
             <div>
-                <DropdownButton id="dropdown-button" title="Marca:">                
-                    {brands}
-                </DropdownButton>
+                <FormControl className="dropdownFilter">
+                    <InputLabel id="demo-simple-select-label">Marca</InputLabel>
+                    <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={this.state.filterOption}
+                    onChange={this.handleChangeBrand}
+                    >
+                        {brands}
+                    </Select>
+                </FormControl>
             </div>
         )
     }
-    renderDropdownColor(){
+    handleChangeColor =event=>{
+        this.updateFilter(color,event.target.value)
+        this.setState({filterOption:event.target.value})
+    };
+    renderDropdownColor(){      
         return(
-            <div>
-                <DropdownButton id="dropdown-button" title="Cor">
-                    {this.renderButton(color,"red",0)}
-                    {this.renderButton(color,"orange",1)}
-                    {this.renderButton(color,"yellow",2)}
-                    {this.renderButton(color,"green",3)}
-                    {this.renderButton(color,"blue",4)}
-                    {this.renderButton(color,"indigo",5)}
-                    {this.renderButton(color,"violet",6)}
-                    {this.renderButton(color,"grey",7)}
-                </DropdownButton>
+            <div>             
+                <FormControl className="dropdownFilter">
+                    <InputLabel id="demo-simple-select-label">Cor</InputLabel>
+                    <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={this.state.filterOption}
+                    onChange={this.handleChangeColor}
+                    >
+                        <MenuItem value={"red"}>Red</MenuItem>
+                        <MenuItem value={"orange"}>Orange</MenuItem>
+                        <MenuItem value={"yellow"}>Yellow</MenuItem>
+                        <MenuItem value={"green"}>Green</MenuItem>
+                        <MenuItem value={"blue"}>Blue</MenuItem>
+                        <MenuItem value={"indigo"}>Indigo</MenuItem>
+                        <MenuItem value={"violet"}>Violet</MenuItem>
+                        <MenuItem value={"grey"}>Grey</MenuItem>
+                    </Select>
+                </FormControl>
             </div>
         )
     }
+    handleChangeCategory =event=>{
+        this.updateFilter(category,event.target.value)
+        this.setState({filterOption:event.target.value})
+    };
     renderDropdownCategory(){
+        console.log(useStyles.formControl)
         return(
-            <div className="dropdown">
-                <DropdownButton id="dropdown-button" title="Categoria:">           
-                    {this.renderButton(category,"Shoes",0)}
-                    {this.renderButton(category,"Sports",1)}
-                    {this.renderButton(category,"Toys",2)}
-                    {this.renderButton(category,"Outdoors",3)}
-                    {this.renderButton(category,"Tools",4)}
-                    {this.renderButton(category,"Beauty",5)}
-                    {this.renderButton(category,"Health",6)}
-                    {this.renderButton(category,"Home",7)}
-                    {this.renderButton(category,"Clothing",8)}
-                    {this.renderButton(category,"Baby",9)}
-                    {this.renderButton(category,"Kids",10)}
-                    {this.renderButton(category,"Garden",11)}
-                    {this.renderButton(category,"Grocery",12)}
-                    {this.renderButton(category,"Electronics",13)}
-                </DropdownButton>
+            <div>
+                <FormControl className="dropdownFilter">
+                    <InputLabel id="demo-simple-select-label">Categoria</InputLabel>
+                    <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={this.state.filterOption}
+                    onChange={this.handleChangeCategory}
+                    >
+                        <MenuItem value={"Shoes"}>Shoes</MenuItem>
+                        <MenuItem value={"Sports"}>Sports</MenuItem>
+                        <MenuItem value={"Toys"}>Toys</MenuItem>
+                        <MenuItem value={"Outdoors"}>Outdoors</MenuItem>
+                        <MenuItem value={"Tools"}>Tools</MenuItem>
+                        <MenuItem value={"Beauty"}>Beauty</MenuItem>
+                        <MenuItem value={"Health"}>Health</MenuItem>
+                        <MenuItem value={"Home"}>Home</MenuItem>
+                        <MenuItem value={"Clothing"}>Clothing</MenuItem>
+                        <MenuItem value={"Baby"}>Baby</MenuItem>
+                        <MenuItem value={"Kids"}>Kids</MenuItem>
+                        <MenuItem value={"Garden"}>Garden</MenuItem>
+                        <MenuItem value={"Grocery"}>Grocery</MenuItem>
+                        <MenuItem value={"Electronics"}>Electronics</MenuItem>
+                    </Select>
+                </FormControl>
             </div>
         )
     }
@@ -122,10 +180,11 @@ export class FilterMenu extends Component {
         
         return (
             <div className = "filterMenu">
-                {this.renderButton("clear","Limpar Filtro")} 
+                <h3>Filtrar por:</h3>
                 {this.renderDropdownBrand()}
                 {this.renderDropdownCategory()}
                 {this.renderDropdownColor()}
+                {this.renderButton("clear","Limpar Filtro")} 
             </div>
         )
     }

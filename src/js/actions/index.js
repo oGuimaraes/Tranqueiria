@@ -1,7 +1,13 @@
-import { SEARCH_ELEMENT,SET_PRODUCTS,SET_FILTER,SET_SORT, ADD_CART_PRODUCT, REMOVE_CART_PRODUCT, CHANGE_QUANTITY_PRODUCT} from '../constants/action-types'
+import { SEARCH_ELEMENT,CATEGORY_GROUP,CATEGORY_ELEMENT,SET_PRODUCTS,SET_FILTER,SET_SORT, ADD_CART_PRODUCT, REMOVE_CART_PRODUCT, CHANGE_QUANTITY_PRODUCT} from '../constants/action-types'
 
 export function changeSearchElement(payload){
     return { type: SEARCH_ELEMENT,payload }
+};
+export function changeCategoryGroup(payload){
+    return { type: CATEGORY_GROUP,payload }
+};
+export function changeCategoryElement(payload){
+    return { type: CATEGORY_ELEMENT,payload }
 };
 export function setProducts(payload){
     return{ type: SET_PRODUCTS,payload }

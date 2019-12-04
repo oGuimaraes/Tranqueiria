@@ -1,29 +1,50 @@
+.SearchPage .containerProducts{
+    grid-area: cardGroup;
+}
 .SearchPage .cardGroup{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content:space-evenly;
-    grid-area: cardGroup;
+    
 }
-.SearchPage .dropdown{
-    grid-area: sortButton;
-    float: right;
-    display: relative;
+.SearchPage .containerSearchForSortDropdown{
+    grid-area: teste;
+    display:flex;
+    justify-content: space-between;
+    padding: 2%;
+    align-items:baseline;
+    margin: 0px 2%
 }
 .SearchPage .searchFor{
-    grid-area: searchFor;
+    padding: 6px;
 }
 .SearchPage .filterMenu{
     grid-area: filterMenu;
     display: flex;
     flex-direction: column;
+    background-color: #EFEFEF;
+    border: 2px solid #999999;
+    min-height: 300px;
+    max-height: 300px;
+    border-radius: 5px;
+    margin: 15% 0px 0px 10px;
 }
-
+.SearchPage .filterMenu .dropdownFilter{
+    width: 100%;
+}
+.SearchPage .dropdownSort{
+    width: 30%;
+}
 .SearchPage {
     display: grid;
     grid-template-columns: 20% auto;
     grid-template-rows: 100px auto;
     grid-template-areas: 
-    "searchFor sortButton"
+    "filterMenu teste"
     "filterMenu cardGroup";
+}
+.SearchPage .pagination{
+    justify-content: space-evenly;
+    align-items:baseline;
 }

@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import CardGroup  from '../components/CardGroup'
 import {connect} from 'react-redux'
 import {A_a_Z,Z_a_A,brand,category,priceAaB,priceBaA,color} from '../constants/sort-types'
-import {compararAaZ,compararZaA,compararBrand,compararCategory,compararPriceAaB,compararPriceBaA,compararColor,colourNameToHex,computeColorDistance} from '../functions'
+import {compararAaZ,compararZaA,compararBrand,compararCategory,compararPriceAaB,compararPriceBaA,compararColor,colourNameToHex,computeColorDistance,btnStyle} from '../functions'
 import { Pagination } from 'react-bootstrap'
+import { Button } from '@material-ui/core'
 
 const mapStateToProps = state =>{
     return({
@@ -70,34 +71,51 @@ export class OrganizeProducts extends Component {
     changeActivePage(number){
         this.setState({active:number})
     }
-    renderPaginationButton(number){
-        return(
-            <button key={number} onClick={this.changeActivePage.bind(this,number)}>
-                {number}
-            </button>
-        )
+    // renderPaginationButton(number){
+    //     return(
+    //         <button key={number} onClick={this.changeActivePage.bind(this,number)}>
+    //             {number}
+    //         </button>
+    //     )
+    // }
+    handleClickStart(){
+        this.setState({active:1})
+    }
+    handleClickPrevious(){
+        if(this.state.active!==1)
+        this.setState({active:this.state.active-1})
+    }
+    handleClickNext(pagesNumber){
+        if(this.state.active!==pagesNumber)
+        this.setState({active:this.state.active+1})
+    }
+    handleClickEnd(pagesNumber){
+        this.setState({active:pagesNumber})
     }
     render() {
         let items = [];
-        let pagesNumber = Math.ceil(this.state.viewProduct.length/15)
-        for (let number = 1; number <= pagesNumber; number++) {
-        items.push(
-            this.renderPaginationButton(number),
-        );
-        }
+        let numOfCards = 9
+        let pagesNumber = Math.ceil(this.state.viewProduct.length/numOfCards)
+        
         const paginationBasic = (
             <div>
-                <Pagination size="lg">{items}</Pagination>
+                <Pagination size="lg">
+                    <Button onClick={this.handleClickStart.bind(this)}>Inicio</Button>
+                    <Button onClick={this.handleClickPrevious.bind(this)}>Anterior</Button>
+                    <h4 className="pageActive">{this.state.active}</h4>
+                    <Button onClick={this.handleClickNext.bind(this,pagesNumber)}>Proximo</Button>
+                    <Button onClick={this.handleClickEnd.bind(this,pagesNumber)}>Fim</Button>
+                </Pagination>
             </div>
         );
         let viewProductPagination = [];
-        for(let i=15*(this.state.active-1);i<15*this.state.active&&i<this.state.viewProduct.length;i++){
+        for(let i=numOfCards*(this.state.active-1);i<numOfCards*this.state.active&&i<this.state.viewProduct.length;i++){
             viewProductPagination.push(this.state.viewProduct[i])
         }
         return (
             <div className='containerProducts'>
-            <CardGroup products={viewProductPagination}/>
-            {paginationBasic}
+                <CardGroup products={viewProductPagination}/>
+                {paginationBasic}
             </div>
         )
     }

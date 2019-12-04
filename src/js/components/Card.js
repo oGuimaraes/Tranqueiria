@@ -16,7 +16,7 @@ export class Card extends Component {
       id
     } = this.props.product;
     return (
-      <CardBoot style={{ width: "18rem" }}>
+      <CardBoot style={{ width: "18rem" ,backgroundColor:'#F3F0F0',border: '1px solid black',margin:'5px'}}>
         <Link to={`/product/${id}`}>
           {/* <CardBoot.Img variant="top" src={image+"?"+Math.floor(Math.random() * 1000)} /> */ }
           <CardBoot.Img variant="top" src={image+"?"+id} />
@@ -33,7 +33,7 @@ export class Card extends Component {
             <canvas
               width="20px"
               height="20px"
-              style={{ marginLeft: "20px", backgroundColor: color }}
+              style={{ marginLeft: "20px", backgroundColor: color,borderRadius:'5px' }}
             ></canvas>
           </CardBoot.Text>
         </CardBoot.Body>

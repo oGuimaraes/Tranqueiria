@@ -41,8 +41,7 @@ export class App extends Component {
     } catch (error) {
       console.log("Error ", error);
     }
-
-
+    
     const a = response.data.data.map(item => (
         {...item, image: `${item.image}/?${item.id}` }
     ));

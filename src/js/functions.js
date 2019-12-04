@@ -66,6 +66,13 @@ export const colourNameToHex = (colour) =>{
     }
     
 }
+export const btnStyle = () =>{
+    return{textDecoration:'none',
+    width:'100%',
+    background:'none',
+    margin:'5px'
+    }
+}
 export const computeColorDistance = (color1,color2) => {
     console.log(color1)
     console.log(color2)

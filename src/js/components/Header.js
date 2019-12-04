@@ -3,9 +3,8 @@ import SearchBar from './SearchBar'
 import SearchAppBar from './SearchAppBar'
 import Button from './Button'
 import {Link} from 'react-router-dom'
-import {DropdownButton} from 'react-bootstrap'
-import DropdownItem from './DropdownItem'
 import { connect } from 'react-redux';
+import CategoryDriver from './CategoryDriver';
 
 
 export class Header extends Component {
@@ -53,6 +52,9 @@ export class Header extends Component {
                         <DropdownItem to="/" title="b"/>
                         <DropdownItem to="/" title="c"/>
                     </DropdownButton>
+
+                <div id="headerBot">
+                    <CategoryDriver />
                 </div>
             </div>
             </div>
