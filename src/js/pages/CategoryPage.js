@@ -26,16 +26,13 @@ export class CategoryPage extends Component {
             sort:this.props.sort
         }
     }
-    // componentWillReceiveProps(nextProps) {
-    //     this.setState({ searchResult: [...nextProps.products.filter(product => product.name.includes(nextProps.searchElement) )] })
-    // }
-    //static getDerivedStateFromProps(nextProps, prevState) {
-    //    return {
-    //        categoryResult: [...this.props.products.filter(product => product.category === this.props.categoryElement)],
-    //        filter:nextProps.filter,
-    //        sort:nextProps.sort
-    //    };
-    //}
+    static getDerivedStateFromProps(nextProps, prevState) {
+        return {
+            categoryResult: [...nextProps.products.filter(product => product.category === nextProps.categoryElement)],
+            filter:nextProps.filter,
+            sort:nextProps.sort
+        };
+    }
     componentWillUnmount(){
         this.props.setSort('')
     }
