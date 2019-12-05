@@ -23,86 +23,86 @@ const INITIAL_STATE = {
 };
 
 function rootReducer(state = INITIAL_STATE, action) {
-  if (action.type === SEARCH_ELEMENT) {
-    return Object.assign({}, state, {
-      searchElement: action.payload
-    });
-  } else if (action.type === CATEGORY_GROUP) {
-    return Object.assign({}, state, {
-      categoryGroup: action.payload
-    });
-  } else if (action.type === CATEGORY_ELEMENT) {
-    return Object.assign({}, state, {
-      categoryElement: action.payload
-    });
-  } else if (action.type === SET_PRODUCTS) {
-    return Object.assign({}, state, {
-      products: action.payload
-    });
-  } else if (action.type === SET_FILTER) {
-    return Object.assign({}, state, {
-      filter: action.payload
-    });
-  } else if (action.type === SET_SORT) {
-    return Object.assign({}, state, {
-      sort: action.payload
-    });
-  } else if (action.type === "changeFilter") {
-    return Object.assign({}, state, {
-      changeFilter: action.payload
-    });
-  } else if (action.type === ADD_CART_PRODUCT) {
-    const product = state.cart.find(item => {
-      if (item.id === action.payload.id) return item;
-    });
-    if (product) {
-      product.quantity = product.quantity + 1;
-      const products = state.cart.filter(product => {
-        return product.id !== action.payload;
+  switch (action.type) {
+    case SEARCH_ELEMENT: {
+      return { ...state, searchElement: action.payload };
+    }
+    case CATEGORY_GROUP: {
+      return { ...state, categoryGroup: action.payload };
+    }
+    case CATEGORY_ELEMENT: {
+      return { ...state, categoryElement: action.payload };
+    }
+    case SET_PRODUCTS: {
+      return { ...state, products: action.payload };
+    }
+    case SET_FILTER: {
+      return { ...state, filter: action.payload };
+    }
+    case SET_SORT: {
+      return { ...state, sort: action.payload };
+    }
+    case "changeFilter": {
+      return { ...state, changeFilter: action.payload };
+    }
+    case ADD_CART_PRODUCT: {
+      const product = state.cart.find(item => {
+        if (item.id === action.payload.id) return item;
       });
+      if (product) {
+        product.quantity = product.quantity + 1;
+        const products = state.cart.filter(product => {
+          return product.id !== action.payload;
+        });
+        return Object.assign({}, state, {
+          cart: [...products]
+        });
+      } else {
+        return Object.assign({}, state, {
+          cart: [...state.cart, { ...action.payload, quantity: 1 }]
+        });
+      }
+    }
+    case REMOVE_CART_PRODUCT: {
       return Object.assign({}, state, {
-        cart: [...products]
-      });
-    } else {
-      return Object.assign({}, state, {
-        cart: [...state.cart, { ...action.payload, quantity: 1 }]
+        cart: state.cart.filter(product => {
+          return product.id !== action.payload;
+        })
       });
     }
-  } else if (action.type === REMOVE_CART_PRODUCT) {
-    return Object.assign({}, state, {
-      cart: state.cart.filter(product => {
-        return product.id !== action.payload;
-      })
-    });
-  } else if (action.type === CHANGE_QUANTITY_PRODUCT) {
-    const product = state.cart.find(item => {
-      if (item.id === action.payload.productId) return item;
-    });
-    const products = state.cart.filter(product => {
-      return product.id !== action.payload.productId;
-    });
-    return Object.assign({}, state, {
-      cart: [
-        ...products,
-        { ...product, quantity: Number.parseInt(action.payload.quantity) }
-      ]
-    });
-  } else if (action.type === ADD_COMMENT) {
-    const { products } = state;
-    const { productId, comment } = action.payload;
+    case CHANGE_QUANTITY_PRODUCT: {
+      const product = state.cart.find(item => {
+        if (item.id === action.payload.productId) return item;
+      });
+      const products = state.cart.filter(product => {
+        return product.id !== action.payload.productId;
+      });
+      return Object.assign({}, state, {
+        cart: [
+          ...products,
+          { ...product, quantity: Number.parseInt(action.payload.quantity) }
+        ]
+      });
+    }
+    case ADD_COMMENT: {
+      const { products } = state;
+      const { productId, comment } = action.payload;
 
-    return Object.assign({}, state, {
-      products: products.map(product =>
-        product.id === productId
-          ? {
-              ...product,
-              comments: [...product.comments, comment]
-            }
-          : product
-      )
-    });
+      return Object.assign({}, state, {
+        products: products.map(product =>
+          product.id === productId
+            ? {
+                ...product,
+                comments: [...product.comments, comment]
+              }
+            : product
+        )
+      });
+    }
+    default: {
+      return state;
+    }
   }
-  return state;
 }
 
 export default rootReducer;

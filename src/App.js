@@ -10,14 +10,15 @@ import HomePage from "./js/pages/HomePage";
 import ProductPage from "./js/pages/ProductPage";
 import SearchPage from "./js/pages/SearchPage";
 import CategoryPage from "./js/pages/CategoryPage";
-import CartPage from "./js/pages/CartPage"
+import CartPage from "./js/pages/CartPage";
+import CheckoutPage from "./js/pages/CheckoutPage";
+import Admin from "./js/pages/Admin";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 
 import history from "./history";
 import { CircularProgress } from "@material-ui/core";
-
 
 const mapStateToProps = state => {
   return { products: state.products, searchElement: state.searchElement };
@@ -43,11 +44,11 @@ export class App extends Component {
     } catch (error) {
       console.log("Error ", error);
     }
-    
-    const a = response.data.data.map(item => (
-        {...item, image: `${item.image}/?${item.id}` }
-    ));
-    
+
+    const a = response.data.data.map(item => ({
+      ...item,
+      image: `${item.image}/?${item.id}`
+    }));
 
     this.props.setProducts(response.data.data);
     // this.props.setProducts(a);
@@ -63,8 +64,8 @@ export class App extends Component {
           <Header></Header>
           {/* implementar uma loading screen futuramente */}
           {loading ? (
-            <div style={{display: 'flex',justifyContent:'center'}}>
-              <CircularProgress/>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <CircularProgress />
             </div>
           ) : (
             <div>
@@ -74,6 +75,8 @@ export class App extends Component {
                 <Route path="/search/" component={SearchPage} />
                 <Route path="/category/" component={CategoryPage} />
                 <Route path="/cart/" component={CartPage} />
+                <Route path="/checkout/" component={CheckoutPage} />
+                <Route path="/admin/" component={Admin} />
               </Switch>
             </div>
           )}
