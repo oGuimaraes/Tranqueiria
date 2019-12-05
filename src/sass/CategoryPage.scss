@@ -29,11 +29,12 @@
     display: flex;
     flex-direction: column;
     background-color: #EFEFEF;
-    border: 2px solid #999999;
+    border: 1px solid #999999;
     min-height: 300px;
     max-height: 300px;
     border-radius: 5px;
     margin: 15% 0px 0px 10px;
+    padding: 15px;
 }
 .CategoryPage .filterMenu .dropdownFilter{
     width: 100%;
