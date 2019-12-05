@@ -61,21 +61,21 @@ class ProductRating extends Component {
         : 0;
 
     return (
-      <CardBoot style={{ width: "56rem" }}>
+      <div className="product-evaluation-session">
         <div className="row">
           <div className="col-md-6">
             <CardBoot.Body>
-              <CardBoot.Title>Avaliação de Clientes</CardBoot.Title>
-              <CardBoot.Text>
+              <CardBoot.Title className="title">Avaliação de Clientes</CardBoot.Title>
+              <CardBoot.Text className="rating-section">
                 Média de Avaliações: {totalRating.toFixed(2)}
                 <StarRating rating={totalRating} changeRatingValue={null} />
               </CardBoot.Text>
-              <CardBoot.Title>Comentários</CardBoot.Title>
+              <CardBoot.Title className="sub-title">Comentários</CardBoot.Title>
               <CardBoot className="commentsContainer">
                 {comments.map(({ name, comment }, commentKey) => (
                   <div key={commentKey}>
-                    <h3>{name}</h3>
-                    <p>{comment}</p>
+                    <h3 className="autor">{name}</h3>
+                    <p className="comment">"{comment}"</p>
                   </div>
                 ))}
               </CardBoot>
@@ -83,9 +83,9 @@ class ProductRating extends Component {
           </div>
           <div className="col-md-6">
             <CardBoot.Body>
-              <CardBoot.Title>Faça sua Avaliação</CardBoot.Title>
+              <CardBoot.Title className="title">Faça sua Avaliação</CardBoot.Title>
               <Form onSubmit={this.handleSubmitForm}>
-                <Form.Label>Nome:</Form.Label>
+                <Form.Label className="label">Nome:</Form.Label>
                 <Form.Control
                   type="text"
                   name="name"
@@ -93,7 +93,7 @@ class ProductRating extends Component {
                   placeholder="Insira seu nome"
                   onChange={this.handleChangeInput}
                 />
-                <Form.Label>E-mail:</Form.Label>
+                <Form.Label className="label">E-mail:</Form.Label>
                 <Form.Control
                   type="email"
                   name="email"
@@ -101,7 +101,7 @@ class ProductRating extends Component {
                   placeholder="Insira e-mail"
                   onChange={this.handleChangeInput}
                 />
-                <Form.Label>Comentário:</Form.Label>
+                <Form.Label className="label">Comentário:</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows="3"
@@ -110,13 +110,7 @@ class ProductRating extends Component {
                   placeholder="Insira seu comentário"
                   onChange={this.handleChangeInput}
                 />
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    padding: "8px"
-                  }}
-                >
+                <div className="client-evaluation-session">
                   <StarRating
                     rating={rating}
                     changeRatingValue={this.handleChangeRating}
@@ -129,7 +123,7 @@ class ProductRating extends Component {
             </CardBoot.Body>
           </div>
         </div>
-      </CardBoot>
+      </div>
     );
   }
 }
