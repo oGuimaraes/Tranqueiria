@@ -14,6 +14,7 @@ const mapStateToProps = state => {
         sort:state.sort
     };
 };
+
 const mapDispatchToProps = (dispatch) =>({
     setSort: (sortOption) => dispatch(setSort(sortOption))
 });
