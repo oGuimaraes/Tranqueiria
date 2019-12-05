@@ -10,13 +10,9 @@ import HomePage from "./js/pages/HomePage";
 import ProductPage from "./js/pages/ProductPage";
 import SearchPage from "./js/pages/SearchPage";
 import CategoryPage from "./js/pages/CategoryPage";
-<<<<<<< HEAD
-import CartPage from "./js/pages/CartPage"
-import CheckoutPage from "./js/pages/CheckoutPage"
-=======
 import CartPage from "./js/pages/CartPage";
+import CheckoutPage from "./js/pages/CheckoutPage";
 import Admin from "./js/pages/Admin";
->>>>>>> 09b7f8a1ecf0c3e74831db739535f9364133b4d9
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
@@ -79,11 +75,8 @@ export class App extends Component {
                 <Route path="/search/" component={SearchPage} />
                 <Route path="/category/" component={CategoryPage} />
                 <Route path="/cart/" component={CartPage} />
-<<<<<<< HEAD
                 <Route path="/checkout/" component={CheckoutPage} />
-=======
                 <Route path="/admin/" component={Admin} />
->>>>>>> 09b7f8a1ecf0c3e74831db739535f9364133b4d9
               </Switch>
             </div>
           )}
