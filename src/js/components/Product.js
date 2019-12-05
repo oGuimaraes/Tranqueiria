@@ -16,26 +16,29 @@ export class Product extends Component {
     render() {
         const {image,name,brand,category,currency,price,color,id} = this.props.product
         return (
-            <CardBoot style={{ width: '56rem' }}>
+            <CardBoot className="product-card" style={{ width: '56rem' }}>
                 <div className="row">
                 <div className="col-md-6">
-                <CardBoot.Img variant="top" style={{ width: '28rem' }} src={image} />
+                <CardBoot.Img className="product-image" variant="top" style={{ width: '28rem' }} src={image} />
                 </div>
                 <div className="col-md-6">
                 <CardBoot.Body>
-                <CardBoot.Title>{name}</CardBoot.Title>
+                <CardBoot.Title className="product-title">{name}</CardBoot.Title>
                     <CardBoot.Text>
-                        Categoria: {category}
+                        <span class="key-text">Categoria</span> {category}
                         <br/>
-                        Marca: {brand}
+                        <span class="key-text">Marca:</span> {brand}
                         <br/>
                         {/* INTL NUMBER FORMAT */}
-                        {currency}: {price}
-                        <canvas width="20px" height="20px" style={{marginLeft:'20px',backgroundColor:color}}>
+                        <span class="key-text">R$:</span> {price}
+                        <br/>
+                        <span class="key-text">Cor Primária:</span> <canvas width="20px" height="20px" style={{marginLeft:'20px',backgroundColor:color}}>
 
                         </canvas>
                     </CardBoot.Text>
-                    <Button variant="primary" onClick={this.handleClickAddToCart} >Adicionar ao Carrinho</Button>
+                    <div className="button-section">
+                        <Button variant="primary" onClick={this.handleClickAddToCart} >Adicionar ao Carrinho</Button>
+                    </div>
                 </CardBoot.Body>
                 </div>
                 </div>
