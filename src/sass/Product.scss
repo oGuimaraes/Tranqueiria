@@ -9,6 +9,7 @@
 .product-image {
     background-color: #ffe35cba;
     min-height: 300px;
+    min-width: 430px;
 }
 
 .product-title {
@@ -26,4 +27,17 @@
 
 .key-text {
     font-weight: 700;
+}
+
+@media screen and (max-width: 600px) {
+    .product-card {
+        display: none !important;
+    }
+}
+
+.product-card-mobile {
+    margin: 15px auto;
+    width: 430px;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 }
