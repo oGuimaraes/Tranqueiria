@@ -10,8 +10,8 @@ import HomePage from "./js/pages/HomePage";
 import ProductPage from "./js/pages/ProductPage";
 import SearchPage from "./js/pages/SearchPage";
 import CategoryPage from "./js/pages/CategoryPage";
-import CheckoutPage from "./js/pages/CheckoutPage"
 import CartPage from "./js/pages/CartPage";
+import CheckoutPage from "./js/pages/CheckoutPage";
 import Admin from "./js/pages/Admin";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";

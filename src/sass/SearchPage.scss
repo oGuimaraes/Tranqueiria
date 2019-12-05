@@ -11,6 +11,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content:space-evenly;
+    padding: 0;
+    margin-top: 15px;
     
 }
 .SearchPage .containerSearchForSortDropdown{
@@ -21,6 +23,14 @@
     align-items:baseline;
     margin: 0px 2%
 }
+
+@media screen and (max-width: 600px) {
+    .SearchPage .containerSearchForSortDropdown{
+        display: block;
+    }  
+
+}
+
 .SearchPage .searchFor{
     padding: 6px;
     font-size: 16px;
@@ -28,6 +38,7 @@
     font-weight: 400;
     font-style: italic;
 }
+
 .SearchPage .filterMenu{
     grid-area: filterMenu;
     display: flex;
