@@ -8,7 +8,9 @@ import {
   ADD_CART_PRODUCT,
   REMOVE_CART_PRODUCT,
   CHANGE_QUANTITY_PRODUCT,
-  ADD_COMMENT
+  ADD_COMMENT,
+  CHANGE_PRICE_TOTAL,
+  CLEAR_CART
 } from "../constants/action-types";
 
 export function changeSearchElement(payload) {
@@ -43,4 +45,10 @@ export function changeQuantityProduct(productId, quantity) {
 }
 export function addComment(productId, comment) {
   return { type: ADD_COMMENT, payload: { productId, comment } };
+}
+export function changePriceTotal(payload) {
+  return { type: CHANGE_PRICE_TOTAL,payload}
+}
+export function clearCart(){
+  return { type: CLEAR_CART , payload: []}
 }

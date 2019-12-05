@@ -8,7 +8,9 @@ import {
   ADD_CART_PRODUCT,
   REMOVE_CART_PRODUCT,
   CHANGE_QUANTITY_PRODUCT,
-  ADD_COMMENT
+  ADD_COMMENT,
+  CHANGE_PRICE_TOTAL,
+  CLEAR_CART
 } from "../constants/action-types";
 
 const INITIAL_STATE = {
@@ -19,7 +21,8 @@ const INITIAL_STATE = {
   sort: "",
   categoryGroup: "",
   categoryElement: "",
-  cart: []
+  cart: [],
+  totalPrice:0
 };
 
 function rootReducer(state = INITIAL_STATE, action) {
@@ -98,6 +101,12 @@ function rootReducer(state = INITIAL_STATE, action) {
             : product
         )
       });
+    }
+    case CHANGE_PRICE_TOTAL:{
+      return { ...state, totalPrice: action.payload };
+    }
+    case CLEAR_CART: {
+      return { ...state, cart: action.payload }
     }
     default: {
       return state;
