@@ -61,7 +61,6 @@ export const colourNameToHex = (colour) =>{
         return colours[colour.toLowerCase()];
     }
     else{
-        console.log(colour)
         return false;
     }
 }
@@ -73,8 +72,6 @@ export const btnStyle = () =>{
     }
 }
 export const computeColorDistance = (color1,color2) => {
-    console.log(color1)
-    console.log(color2)
     let r1 = parseInt(color1.substring(1,3),16)
     let g1 = parseInt(color1.substring(3,5),16)
     let b1 = parseInt(color1.substring(5,7),16)
@@ -106,10 +103,7 @@ export const getCardFlag = (cardnumber) => {
         diners    : /^3(?:0[0-5]|[68][0-9])[0-9]{11}/,
         amex      : /^3[47][0-9]{13}/,
         discover  : /^6(?:011|5[0-9]{2})[0-9]{12}/,
-        // hipercard  : /^(606282\d{10}(\d{3})?)|(3841\d{15})/,
-        // elo        : /^((((636368)|(438935)|(504175)|(451416)|(636297))\d{0,10})|((5067)|(4576)|(4011))\d{0,12})/,
-        jcb        : /^(?:2131|1800|35\d{3})\d{11}/     
-        // aura      : /^(5078\d{2})(\d{2})(\d{11})$/      
+        jcb        : /^(?:2131|1800|35\d{3})\d{11}/        
     };
 
     for (var flag in cards) {

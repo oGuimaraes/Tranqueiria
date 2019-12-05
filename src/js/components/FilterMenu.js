@@ -61,7 +61,6 @@ export class FilterMenu extends Component {
             filter.filterOption=filterOption
             this.props.changeFilter(filterOption)
         }
-        //console.log(filter)
         this.props.setFilter(filter)
     }
 
@@ -94,7 +93,6 @@ export class FilterMenu extends Component {
                 brs.push(this.props.products[i].brand)
             }
         }
-        //console.log(brs)
         const brands = brs.map((br,index) =>
             <MenuItem value={br}>{br}</MenuItem> 
         )
@@ -147,7 +145,6 @@ export class FilterMenu extends Component {
         this.setState({filterOption:event.target.value})
     };
     renderDropdownCategory(){
-        //console.log(useStyles.formControl)
         return(
             <div>
                 <FormControl className="dropdownFilter">

@@ -14,7 +14,6 @@ export class CartPage extends Component {
 
     calcTotal = () => {
         let soma = 0;
-        console.log(this.props)
         this.props.cart.forEach(product =>{
             let valorTotalProduto = product.price * product.quantity;
             soma+=Number.parseInt(valorTotalProduto);

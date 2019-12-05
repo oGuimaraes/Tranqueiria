@@ -71,13 +71,6 @@ export class OrganizeProducts extends Component {
     changeActivePage(number){
         this.setState({active:number})
     }
-    // renderPaginationButton(number){
-    //     return(
-    //         <button key={number} onClick={this.changeActivePage.bind(this,number)}>
-    //             {number}
-    //         </button>
-    //     )
-    // }
     handleClickStart(){
         this.setState({active:1})
     }

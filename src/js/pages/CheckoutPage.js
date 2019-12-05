@@ -75,11 +75,11 @@ const useStyles = makeStyles(theme => ({
 }));
 const cpfMask = value => {
     return value
-      .replace(/\D/g, '') // substitui qualquer caracter que nao seja numero por nada
-      .replace(/(\d{3})(\d)/, '$1.$2') // captura 2 grupos de numero o primeiro de 3 e o segundo de 1, apos capturar o primeiro grupo ele adiciona um ponto antes do segundo grupo de numero
+      .replace(/\D/g, '')
+      .replace(/(\d{3})(\d)/, '$1.$2') 
       .replace(/(\d{3})(\d)/, '$1.$2')
       .replace(/(\d{3})(\d{1,2})/, '$1-$2')
-      .replace(/(-\d{2})\d+?$/, '$1') // captura 2 numeros seguidos de um traço e não deixa ser digitado mais nada
+      .replace(/(-\d{2})\d+?$/, '$1') 
 }
 
 function CheckoutPage(props) {
@@ -104,8 +104,6 @@ function CheckoutPage(props) {
   
     const cardMask = value =>{
         setBandeira(getCardFlag(value))
-        console.log(getCardFlag(value))
-        console.log(value)
         return value
         .replace(/\D/g, '')
           .replace(/(\d{4})(\d)/, '$1 $2')
@@ -200,9 +198,6 @@ function CheckoutPage(props) {
                 setEstado(ufToStateName(response.data.uf))
                 setBairro(response.data.bairro)
                 setLogradouro(response.data.logradouro)
-            }
-            else{
-                console.log(response.data)
             }
         }
         
