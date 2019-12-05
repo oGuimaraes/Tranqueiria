@@ -7,6 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 
 const useStyles = makeStyles(theme => ({
@@ -28,6 +29,7 @@ const mapDispatchToProps = (dispatch) =>({
     setFilter: (filterOption) => dispatch(setFilter(filterOption)),
     changeFilter: (cf) => dispatch(changeFilter(cf))
 });
+
 export class FilterMenu extends Component {
     constructor(props){
         super(props)
@@ -67,15 +69,17 @@ export class FilterMenu extends Component {
         return{textDecoration:'none',
         width:'100%',
         border:'none',
-        background:'none'}
+        background:'none',
+        marginTop: '70px'}
     }
     renderButton = (type,title,key=0) =>{
         return (
-            <button 
+            <Button 
                 key={key}
                 onClick={() =>this.updateFilter(type,title)} 
-                style={this.btnStyle()}>
-                {title}</button>
+                style={this.btnStyle()}
+                color="secondary">
+                {title}</Button>
         )
     }
     handleChangeBrand =event=>{
@@ -182,7 +186,7 @@ export class FilterMenu extends Component {
         
         return (
             <div className="filterMenu">
-                <h3>Filtrar por:</h3>
+                <h5>Filtrar por:</h5>
                 {this.renderDropdownBrand()}
                 {this.renderDropdownCategory()}
                 {this.renderDropdownColor()}
