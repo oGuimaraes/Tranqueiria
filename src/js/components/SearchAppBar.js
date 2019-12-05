@@ -91,7 +91,7 @@ function PrimarySearchAppBar(props) {
   const [user,setUser] = React.useState('');
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
+  const {cart} = props;
   const handleProfileMenuOpen = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -130,6 +130,7 @@ function PrimarySearchAppBar(props) {
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
+    <>
     <Menu
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
@@ -139,23 +140,28 @@ function PrimarySearchAppBar(props) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      
       <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <ShoppingCartIcon />
-          </Badge>
-        </IconButton>
+        <Link to="/cart" style={{color:'black',textDecoration:'none'}}>
+            <IconButton aria-label="show 4 new mails" color="inherit">
+              <Badge badgeContent={cart.length} color="secondary">
+                <ShoppingCartIcon />
+              </Badge>
+            </IconButton>
+          </Link>
         <p>Carrinho</p>
       </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <PersonIcon />
-          </Badge>
-        </IconButton>
-        <p>Area do Usuário</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
+      {logado ? (
+              <div className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit">
+                <p>Olá, {user}</p>
+              </div>
+            ):(
+              <MenuItem>
+                <LoginModal handleLogin={handleLogin}></LoginModal>
+                <p>Login</p>
+              </MenuItem>
+            )}
+      {/* <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
@@ -165,10 +171,11 @@ function PrimarySearchAppBar(props) {
           <AccountCircle />
         </IconButton>
         <p>Profile</p>
-      </MenuItem>
+      </MenuItem> */}
     </Menu>
+    </>
   );
-  const {cart} = props;
+  
   return (
     <div className={classes.grow}>
       <AppBar className="app-bar" position="static">
