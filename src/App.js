@@ -11,6 +11,7 @@ import ProductPage from "./js/pages/ProductPage";
 import SearchPage from "./js/pages/SearchPage";
 import CategoryPage from "./js/pages/CategoryPage";
 import CartPage from "./js/pages/CartPage"
+import CheckoutPage from "./js/pages/CheckoutPage"
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
@@ -74,6 +75,7 @@ export class App extends Component {
                 <Route path="/search/" component={SearchPage} />
                 <Route path="/category/" component={CategoryPage} />
                 <Route path="/cart/" component={CartPage} />
+                <Route path="/checkout/" component={CheckoutPage} />
               </Switch>
             </div>
           )}
