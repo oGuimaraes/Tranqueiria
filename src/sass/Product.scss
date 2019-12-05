@@ -8,8 +8,7 @@
 
 .product-image {
     background-color: #ffe35cba;
-    min-height: 300px;
-    min-width: 430px;
+    min-width: 280px;
 }
 
 .product-title {
@@ -33,11 +32,42 @@
     .product-card {
         display: none !important;
     }
+
+    .product-card-mobile {
+        display: block !important;
+    }
+
+    .product-image {
+        min-width: 430px;
+        height: 300px;
+    }
+
+    .product-card-desktop {
+        display: none !important;
+    }
+
 }
 
 .product-card-mobile {
+    display: none;
     margin: 15px auto;
     width: 430px;
     background-color: #FFFFFF;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.product-card-desktop {
+    display: flex;
+    margin: 15px auto;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important;
+    background-color: #FFFFFF !important;
+}
+
+.product-card-desktop .product-image {
+    width: 30%;
+}
+
+.card-section {
+    padding: 15px;
+    min-width: 300px;
 }

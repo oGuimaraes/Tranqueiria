@@ -17,44 +17,38 @@ export class Product extends Component {
         const {image,name,brand,category,currency,price,color,id} = this.props.product
         return (
             <div>
-                <CardBoot className="product-card" style={{ width: '56rem' }}>
-                    <div className="row">
-                    <div className="col-md-6">
-                    <CardBoot.Img className="product-image" variant="top" style={{ width: '28rem' }} src={image} />
-                    </div>
-                    <div className="col-md-6">
-                    <CardBoot.Body>
+                <div className="product-card-desktop">
+                    <img className="product-image" variant="top" src={image} />
+                    <div className="card-section">
                     <CardBoot.Title className="product-title">{name}</CardBoot.Title>
-                        <CardBoot.Text>
+                        <div className="card-text">
                             <span class="key-text">Categoria</span> {category}
                             <br/>
                             <span class="key-text">Marca:</span> {brand}
                             <br/>
-                            {/* INTL NUMBER FORMAT */}
                             <span class="key-text">R$:</span> {price}
                             <br/>
                             <span class="key-text">Cor Primária:</span> <canvas width="20px" height="20px" style={{marginLeft:'20px',backgroundColor:color}}>
 
                             </canvas>
-                        </CardBoot.Text>
+                        </div>
                         <div className="button-section">
                             <Button variant="primary" onClick={this.handleClickAddToCart} >Adicionar ao Carrinho</Button>
                         </div>
+                    </div>
+                </div>
 
-                    </CardBoot.Body>
-                    </div>
-                    </div>
-                </CardBoot>
+
+
                 <div className="product-card-mobile">
                     <CardBoot.Img className="product-image" variant="top" src={image}/>
                     <CardBoot.Body>
                     <CardBoot.Title className="product-title">{name}</CardBoot.Title>
-                        <CardBoot.Text>
+                        <CardBoot.Text className="card-text">
                             <span class="key-text">Categoria</span> {category}
                             <br/>
                             <span class="key-text">Marca:</span> {brand}
                             <br/>
-                            {/* INTL NUMBER FORMAT */}
                             <span class="key-text">R$:</span> {price}
                             <br/>
                             <span class="key-text">Cor Primária:</span> <canvas width="20px" height="20px" style={{marginLeft:'20px',backgroundColor:color}}>
@@ -64,7 +58,6 @@ export class Product extends Component {
                         <div className="button-section">
                             <Button variant="primary" onClick={this.handleClickAddToCart} >Adicionar ao Carrinho</Button>
                         </div>
-
                     </CardBoot.Body>
                 </div>
             </div>
