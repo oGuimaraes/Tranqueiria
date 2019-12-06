@@ -10,16 +10,70 @@ const mapStateToProps = state => {
             productPageMatIgual:state.productPageMatIgual,
             productPageObjIgual:state.productPageObjIgual,
             productPageCorIgual:state.productPageCorIgual,
-            productPageCatIgual:state.productPageCatIgual
+            productPageCatIgual:state.productPageCatIgual,
+            recommendationProducts:[]
   };
 };
 
 export class ProductPage extends Component {
+  generateRecomentations = product =>{
+    let products = this.props.products
+    let recommendationProducts = []
+    let nameWords = product.name.split(' ')
+    if(this.props.productPageAdjIgual){
+      for(let i = 0;i<products.length;i++){
+        if(products[i].name.includes(nameWords[0])){
+          if(recommendationProducts.indexOf(products[i])<0&&products[i]!==product){
+            recommendationProducts.push(products[i])
+          }
+        }
+      }
+    }
+    if(this.props.productPageMatIgual){
+      for(let i = 0;i<products.length;i++){
+        if(products[i].name.includes(nameWords[1])){
+          if(recommendationProducts.indexOf(products[i])<0&&products[i]!==product){
+            recommendationProducts.push(products[i])
+          }
+        }
+      }
+    }
+    if(this.props.productPageObjIgual){
+      for(let i = 0;i<products.length;i++){
+        if(products[i].name.includes(nameWords[2])){
+          if(recommendationProducts.indexOf(products[i])<0&&products[i]!==product){
+            recommendationProducts.push(products[i])
+          }
+        }
+      }
+    }
+    if(this.props.productPageCorIgual){
+      for(let i = 0;i<products.length;i++){
+        if(products[i].color===product.color){
+          if(recommendationProducts.indexOf(products[i])<0&&products[i]!==product){
+            recommendationProducts.push(products[i])
+          }
+        }
+      }
+    }
+    if(this.props.productPageCatIgual){
+      for(let i = 0;i<products.length;i++){
+        if(products[i].category===product.category){
+          if(recommendationProducts.indexOf(products[i])<0&&products[i]!==product){
+            recommendationProducts.push(products[i])
+          }
+        }
+      }
+    }
+    return recommendationProducts
+  }
   renderCard = product => {
+    let recommendationProducts = this.generateRecomentations(product)
+    console.log(recommendationProducts)
     return (
       <div className="content">
         <Product product={product} />
-        <Recommendations />
+        {recommendationProducts.length>0 ? (<Recommendations recommendationProducts = {recommendationProducts}/>):''} 
         <ProductRating product={product} />
       </div>
     );

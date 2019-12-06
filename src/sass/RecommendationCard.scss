@@ -1,10 +1,19 @@
 .recommendation-card{
     display: flex;
+    flex-direction: column;
     padding: 15px 20px;
     justify-content: center;
     background-color: #b5d3f173;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
     border-radius: 5px;
     max-width: 1285px;
-    height: 200px;
+    height: 500px;
+}
+.recommendation-card .cards{
+    display: flex;
+    flex-direction: row;
+    
+}
+.recommendation-card .title .card-title .h5 {
+    text-align: center;
 }

@@ -13,27 +13,27 @@ export default class Footer extends Component {
       grupo: [
         {
           nome: "Carla D'Abreu",
-          linkedin: "/carladabreu",
-          github: "/carlavieira",
-          email: "carlaamvieira@gmail.com"
+          linkedin: " /carladabreu",
+          github: " /carlavieira",
+          email: " carlaamvieira@gmail.com"
         },
         {
           nome: "Gabriel Lopes",
-          linkedin: "",
-          github: "",
-          email: ""
+          linkedin: " /GabielLopesFerreira",
+          github: " /lope3x",
+          email: " glf7655@gmail.com"
         },
         {
           nome: "Luiz Gustavo Torres",
-          linkedin: "",
-          github: "",
-          email: ""
+          linkedin: " /torresluizg",
+          github: " /torresluizg",
+          email: " torresluizgtech@gmail.com"
         },
         {
           nome: "Otávio Guimarães",
-          linkedin: "",
-          github: "",
-          email: ""
+          linkedin: " /otavio-guimaraes",
+          github: " /oGuimaraes",
+          email: " otaviovgsr@gmail.com"
         }
       ]
     };
@@ -43,26 +43,26 @@ export default class Footer extends Component {
     return (
       <div id="footer">
         <Link to="/">
-          <img src={Logo} id="logoFooter" />
-        </Link>
-        <Link to="/admin">
-          Admin
+          <img src={Logo} alt="logo" id="logoFooter" />
         </Link>
         <p id="nomeEmpresa">© 2019 - Tranqueiria</p>
+        <Link id="linkAdmin" to="/admin">
+          Admin
+        </Link>
         {this.state.grupo.map(elemento => (
           <p id="controleDeVisao">
             <ul className="nomeTime">
               <li>{elemento.nome}</li>
               <li>
-                <img src={Github} className="imagensFooter" />
+                <img src={Github} alt="git logo" className="imagensFooter" />
                 {elemento.github}
               </li>
               <li>
-                <img src={LinkedIn} className="imagensFooter" />
+                <img src={LinkedIn} alt="linkedin logo" className="imagensFooter" />
                 {elemento.linkedin}
               </li>
               <li>
-                <img src={Mail} className="imagensFooter" />
+                <img src={Mail} alt="email logo" className="imagensFooter" />
                 {elemento.email}
               </li>
             </ul>

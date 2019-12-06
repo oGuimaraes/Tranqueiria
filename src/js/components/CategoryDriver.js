@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 import {changeCategoryElement, changeCategoryGroup} from '../actions/index'
 import {connect} from 'react-redux'
 import { withRouter } from "react-router-dom";
-import Button from './Button'
 import {Link} from 'react-router-dom'
 import {DropdownButton} from 'react-bootstrap'
-import DropdownItem from './DropdownItem'
 import "../../sass/HeaderButtom.scss"
 import {setFilter,changeFilter} from '../actions/index'
 

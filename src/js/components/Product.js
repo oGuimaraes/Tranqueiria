@@ -14,11 +14,11 @@ export class Product extends Component {
     }
 
     render() {
-        const {image,name,brand,category,currency,price,color,id} = this.props.product
+        const {image,name,brand,category,price,color} = this.props.product
         return (
             <div>
                 <div className="product-card-desktop">
-                    <img className="product-image" variant="top" src={image} />
+                    <img className="product-image" alt="product" variant="top" src={image} />
                     <div className="card-section">
                     <CardBoot.Title className="product-title">{name}</CardBoot.Title>
                         <div className="card-text">

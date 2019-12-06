@@ -19,7 +19,16 @@ const mapDispatchToProps = (dispatch) =>({
   changePPCAT: (p) => dispatch(changePPCAT(p)),
 });
 export class Admin extends Component {
-  
+  constructor(props){
+    super(props)
+    this.state ={
+      productPageAdjIgual:false,
+      productPageMatIgual:false,
+      productPageObjIgual:false,
+      productPageCorIgual:false,
+      productPageCatIgual:false
+    }
+  }
   handleChangeAdj(){
     this.props.changePPADJ(!this.props.productPageAdjIgual)
   }

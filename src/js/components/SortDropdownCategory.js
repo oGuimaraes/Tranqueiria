@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-import { DropdownButton } from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {setSort} from '../actions/index'
-import {A_a_Z,Z_a_A,brand,category,priceBaA,priceAaB, color} from '../constants/sort-types'
+import {A_a_Z,Z_a_A,brand,priceBaA,priceAaB, color} from '../constants/sort-types'
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
-import { makeStyles } from '@material-ui/core/styles';
 
 const mapStateToProps = state => ({
     sort:state.sort

@@ -222,7 +222,7 @@ function CheckoutPage(props) {
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="inputGroup-sizing-default">Nome</span>
                             </div>
-                            <input type="text" className="form-control" required  autoComplete="off" placeholder="Nome" onChange={handleChangeName} value={name} maxlength="64"/>
+                            <input type="text" className="form-control" required  autoComplete="off" placeholder="Nome" onChange={handleChangeName} value={name} maxLength="64"/>
                         </div>
                         <div className="input-group  mb-3 col-sm-12 col-md-6">
                             <div className="input-group-prepend">
@@ -234,7 +234,7 @@ function CheckoutPage(props) {
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="inputGroup-sizing-default">Email</span>
                             </div>
-                            <input type="email"  pattern=".+@globex.com"  autoComplete="off"  className="form-control" placeholder="Email" onChange={handleChangeEmail} value={email} maxlength="50"/>
+                            <input type="email"  pattern=".+@globex.com"  autoComplete="off"  className="form-control" placeholder="Email" onChange={handleChangeEmail} value={email} maxLength="50"/>
                         </div>
                         <div className="input-group  mb-3 col-sm-12 col-md-6 col-lg-3">
                             <div className="input-group-prepend">
@@ -246,37 +246,37 @@ function CheckoutPage(props) {
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="inputGroup-sizing-default">Estado</span>
                             </div>
-                            <input type ='text' required  autoComplete="off"  className="form-control" value={estado} placeholder="Estado" onChange={handleChangeEstado} maxlength="30"/>
+                            <input type ='text' required  autoComplete="off"  className="form-control" value={estado} placeholder="Estado" onChange={handleChangeEstado} maxLength="30"/>
                         </div>
                         <div className="input-group  mb-3 col-sm-12 col-md-6 col-lg-6">
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="inputGroup-sizing-default">Cidade</span>
                             </div>
-                            <input type ='text' required  autoComplete="off"  className="form-control" value={city} placeholder="Cidade" onChange={handleChangeCity} maxlength="35"/>
+                            <input type ='text' required  autoComplete="off"  className="form-control" value={city} placeholder="Cidade" onChange={handleChangeCity} maxLength="35"/>
                         </div>
                         <div className="input-group  mb-3 col-sm-12 col-md-6 col-lg-6">
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="inputGroup-sizing-default">Bairro</span>
                             </div>
-                            <input type ='text' required  autoComplete="off"  className="form-control" value={bairro} placeholder="Bairro" onChange={handleChangeBairro} maxlength="35"/>
+                            <input type ='text' required  autoComplete="off"  className="form-control" value={bairro} placeholder="Bairro" onChange={handleChangeBairro} maxLength="35"/>
                         </div>
                         <div className="input-group  mb-3 col-sm-12 col-md-6">
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="inputGroup-sizing-default">Logradouro</span>
                             </div>
-                            <input type ='text' required  autoComplete="off" className="form-control" value={logradouro} placeholder="Logradouro" onChange={handleChangeLogradouro} maxlength="95"/>
+                            <input type ='text' required  autoComplete="off" className="form-control" value={logradouro} placeholder="Logradouro" onChange={handleChangeLogradouro} maxLength="95"/>
                         </div>
                         <div className="input-group  mb-3 col-sm-6 col-md-6 col-lg-3">
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="inputGroup-sizing-default">Numero</span>
                             </div>
-                            <input type ='text' required  autoComplete="off" className="form-control" value={numero} placeholder="Numero" onChange={handleChangeNumero} maxlength="6"/>
+                            <input type ='text' required  autoComplete="off" className="form-control" value={numero} placeholder="Numero" onChange={handleChangeNumero} maxLength="6"/>
                         </div>
                         <div className="input-group  mb-3 col-sm-6 col-md-6 col-lg-3">
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="inputGroup-sizing-default">Complemento</span>
                             </div>
-                            <input type ='text' autoComplete="off" className="form-control" value={complemento} placeholder="Complemento" onChange={handleChangeComplemento} maxlength="5"/>
+                            <input type ='text' autoComplete="off" className="form-control" value={complemento} placeholder="Complemento" onChange={handleChangeComplemento} maxLength="5"/>
                         </div>
                     </div>
                 </div>
@@ -296,7 +296,7 @@ function CheckoutPage(props) {
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="inputGroup-sizing-default">Nome no Cartão</span>
                             </div>
-                            <input type="text" className="form-control" required  autoComplete="off" placeholder="Nome no Cartão" onChange={handleChangeCardName} value={cardName} maxlength="64"/>
+                            <input type="text" className="form-control" required  autoComplete="off" placeholder="Nome no Cartão" onChange={handleChangeCardName} value={cardName} maxLength="64"/>
                         </div>
                         <div className="input-group  mb-3 col-md-8 col-sm-12 validade">
                             <div className="input-group-prepend">
@@ -351,7 +351,7 @@ function CheckoutPage(props) {
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="inputGroup-sizing-default">CVV</span>
                             </div>
-                            <input type="text" className="form-control" required  autoComplete="off" placeholder="CVV" onChange={handleChangeCardCVV} value={cardCVV} maxlength="3"/>
+                            <input type="text" className="form-control" required  autoComplete="off" placeholder="CVV" onChange={handleChangeCardCVV} value={cardCVV} maxLength="3"/>
                         </div>
                     </div>
                     <div className="containerPrice-Button">

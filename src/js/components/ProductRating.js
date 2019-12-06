@@ -56,7 +56,7 @@ class ProductRating extends Component {
     const { name, email, rating, comment } = this.state.currentComment;
 
     const totalRating =
-      comments.length != 0
+      comments.length !== 0
         ? comments.reduce((acc, cur) => acc + cur.rating, 0) / comments.length
         : 0;
 
