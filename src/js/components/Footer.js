@@ -65,19 +65,16 @@ export class Footer extends Component {
             <ul className="nomeTime">
               <li>{elemento.nome}</li>
               <li>
-                <a href={elemento.linkGit} target="_blank" style={{textDecoration:'none'}}>
-                  <img src={Github} className="imagensFooter" />
+                <a href={elemento.linkGit} target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>
                 <img src={Github} alt="git logo" className="imagensFooter" />
                 {elemento.github}
                 </a>
               </li>
               <li>
-                <a href={elemento.linkLi} target="_blank">
-                  <img src={LinkedIn} className="imagensFooter" />
+                <a href={elemento.linkLi} target="_blank" rel="noopener noreferrer">
+                  <img src={LinkedIn} alt="linkedin logo" className="imagensFooter" />
                   {elemento.linkedin}
                 </a>
-                <img src={LinkedIn} alt="linkedin logo" className="imagensFooter" />
-                {elemento.linkedin}
               </li>
               <li>
                 <img src={Mail} alt="email logo" className="imagensFooter" />
