@@ -31,16 +31,16 @@ export class SearchBar extends Component {
             <React.Fragment>
                 <form onSubmit={this.onSubmit} id="formSearch">
 
-                    <div className={'search-input', 'makeStyles-search-4'} >
+                    <div className="search-input makeStyles-search-4" >
                         <SearchIcon />
-                        <div className={'MuiInputBase-root' + 'makeStyles-inputRoot-6'}>
+                        <div className='MuiInputBase-rootmakeStyles-inputRoot-6'>
                             <InputBase 
                             placeholder="Buscar por ..."
                             type="text" 
                             id="searchBar"
                             value={this.state.searchElement}    
                             onChange={this.changeInput}
-                            classes={'MuiInputBase-input', 'makeStyles-inputInput-7'}
+                            classes='MuiInputBase-input makeStyles-inputInput-7'
                             inputProps={{ 'aria-label': 'search' }}
                             />
                         </div>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import CardGroup  from '../components/CardGroup'
 import {connect} from 'react-redux'
 import {A_a_Z,Z_a_A,brand,category,priceAaB,priceBaA,color} from '../constants/sort-types'
-import {compararAaZ,compararZaA,compararBrand,compararCategory,compararPriceAaB,compararPriceBaA,compararColor,colourNameToHex,computeColorDistance,btnStyle} from '../functions'
+import {compararAaZ,compararZaA,compararBrand,compararCategory,compararPriceAaB,compararPriceBaA,compararColor,colourNameToHex,computeColorDistance} from '../functions'
 import { Pagination } from 'react-bootstrap'
 import { Button } from '@material-ui/core'
 
@@ -39,14 +39,12 @@ const ordenar = (nextProps)=>{
     else if(nextProps.sort === category){
         return [...nextProps.products.sort(compararCategory)]
     }
-    //alterar o metodo de ordenação para utilizar um couting sort 
     else if(nextProps.sort === priceAaB){
         return [...nextProps.products.sort(compararPriceAaB)]
     }
     else if(nextProps.sort === priceBaA){
         return [...nextProps.products.sort(compararPriceBaA)]
     }
-    //ordenação esta sendo realizada baseada na conversão do nome da cor para HEX e em seguida convertida para decimal
     else if(nextProps.sort === color){
         return [...nextProps.products.sort(compararColor)]
     }
@@ -86,7 +84,6 @@ export class OrganizeProducts extends Component {
         this.setState({active:pagesNumber})
     }
     render() {
-        let items = [];
         let numOfCards = 9
         let pagesNumber = Math.ceil(this.state.viewProduct.length/numOfCards)
         

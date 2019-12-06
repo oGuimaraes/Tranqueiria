@@ -45,10 +45,10 @@ export class App extends Component {
       console.log("Error ", error);
     }
 
-    const a = response.data.data.map(item => ({
-      ...item,
-      image: `${item.image}/?${item.id}`
-    }));
+    // const a = response.data.data.map(item => ({
+    //   ...item,
+    //   image: `${item.image}/?${item.id}`
+    // }));
 
     this.props.setProducts(response.data.data);
     this.setState({ loading: false });

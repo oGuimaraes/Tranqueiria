@@ -51,7 +51,7 @@ export default class Footer extends Component {
     return (
       <div id="footer">
         <Link to="/">
-          <img src={Logo} id="logoFooter" />
+          <img src={Logo} alt="logo" id="logoFooter" />
         </Link>
         <p id="nomeEmpresa">© 2019 - Tranqueiria</p>
         <Link id="linkAdmin" to="/admin">
@@ -62,19 +62,28 @@ export default class Footer extends Component {
             <ul className="nomeTime">
               <li>{elemento.nome}</li>
               <li>
+<<<<<<< HEAD
                 <a href={elemento.linkGit} target="_blank" style={{textDecoration:'none'}}>
                   <img src={Github} className="imagensFooter" />
+=======
+                <img src={Github} alt="git logo" className="imagensFooter" />
+>>>>>>> 3612ba9c69ab095f3c9198cd1e0d801947535dee
                 {elemento.github}
                 </a>
               </li>
               <li>
+<<<<<<< HEAD
                 <a href={elemento.linkLi} target="_blank">
                   <img src={LinkedIn} className="imagensFooter" />
                   {elemento.linkedin}
                 </a>
+=======
+                <img src={LinkedIn} alt="linkedin logo" className="imagensFooter" />
+                {elemento.linkedin}
+>>>>>>> 3612ba9c69ab095f3c9198cd1e0d801947535dee
               </li>
               <li>
-                <img src={Mail} className="imagensFooter" />
+                <img src={Mail} alt="email logo" className="imagensFooter" />
                 {elemento.email}
               </li>
             </ul>

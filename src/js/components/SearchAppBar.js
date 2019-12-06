@@ -7,16 +7,12 @@ import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import PersonIcon from '@material-ui/icons/Person';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import logoImg from '../../img/logo.svg';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import {changeSearchElement} from '../actions/index'
 import SearchBar from './SearchBar'
 import {connect} from 'react-redux'
-import { withRouter } from "react-router-dom";
-import  SearchAppBar  from '../components/SearchAppBar';
 import LoginModal from './LoginModal'
 import { Link } from 'react-router-dom';
 
@@ -92,9 +88,6 @@ function PrimarySearchAppBar(props) {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const {cart} = props;
-  const handleProfileMenuOpen = event => {
-    setAnchorEl(event.currentTarget);
-  };
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -161,17 +154,6 @@ function PrimarySearchAppBar(props) {
                 <p>Login</p>
               </MenuItem>
             )}
-      {/* <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem> */}
     </Menu>
     </>
   );
@@ -186,9 +168,9 @@ function PrimarySearchAppBar(props) {
             color="inherit"
             aria-label="open drawer"
           >
-            <Link to ='/'><img className="logo-image d-inline-block align-top" src={logoImg}/></Link>
+            <Link to ='/'><img className="logo-image d-inline-block align-top" src={logoImg} alt="logoImage"/></Link>
           </IconButton>
-          <Link to='/' style={{color:'white',textDecoration:'none'}}><Typography className={classes.title, 'company-name'} variant="h6" noWrap>
+          <Link to='/' style={{color:'white',textDecoration:'none'}}><Typography className={`${classes.title} company-name`} variant="h6" noWrap>
             Tranqueiria
           </Typography></Link>
           <div className="search-section">
@@ -209,18 +191,6 @@ function PrimarySearchAppBar(props) {
             ):(
               <LoginModal handleLogin={handleLogin}></LoginModal>
             )}
-            
-
-            
-            {/* <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-            </IconButton> */}
           </div>
           <div className={classes.sectionMobile}>
             <IconButton

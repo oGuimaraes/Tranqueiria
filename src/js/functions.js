@@ -95,7 +95,7 @@ export const ufToStateName = (uf) =>{
         return ''
 }
 export const getCardFlag = (cardnumber) => {
-    var cardnumber = cardnumber.replace(/[^0-9]+/g, '');
+   cardnumber = cardnumber.replace(/[^0-9]+/g, '');
 
     var cards = {
         visa      : /^4[0-9]{12}(?:[0-9]{3})/,

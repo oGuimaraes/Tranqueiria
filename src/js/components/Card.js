@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Card as CardBoot, Button } from "react-bootstrap";
+import { Card as CardBoot} from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 export class Card extends Component {
   render() {
@@ -10,14 +9,12 @@ export class Card extends Component {
       name,
       brand,
       category,
-      currency,
       price,
       color,
       id } = this.props.product;
     return (
       <CardBoot className="product-card">
         <Link to={`/product/${id}`}>
-          {/* <CardBoot.Img variant="top" src={image+"?"+Math.floor(Math.random() * 1000)} /> */ }
           <div className="image">
             <CardBoot.Img className="product-cart-image" variant="top" src={image+"?"+id} />
           </div>
@@ -29,7 +26,6 @@ export class Card extends Component {
             <br />
             Marca: {brand}
             <br />
-            {/* INTL NUMBER FORMAT */}
             R$: {price}
             <canvas
               width="20px"
