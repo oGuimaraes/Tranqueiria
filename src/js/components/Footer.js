@@ -13,27 +13,27 @@ export default class Footer extends Component {
       grupo: [
         {
           nome: "Carla D'Abreu",
-          linkedin: "/carladabreu",
-          github: "/carlavieira",
-          email: "carlaamvieira@gmail.com"
+          linkedin: " /carladabreu",
+          github: " /carlavieira",
+          email: " carlaamvieira@gmail.com"
         },
         {
           nome: "Gabriel Lopes",
-          linkedin: "",
-          github: "",
-          email: ""
+          linkedin: " /GabielLopesFerreira",
+          github: " /lope3x",
+          email: " glf7655@gmail.com"
         },
         {
           nome: "Luiz Gustavo Torres",
-          linkedin: "",
-          github: "",
-          email: ""
+          linkedin: " /torresluizg",
+          github: " /torresluizg",
+          email: " torresluizgtech@gmail.com"
         },
         {
           nome: "Otávio Guimarães",
-          linkedin: "",
-          github: "",
-          email: ""
+          linkedin: " /otavio-guimaraes",
+          github: " /oGuimaraes",
+          email: " otaviovgsr@gmail.com"
         }
       ]
     };
@@ -45,10 +45,10 @@ export default class Footer extends Component {
         <Link to="/">
           <img src={Logo} id="logoFooter" />
         </Link>
-        <Link to="/admin">
+        <p id="nomeEmpresa">© 2019 - Tranqueiria</p>
+        <Link id="linkAdmin" to="/admin">
           Admin
         </Link>
-        <p id="nomeEmpresa">© 2019 - Tranqueiria</p>
         {this.state.grupo.map(elemento => (
           <p id="controleDeVisao">
             <ul className="nomeTime">
