@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
-import { Card as CardBoot , Button} from 'react-bootstrap';
+import { Card as CardBoot } from 'react-bootstrap';
 import * as Actions from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import TextField from '@material-ui/core/TextField';
 
 export class CardProductCart extends Component {
 
@@ -19,36 +22,42 @@ export class CardProductCart extends Component {
     render() {      
         const {image,name,brand,category,currency,price,color,quantity} = this.props.product
         return (
-            <div className="row">
-                <CardBoot style={{fontSize: '14px',}}>
-                    <div className="row">
-                    <div className="col-md-6">
-                    <CardBoot.Img variant="top" style={{ width: '15rem' }} src={image} />
-                    </div>
-                    <div className="col-md-6">
-                    <CardBoot.Body>
-                    <CardBoot.Title>{name}</CardBoot.Title>
-                        <CardBoot.Text>
+            <div className="row card-product-cart">
+                <div>
+                    <div>
+                    <div className="title">{name}</div>
+                        <CardBoot.Text className="card-info">
                             Categoria: {category}
                             <br/>
                             Marca: {brand}
                             <br/>
-                            {/* INTL NUMBER FORMAT */}
                             R$: {price}
-                            <canvas width="20px" height="20px" style={{marginLeft:'20px',backgroundColor:color}}>
-
-                            </canvas>
+                            <canvas width="20px" height="20px" style={{marginLeft:'20px',backgroundColor:color}}></canvas>
                         </CardBoot.Text>
-                        <input type="number" min="1" value={quantity} onChange={this.handleChangeQuantity}></input>
-                        <button onClick={this.handleClickRemoveToCart}>Remover Item</button>
-                    </CardBoot.Body>
+                        <div class="buttons-section">
+                            
+                            <TextField
+                            id="standard-number"
+                            label="Quantidade"
+                            type="number"
+                            min="1"
+                            value={quantity}
+                            onChange={this.handleChangeQuantity}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            />
+                            <IconButton onClick={this.handleClickRemoveToCart} aria-label="delete">
+                                <DeleteIcon/>
+                            </IconButton>
+                        </div>
                     </div>
-                    </div>
-                </CardBoot>
+                </div>
             </div>
         )
     }
 }
+
 
 const mapStateToProps = () => ({})
 

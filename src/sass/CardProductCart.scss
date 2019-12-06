@@ -1,3 +1,39 @@
-.card {
-    background-color: red;
+.card-product-cart {
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+
+}
+
+.card-product-cart .title {
+    color: #ff5284;
+    font-size: 16px;
+}
+
+.card-product-cart .card-info {
+    text-align: left;
+    font-size: 14px !important;
+    margin-top: 10px;
+    padding: 0 15px;
+}
+
+.card-product-cart .buttons-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-product-cart .buttons-section > input {
+    width: 50px;
+    margin: 5px;
+}
+
+.card-product-cart .buttons-section > button {
+    width: 15px;
+}
+
+.MuiInputBase-input {
+    width: 70px !important;
 }
