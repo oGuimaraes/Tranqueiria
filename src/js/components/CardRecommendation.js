@@ -25,7 +25,6 @@ export default function CardRecommendation(props) {
     name,
     brand,
     category,
-    currency,
     price,
     color,
     id } = props.product;

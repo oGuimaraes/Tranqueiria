@@ -60,7 +60,9 @@ function rootReducer(state = INITIAL_STATE, action) {
     }
     case ADD_CART_PRODUCT: {
       const product = state.cart.find(item => {
-        if (item.id === action.payload.id) return item;
+        if (item.id === action.payload.id) 
+          return item;
+        else return 0
       });
       if (product) {
         product.quantity = product.quantity + 1;

@@ -5,8 +5,7 @@ import Button from './Button'
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux';
 import CategoryDriver from './CategoryDriver';
-import {DropdownButton} from 'react-bootstrap'
-import DropdownItem from './DropdownItem'
+
 
 export class Header extends Component {
    

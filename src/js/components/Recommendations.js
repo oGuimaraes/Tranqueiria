@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Carousel, Card as CardBoot } from "react-bootstrap";
+import { Card as CardBoot } from "react-bootstrap";
 import CardRecommendation from './CardRecommendation'
 
 export default class Recommendations extends Component {
