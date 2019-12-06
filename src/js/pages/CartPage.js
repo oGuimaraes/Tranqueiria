@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import  CardProductCart  from '../components/CardProductCart';
 import { changePriceTotal } from '../actions/index' 
+import  Button from 'react-bootstrap/Button'
+import  ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 
 export class CartPage extends Component {
 
@@ -24,15 +26,18 @@ export class CartPage extends Component {
 
     render() {
         return (
-            <div className="content-section content">
+            <div className="cart-section content">
                 <div className="cards-section">
                     {this.props.cart.map(product => (
                         <CardProductCart key={product.id} product ={product}/>
                     ))}
                 </div>
                 <div className="pay-section">
-                    <button onClick={this.handleCheckOut}>Fechar Pedido</button>
-                    <h3>R$ {this.calcTotal()},00</h3> 
+
+                       <Button variant="success" onClick={this.handleCheckOut}>Fechar Pedido</Button>  
+
+                    <h5 class="msg-info">Total a pagar:</h5>
+                    <h3 className="total">R$ {this.calcTotal()},00</h3> 
                 </div>
             </div>
 
