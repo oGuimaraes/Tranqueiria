@@ -9,13 +9,12 @@
 @import "src/sass/Product.scss";
 @import "src/sass/RecommendationCard.scss"
 
-///html, body {
-//    min-height: 100%;
-//}
+html; body {
+    min-height: 100%;
+}
 
-//* {
-//    margin: 0;
-//    padding: 0;
-//    outline: 0;
-//    box-sizing: border-box;
-//}
+.content{
+    position: relative;
+    min-height: 100vh;
+    background-color: #f6f6f6;
+}

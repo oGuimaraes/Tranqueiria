@@ -20,7 +20,7 @@ export class CartPage extends Component {
 
     render() {
         return (
-            <div className="content-section">
+            <div className="content-section content">
                 <div className="cards-section">
                     {this.props.cart.map(product => (
                         <CardProductCart key={product.id} product ={product}/>

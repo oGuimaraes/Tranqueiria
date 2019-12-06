@@ -38,7 +38,7 @@ export class CategoryPage extends Component {
     }
     render() {
         return (
-            <div className="CategoryPage">
+            <div className="CategoryPage conteudo">
                 {/* Container>Search Text + Ordenação + Card Group + Paginação */}
                 <div className="containerMigalhaSortDropdown">
                     <h5 className="CategoryName"> {this.props.categoryGroup} > {this.props.categoryElement}</h5>

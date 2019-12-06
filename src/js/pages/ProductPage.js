@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 export class ProductPage extends Component {
   renderCard = product => {
     return (
-      <div>
+      <div className="content">
         <Product product={product} />
         <Recommendations />
         <ProductRating product={product} />

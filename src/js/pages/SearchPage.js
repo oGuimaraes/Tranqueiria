@@ -40,7 +40,7 @@ export class SearchPage extends Component {
     }
     render() {
         return (
-            <div className="SearchPage">
+            <div className="SearchPage conteudo">
                 {/* Container>Search Text + Ordenação + Card Group + Paginação */}
                 <div className="containerSearchForSortDropdown">
                     <h5 className="searchFor">Busca por "{this.props.searchElement}"</h5>

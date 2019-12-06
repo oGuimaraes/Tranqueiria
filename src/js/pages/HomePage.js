@@ -33,7 +33,7 @@ export class HomePage extends Component {
   };
   render() {
     return (
-      <div className="homePage">
+      <div className="homePage content" style={{minHeight: '80%'}}>
         {/* Aqui virá o carousel */}
         {this.renderCardGroup()}
       </div>

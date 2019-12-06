@@ -47,7 +47,7 @@ export default class Footer extends Component {
         </Link>
         <p id="nomeEmpresa">© 2019 - Tranqueiria</p>
         {this.state.grupo.map(elemento => (
-          <p>
+          <p id="controleDeVisao">
             <ul className="nomeTime">
               <li>{elemento.nome}</li>
               <li>
