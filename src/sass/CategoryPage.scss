@@ -6,11 +6,13 @@
     background-color: #f6f6f6;
 }
 
-.CategoryPage .containerProducts .cardGroup{
+.CategoryPage .cardGroup{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content:space-evenly;
+    padding: 0;
+    margin-top: 15px;
     
 }
 .CategoryPage .containerMigalhaSortDropdown{
@@ -21,18 +23,37 @@
     align-items:baseline;
     margin: 0px 2%
 }
+
+@media screen and (max-width: 600px) {
+    .CategoryPage .containerMigalhaSortDropdown{
+        display: block;
+    }  
+
+}
+
+.CategoryPage .CategoryName{
+    padding: 6px;
+    font-size: 16px;
+    color: gray;
+    font-weight: 400;
+    font-style: italic;
+}
+
 .CategoryPage .filterMenu{
     grid-area: filterMenu;
     display: flex;
     flex-direction: column;
-    background-color: #EFEFEF;
-    border: 1px solid #999999;
-    min-height: 300px;
-    max-height: 300px;
+    background-color: #FFFFFF;
+    height: 300px;
+    max-width: 250px;
+    min-width: 210px;
     border-radius: 5px;
-    margin: 15% 0px 0px 10px;
-    padding: 15px;
+    margin: 160px 25px 0px 25px;
+    padding: 12px 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    position: fixed;
 }
+
 .CategoryPage .filterMenu .dropdownFilter{
     width: 100%;
 }
@@ -41,7 +62,7 @@
 }
 .CategoryPage {
     display: grid;
-    grid-template-columns: 20% auto;
+    grid-template-columns: 26% auto;
     grid-template-rows: 100px auto;
     grid-template-areas: 
     "filterMenu filter"

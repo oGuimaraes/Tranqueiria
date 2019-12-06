@@ -67,14 +67,16 @@ export class FilterMenuCategory extends Component {
         return{textDecoration:'none',
         width:'100%',
         border:'none',
-        background:'none'}
+        background:'none',
+        marginTop: '70px'}
     }
     renderButton = (type,title,key=0) =>{
         return (
             <button 
                 key={key}
                 onClick={() =>this.updateFilter(type,title)} 
-                style={this.btnStyle()}>
+                style={this.btnStyle()}
+                color="secondary">
                 {title}</button>
         )
     }
