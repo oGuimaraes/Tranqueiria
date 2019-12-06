@@ -14,25 +14,33 @@ export default class Footer extends Component {
         {
           nome: "Carla D'Abreu",
           linkedin: " /carladabreu",
+          linkLi: "https://www.linkedin.com/in/carladabreu/",
           github: " /carlavieira",
+          linkGit: "https://github.com/carlavieira",
           email: " carlaamvieira@gmail.com"
         },
         {
           nome: "Gabriel Lopes",
           linkedin: " /GabielLopesFerreira",
+          linkLi: "https://www.linkedin.com/in/GabrielLopesFerreira/",
           github: " /lope3x",
+          linkGit: "https://github.com/lope3x",
           email: " glf7655@gmail.com"
         },
         {
           nome: "Luiz Gustavo Torres",
           linkedin: " /torresluizg",
+          linkLi: "https://www.linkedin.com/in/torresluizg/",
           github: " /torresluizg",
+          linkGit: "https://github.com/torresluizg",
           email: " torresluizgtech@gmail.com"
         },
         {
           nome: "Otávio Guimarães",
           linkedin: " /otavio-guimaraes",
+          linkLi: "https://www.linkedin.com/in/otávio-guimarães",
           github: " /oGuimaraes",
+          linkGit: "https://github.com/oGuimaraes",
           email: " otaviovgsr@gmail.com"
         }
       ]
@@ -50,16 +58,20 @@ export default class Footer extends Component {
           Admin
         </Link>
         {this.state.grupo.map(elemento => (
-          <p id="controleDeVisao">
+          <p className="controleDeVisao">
             <ul className="nomeTime">
               <li>{elemento.nome}</li>
               <li>
-                <img src={Github} className="imagensFooter" />
+                <a href={elemento.linkGit} target="_blank" style={{textDecoration:'none'}}>
+                  <img src={Github} className="imagensFooter" />
                 {elemento.github}
+                </a>
               </li>
               <li>
-                <img src={LinkedIn} className="imagensFooter" />
-                {elemento.linkedin}
+                <a href={elemento.linkLi} target="_blank">
+                  <img src={LinkedIn} className="imagensFooter" />
+                  {elemento.linkedin}
+                </a>
               </li>
               <li>
                 <img src={Mail} className="imagensFooter" />
