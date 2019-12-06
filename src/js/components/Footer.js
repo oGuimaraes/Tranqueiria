@@ -45,6 +45,9 @@ export default class Footer extends Component {
         <Link to="/">
           <img src={Logo} id="logoFooter" />
         </Link>
+        <Link to="/admin">
+          Admin
+        </Link>
         <p id="nomeEmpresa">© 2019 - Tranqueiria</p>
         {this.state.grupo.map(elemento => (
           <p id="controleDeVisao">

@@ -1,41 +1,39 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Card } from "react-bootstrap";
+import { changePPADJ , changePPMAT , changePPOBJ ,changePPCAT , changePPCOR } from '../actions/index'
 
 const mapStateToProps = state => {
   return { 
-    productPageAdjIgual:false,
-    productPageMatIgual:false,
-    productPageObjIgual:false,
-    productPageCorIgual:false,
-    productPageCatIgual:false };
+    productPageAdjIgual:state.productPageAdjIgual,
+    productPageMatIgual:state.productPageMatIgual,
+    productPageObjIgual:state.productPageObjIgual,
+    productPageCorIgual:state.productPageCorIgual,
+    productPageCatIgual:state.productPageCatIgual };
 };
-
+const mapDispatchToProps = (dispatch) =>({
+  changePPADJ: (p) => dispatch(changePPADJ(p)),
+  changePPMAT: (p) => dispatch(changePPMAT(p)),
+  changePPOBJ: (p) => dispatch(changePPOBJ(p)),
+  changePPCOR: (p) => dispatch(changePPCOR(p)),
+  changePPCAT: (p) => dispatch(changePPCAT(p)),
+});
 export class Admin extends Component {
-  constructor(props){
-    super(props)
-    this.state ={
-      productPageAdjIgual:false,
-      productPageMatIgual:false,
-      productPageObjIgual:false,
-      productPageCorIgual:false,
-      productPageCatIgual:false
-    }
-  }
+  
   handleChangeAdj(){
-    this.setState({productPageAdjIgual:!this.state.productPageAdjIgual})
+    this.props.changePPADJ(!this.props.productPageAdjIgual)
   }
   handleChangeMat(){
-    this.setState({productPageMatIgual:!this.state.productPageMatIgual})
+    this.props.changePPMAT(!this.props.productPageMatIgual)
   }
   handleChangeObj(){
-    this.setState({productPageObjIgual:!this.state.productPageObjIgual})
+    this.props.changePPOBJ(!this.props.productPageObjIgual)
   }
   handleChangeCor(){
-    this.setState({productPageCorIgual:!this.state.productPageCorIgual})
+    this.props.changePPCOR(!this.props.productPageCorIgual)
   }
   handleChangeCat(){
-    this.setState({productPageCatIgual:!this.state.productPageCatIgual})
+    this.props.changePPCAT(!this.props.productPageCatIgual)
   }
   static getDerivedStateFromProps(nextProps, prevState) {
     return {
@@ -57,7 +55,7 @@ export class Admin extends Component {
               type="checkbox"
               class="form-check-input"
               id="adjective"
-              value={this.state.productPageAdjIgual}
+              checked={this.state.productPageAdjIgual}
               onChange={this.handleChangeAdj.bind(this)}
             ></input>
             <label class="form-check-label" for="adjective">
@@ -69,7 +67,7 @@ export class Admin extends Component {
               type="checkbox"
               class="form-check-input"
               id="material"
-              value={this.state.productPageMatIgual}
+              checked={this.state.productPageMatIgual}
               onChange={this.handleChangeMat.bind(this)}
             ></input>
             <label class="form-check-label" for="material">
@@ -77,21 +75,21 @@ export class Admin extends Component {
             </label>
           </div>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="object" value={this.state.productPageObjIgual} onChange={this.handleChangeObj.bind(this)}></input>
+            <input type="checkbox" class="form-check-input" id="object" checked={this.state.productPageObjIgual} onChange={this.handleChangeObj.bind(this)}></input>
             <label class="form-check-label" for="object">
               Objeto igual
             </label>
           </div>
           <h3>Cor</h3>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="object" value={this.state.productPageCorIgual} onChange={this.handleChangeCor.bind(this)}></input>
+            <input type="checkbox" class="form-check-input" id="object" checked={this.state.productPageCorIgual} onChange={this.handleChangeCor.bind(this)}></input>
             <label class="form-check-label" for="object">
               Cor igual
             </label>
           </div>
           <h3>Categoria</h3>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="object" value={this.state.productPageCatIgual} onChange={this.handleChangeCat.bind(this)}></input>
+            <input type="checkbox" class="form-check-input" id="object" checked={this.state.productPageCatIgual} onChange={this.handleChangeCat.bind(this)}></input>
             <label class="form-check-label" for="object">
               Categoria igual
             </label>
@@ -105,4 +103,4 @@ export class Admin extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Admin);
+export default connect(mapStateToProps,mapDispatchToProps)(Admin);

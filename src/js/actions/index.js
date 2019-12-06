@@ -10,7 +10,12 @@ import {
   CHANGE_QUANTITY_PRODUCT,
   ADD_COMMENT,
   CHANGE_PRICE_TOTAL,
-  CLEAR_CART
+  CLEAR_CART,
+  CHANGE_PP_ADJ,
+  CHANGE_PP_MAT,
+  CHANGE_PP_OBJ,
+  CHANGE_PP_COR,
+  CHANGE_PP_CAT
 } from "../constants/action-types";
 
 export function changeSearchElement(payload) {
@@ -51,4 +56,19 @@ export function changePriceTotal(payload) {
 }
 export function clearCart(){
   return { type: CLEAR_CART , payload: []}
+}
+export function changePPADJ(payload){
+  return { type: CHANGE_PP_ADJ , payload}
+}
+export function changePPMAT(payload){
+  return { type: CHANGE_PP_MAT , payload}
+}
+export function changePPOBJ(payload){
+  return { type: CHANGE_PP_OBJ , payload}
+}
+export function changePPCOR(payload){
+  return { type: CHANGE_PP_COR , payload}
+}
+export function changePPCAT(payload){
+  return { type: CHANGE_PP_CAT , payload}
 }
