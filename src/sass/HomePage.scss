@@ -14,7 +14,10 @@
     flex-direction: row;
     justify-content: space-evenly;
     padding: 50px;
+    flex-wrap: wrap;
+    padding: 50px
 }
+
 
 html{
     min-height: 100%;
