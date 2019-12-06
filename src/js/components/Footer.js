@@ -4,9 +4,10 @@ import Logo from "../../img/logo.svg";
 import Github from "../../img/github.png";
 import LinkedIn from "../../img/linkedin.png";
 import Mail from "../../img/mail.png";
+import {connect} from 'react-redux'
 import "../../sass/Footer.scss";
 
-export default class Footer extends Component {
+export class Footer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,9 +47,11 @@ export default class Footer extends Component {
           <img src={Logo} alt="logo" id="logoFooter" />
         </Link>
         <p id="nomeEmpresa">© 2019 - Tranqueiria</p>
+        {this.props.adminON ?(
         <Link id="linkAdmin" to="/admin">
           Admin
-        </Link>
+        </Link>)
+        : ''}
         {this.state.grupo.map(elemento => (
           <p id="controleDeVisao">
             <ul className="nomeTime">
@@ -72,3 +75,10 @@ export default class Footer extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return { 
+      adminON:state.adminON
+  };
+};
+export default connect(mapStateToProps) (Footer)
+

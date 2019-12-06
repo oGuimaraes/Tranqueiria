@@ -15,7 +15,8 @@ import {
   CHANGE_PP_MAT,
   CHANGE_PP_OBJ,
   CHANGE_PP_COR,
-  CHANGE_PP_CAT
+  CHANGE_PP_CAT,
+  CHANGE_ADMIN_ON
 } from "../constants/action-types";
 
 const INITIAL_STATE = {
@@ -32,7 +33,8 @@ const INITIAL_STATE = {
   productPageMatIgual:false,
   productPageObjIgual:false,
   productPageCorIgual:false,
-  productPageCatIgual:false
+  productPageCatIgual:false,
+  adminON:false
 };
 
 function rootReducer(state = INITIAL_STATE, action) {
@@ -134,6 +136,9 @@ function rootReducer(state = INITIAL_STATE, action) {
     }
     case CHANGE_PP_CAT:{
       return { ...state, productPageCatIgual: action.payload }
+    }
+    case CHANGE_ADMIN_ON:{
+      return { ...state, adminON: action.payload }
     }
     default: {
       return state;
