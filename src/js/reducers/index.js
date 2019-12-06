@@ -84,19 +84,19 @@ function rootReducer(state = INITIAL_STATE, action) {
       });
     }
     case CHANGE_QUANTITY_PRODUCT: {
-      const product = state.cart.find(item => {
-        if (item.id === action.payload.productId) return item;
-      });
-      const products = state.cart.filter(product => {
-        return product.id !== action.payload.productId;
-      });
-      return Object.assign({}, state, {
-        cart: [
-          ...products,
-          { ...product, quantity: Number.parseInt(action.payload.quantity) }
-        ]
-      });
+        const cart = state.cart.map(item => {
+            if (item.id === action.payload.productId)
+                return { ...item, quantity: action.payload.quantity }
+            else
+                return item
+        })
+        
+        return { 
+            ...state,
+            cart,
+        }
     }
+
     case ADD_COMMENT: {
       const { products } = state;
       const { productId, comment } = action.payload;
