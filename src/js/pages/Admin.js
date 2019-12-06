@@ -56,9 +56,9 @@ export class Admin extends Component {
   render() {
     return (
       <div>
-        <Card>
-          <h2>Escolha de Recomendação da Product Page</h2>
-          <h3>Nome semelhante</h3>
+        <div style={{ padding: "30px", display: "flex", flexDirection: "column"}}>
+          <h3 style={{ color: "#3f51b5", }}>Escolha de Recomendação</h3>
+          <h4 style={{ marginTop: "20px"}}>Nome semelhante</h4>
           <div class="form-check">
             <input
               type="checkbox"
@@ -89,24 +89,21 @@ export class Admin extends Component {
               Objeto igual
             </label>
           </div>
-          <h3>Cor</h3>
+          <h4 style={{ marginTop: "20px"}}>Cor</h4>
           <div class="form-check">
             <input type="checkbox" class="form-check-input" id="object" checked={this.state.productPageCorIgual} onChange={this.handleChangeCor.bind(this)}></input>
             <label class="form-check-label" for="object">
               Cor igual
             </label>
           </div>
-          <h3>Categoria</h3>
+          <h4 style={{ marginTop: "20px"}}>Categoria</h4>
           <div class="form-check">
             <input type="checkbox" class="form-check-input" id="object" checked={this.state.productPageCatIgual} onChange={this.handleChangeCat.bind(this)}></input>
             <label class="form-check-label" for="object">
               Categoria igual
             </label>
           </div>
-        </Card>
-        <Card>
-          <h2>Escolha de Recomendação da Cart Page</h2>
-        </Card>
+        </div>
       </div>
     );
   }
