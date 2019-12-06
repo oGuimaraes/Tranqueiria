@@ -29,12 +29,12 @@ export default function CardRecommendation(props) {
     color,
     id } = props.product;
   return (
-    <Card className="card-remove" style={{ margin: "10px",}}className={classes.card}>
+    <Card className="card-remove" style={{ margin: "10px"}}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
           style={{ backgroundColor: "#ff669236",}}
-          //image={image+'?'+(Math.random()*1000)%20}
+          image={image+'?'+(Math.random()*1000)%20}
           title={name}
         />
         <CardContent>
