@@ -73,7 +73,7 @@ export class ProductPage extends Component {
     return (
       <div className="content">
         <Product product={product} />
-        <Recommendations recommendationProducts = {recommendationProducts}/>
+        {recommendationProducts.length>0 ? (<Recommendations recommendationProducts = {recommendationProducts}/>):''} 
         <ProductRating product={product} />
       </div>
     );

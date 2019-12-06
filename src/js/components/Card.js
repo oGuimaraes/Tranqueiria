@@ -29,7 +29,6 @@ export class Card extends Component {
             <br />
             Marca: {brand}
             <br />
-            {/* INTL NUMBER FORMAT */}
             R$: {price}
             <canvas
               width="20px"

@@ -28,7 +28,7 @@ const INITIAL_STATE = {
   categoryElement: "",
   cart: [],
   totalPrice:0,
-  productPageAdjIgual:false,
+  productPageAdjIgual:true,
   productPageMatIgual:false,
   productPageObjIgual:false,
   productPageCorIgual:false,
