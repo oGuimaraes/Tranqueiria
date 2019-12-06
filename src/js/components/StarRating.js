@@ -4,7 +4,7 @@ import StarRatings from "react-star-ratings";
 export default class StarRating extends Component {
   onStarClick = (nextValue, prevValue, name) => {
     const { changeRatingValue } = this.props;
-
+    if(typeof changeRatingValue ==='function')
     changeRatingValue(nextValue);
   };
 
