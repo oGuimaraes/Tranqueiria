@@ -21,9 +21,10 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     width: 400,
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    borderRadius:'5px',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+
   },
 }));
 
@@ -69,20 +70,22 @@ export default function LoginModal(props) {
             onClose={handleClose}
             >
             <div style={modalStyle} className={classes.paper}>
-                <h2 id="simple-modal-title">Login</h2>
+                <h2 id="simple-modal-title" style={{textDecoration:'none'}}>Login</h2>
                 <p id="simple-modal-description">
                 <form onSubmit={handleLogin}>
                     <input
                         placeholder="Usuario"
                         onChange={handleChangeUsername.bind(this)}
                         value={username}
+                        style={{borderRadius:'5px'}}
                     ></input>
                     <input
                         placeholder="Senha"
                         type="password"
                         onChange={handleChangePassword.bind(this)}
+                        style={{borderRadius:'5px'}}
                     ></input>
-                    <button onClick={handleLogin}>Fazer Login</button>
+                    <button onClick={handleLogin} className="loginModalButton">Fazer Login</button>
                 </form>
                 </p>
     
