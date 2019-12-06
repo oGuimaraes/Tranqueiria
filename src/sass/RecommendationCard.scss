@@ -12,8 +12,52 @@
 .recommendation-card .cards{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     
 }
 .recommendation-card .title .card-title .h5 {
     text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+    .MuiPaper-elevation1:nth-child(3) {
+        display: none;
+    }
+
+    .MuiPaper-elevation1 {
+        width: 360px;
+    }
+}
+
+.MuiPaper-elevation1 {
+    width: 240px;
+}
+
+
+@media screen and (max-width: 1074px) {
+    .MuiPaper-elevation1:first-child {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 834px) {
+    .MuiPaper-elevation1:nth-child(2) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .MuiPaper-elevation1:nth-child(3) {
+        display: none;
+    }
+
+    .MuiPaper-elevation1 {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .recommendation-card{
+        height: auto;
+    }
 }

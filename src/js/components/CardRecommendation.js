@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   card: {
     maxWidth: 345,
   },
-  media: {
+  media: {  
     height: 140,
   },
 });
@@ -29,11 +29,12 @@ export default function CardRecommendation(props) {
     color,
     id } = props.product;
   return (
-    <Card className={classes.card}>
+    <Card className="card-remove" style={{ margin: "10px",}}className={classes.card}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={image+'?'+(Math.random()*1000)%20}
+          style={{ backgroundColor: "#ff669236",}}
+          //image={image+'?'+(Math.random()*1000)%20}
           title={name}
         />
         <CardContent>
@@ -49,7 +50,7 @@ export default function CardRecommendation(props) {
             <canvas
               width="20px"
               height="20px"
-              style={{ marginLeft: "20px", backgroundColor: color,borderRadius:'5px' }}
+              style={{ marginLeft: "20px", backgroundColor: color, borderRadius:'5px' }}
             ></canvas>
           </Typography>
         </CardContent>

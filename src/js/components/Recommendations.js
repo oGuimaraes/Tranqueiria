@@ -24,10 +24,10 @@ export default class Recommendations extends Component {
         <div className="container">
           <CardBoot.Title className="title">Recomendações</CardBoot.Title>
           <div className="cards">
-          <CardRecommendation product={this.props.recommendationProducts[this.state.product1]}></CardRecommendation>
-          <CardRecommendation product={this.props.recommendationProducts[this.state.product2]}></CardRecommendation>
-          <CardRecommendation product={this.props.recommendationProducts[this.state.product3]}></CardRecommendation>
-          <CardRecommendation product={this.props.recommendationProducts[this.state.product4]}></CardRecommendation>
+          <CardRecommendation idName="card1"product={this.props.recommendationProducts[this.state.product1]}></CardRecommendation>
+          <CardRecommendation id="card2" product={this.props.recommendationProducts[this.state.product2]}></CardRecommendation>
+          <CardRecommendation id="card3" product={this.props.recommendationProducts[this.state.product3]}></CardRecommendation>
+          <CardRecommendation id="card4" product={this.props.recommendationProducts[this.state.product4]}></CardRecommendation>
           </div>
           </div> 
       </div>
