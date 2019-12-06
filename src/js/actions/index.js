@@ -15,7 +15,8 @@ import {
   CHANGE_PP_MAT,
   CHANGE_PP_OBJ,
   CHANGE_PP_COR,
-  CHANGE_PP_CAT
+  CHANGE_PP_CAT,
+  CHANGE_ADMIN_ON
 } from "../constants/action-types";
 
 export function changeSearchElement(payload) {
@@ -71,4 +72,7 @@ export function changePPCOR(payload){
 }
 export function changePPCAT(payload){
   return { type: CHANGE_PP_CAT , payload}
+}
+export function changeAdminOn(payload){
+  return { type: CHANGE_ADMIN_ON,payload }
 }

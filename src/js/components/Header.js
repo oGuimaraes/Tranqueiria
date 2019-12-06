@@ -26,7 +26,7 @@ export class Header extends Component {
                         <Button to="/login" title="Entrar"/>
                     </div>
                     
-                    <div class="header-bot" id="headerBot">
+                    <div className="header-bot" id="headerBot">
                         <CategoryDriver />
                     </div>
                 </div>

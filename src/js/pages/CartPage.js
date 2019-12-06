@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import  CardProductCart  from '../components/CardProductCart';
 import { changePriceTotal } from '../actions/index' 
 import  Button from 'react-bootstrap/Button'
-import  ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 
 export class CartPage extends Component {
 

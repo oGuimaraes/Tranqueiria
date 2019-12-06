@@ -10,7 +10,7 @@ import Menu from '@material-ui/core/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import logoImg from '../../img/logo.svg';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import {changeSearchElement} from '../actions/index'
+import {changeSearchElement,changeAdminOn} from '../actions/index'
 import SearchBar from './SearchBar'
 import {connect} from 'react-redux'
 import LoginModal from './LoginModal'
@@ -104,6 +104,9 @@ function PrimarySearchAppBar(props) {
   const handleLogin = (user) =>{
     setUser(user)
     setLogado(true)
+    if(user==='admin'){
+      props.changeAdminOn(true)
+    }
   };
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -218,7 +221,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch) =>({
-  changeSearchElement: (searchElement) => dispatch(changeSearchElement(searchElement))
+  changeSearchElement: (searchElement) => dispatch(changeSearchElement(searchElement)),
+  changeAdminOn: (status) => dispatch(changeAdminOn(status))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(PrimarySearchAppBar);

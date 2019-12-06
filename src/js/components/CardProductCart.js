@@ -20,7 +20,7 @@ export class CardProductCart extends Component {
     }
 
     render() {      
-        const {image,name,brand,category,currency,price,color,quantity} = this.props.product
+        const {name,brand,category,price,color,quantity} = this.props.product
         return (
             <div className="row card-product-cart">
                 <div>
