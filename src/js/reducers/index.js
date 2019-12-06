@@ -10,7 +10,7 @@ import {
   CHANGE_QUANTITY_PRODUCT,
   ADD_COMMENT,
   CHANGE_PRICE_TOTAL,
-  CLEAR_CART
+  CLEAR_CART,
 } from "../constants/action-types";
 
 const INITIAL_STATE = {
@@ -22,7 +22,12 @@ const INITIAL_STATE = {
   categoryGroup: "",
   categoryElement: "",
   cart: [],
-  totalPrice:0
+  totalPrice:0,
+  productPageAdjIgual:false,
+  productPageMatIgual:false,
+  productPageObjIgual:false,
+  productPageCorIgual:false,
+  productPageCatIgual:false
 };
 
 function rootReducer(state = INITIAL_STATE, action) {
