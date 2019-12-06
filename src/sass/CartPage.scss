@@ -1,7 +1,9 @@
 .cards-section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding-top: 20px;
 }
 
 .row {
@@ -12,11 +14,42 @@
     min-width: 300px;
 }
 
-.content-section {
+.cart-section {
     display: flex;
     text-align: center;
+    padding: 30px 50px;
 }
 
 .pay-section {
-    margin: 15px 100px;
+    width: 50%;
+    border-left: 1px #00000036 solid;
+    padding-top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .cards-section {
+        width: 100%;
+    }
+
+    .pay-section {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    .pay-section {
+        border: none;
+    }
+}
+
+.pay-section .msg-info {
+    margin-top: 20px;
+    color: slategray;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.pay-section .total {
+    color: #51c251;
 }

@@ -75,7 +75,7 @@ class ProductRating extends Component {
                 {comments.map(({ name, comment }, commentKey) => (
                   <div key={commentKey}>
                     <h3 className="autor">{name}</h3>
-                    <p className="comment">"{comment}"</p>
+                    <p className="comment">{comment}</p>
                   </div>
                 ))}
               </CardBoot>
