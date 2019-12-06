@@ -54,8 +54,6 @@ export class App extends Component {
     }));
 
     this.props.setProducts(response.data.data);
-    // this.props.setProducts(a);
-    //Passar o state de loading para a store do redux depois
     this.setState({ loading: false });
   }
 
@@ -70,7 +68,6 @@ export class App extends Component {
       <Router history={history}>
         <div className="App">
           <Header></Header>
-          {/* implementar uma loading screen futuramente */}
           {loading ? (
             <div style={{ display: "flex", justifyContent: "center" }}>
               <CircularProgress />

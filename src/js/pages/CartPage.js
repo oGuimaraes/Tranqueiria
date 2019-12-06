@@ -1,20 +1,24 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import  CardProductCart  from '../components/CardProductCart';
+import { changePriceTotal } from '../actions/index' 
 
 export class CartPage extends Component {
 
     handleCheckOut = () => {
-        this.props.history.push(`/checkout/`);
+        if(this.props.cart.length!==0)
+            this.props.history.push(`/checkout/`);
+        else
+            alert('Por favor coloque algum produto no carrinho para prosseguir')
     }
 
     calcTotal = () => {
         let soma = 0;
-        console.log(this.props)
         this.props.cart.forEach(product =>{
             let valorTotalProduto = product.price * product.quantity;
             soma+=Number.parseInt(valorTotalProduto);
         })
+        this.props.changePriceTotal(soma)
         return soma;   
     }
 
@@ -41,8 +45,13 @@ const mapStateToProps = state => ({
     cart: state.cart
 });
 
+const mapDispatchToProps = (dispatch) =>({
+    changePriceTotal: (priceTotal) => dispatch(changePriceTotal(priceTotal))
+});
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(CartPage);
 
 

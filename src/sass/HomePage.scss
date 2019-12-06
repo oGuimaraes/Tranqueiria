@@ -2,7 +2,14 @@
     background-color: #f6f6f6;
 }
 
-.cardGroup{
+@media screen and (max-width: 600px) {
+    .cardGroup {
+        padding: 0;
+    }
+
+}
+
+.cardGroup {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

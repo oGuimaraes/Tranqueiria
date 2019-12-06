@@ -61,7 +61,6 @@ export const colourNameToHex = (colour) =>{
         return colours[colour.toLowerCase()];
     }
     else{
-        console.log(colour)
         return false;
     }
 }
@@ -73,8 +72,6 @@ export const btnStyle = () =>{
     }
 }
 export const computeColorDistance = (color1,color2) => {
-    console.log(color1)
-    console.log(color2)
     let r1 = parseInt(color1.substring(1,3),16)
     let g1 = parseInt(color1.substring(3,5),16)
     let b1 = parseInt(color1.substring(5,7),16)
@@ -84,4 +81,36 @@ export const computeColorDistance = (color1,color2) => {
     let distance = Math.sqrt(Math.pow((r2-r1),2)+Math.pow((g2-g1),2)+Math.pow((b2-b1),2))
     let percent = (1 -(distance/Math.sqrt(Math.pow((255),2)+Math.pow((255),2)+Math.pow((255),2))))
     return percent 
+}
+export const ufToStateName = (uf) =>{
+    var states = {"AC":"Acre","AL":"Alagoas","AP":"Amap\u00e1","AM":"Amazonas","BA":"Bahia","CE":"Cear\u00e1",
+    "DF":"Distrito Federal","ES":"Esp\u00edrito Santo","GO":"Goi\u00e1s","MA":"Maranh\u00e3o","MT":"Mato Grosso",
+    "MS":"Mato Grosso do Sul","MG":"Minas Gerais","PR":"Paran\u00e1","PB":"Para\u00edba","PA":"Par\u00e1","PE":"Pernambuco",
+    "PI":"Piau\u00ed","RN":"Rio Grande do Norte","RS":"Rio Grande do Sul","RJ":"Rio de Janeiro","RO":"Rond\u00f4nia",
+    "RR":"Roraima","SC":"Santa Catarina","SE":"Sergipe","SP":"S\u00e3o Paulo","TO":"Tocantins"}
+
+    if(typeof states[uf]!='undefined')
+        return states[uf]
+    else
+        return ''
+}
+export const getCardFlag = (cardnumber) => {
+    var cardnumber = cardnumber.replace(/[^0-9]+/g, '');
+
+    var cards = {
+        visa      : /^4[0-9]{12}(?:[0-9]{3})/,
+        mastercard : /^5[1-5][0-9]{14}/,
+        diners    : /^3(?:0[0-5]|[68][0-9])[0-9]{11}/,
+        amex      : /^3[47][0-9]{13}/,
+        discover  : /^6(?:011|5[0-9]{2})[0-9]{12}/,
+        jcb        : /^(?:2131|1800|35\d{3})\d{11}/        
+    };
+
+    for (var flag in cards) {
+        if(cards[flag].test(cardnumber)) {
+            return flag;
+        }
+    }        
+
+    return false;
 }
