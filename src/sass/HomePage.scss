@@ -15,3 +15,17 @@
     justify-content: space-evenly;
     padding: 50px;
 }
+
+html{
+    min-height: 100%;
+}
+
+ body {
+    min-height:100%;
+}
+
+.content{
+    position: relative;
+    min-height: 100vh;
+    background-color: #f6f6f6;
+}

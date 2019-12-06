@@ -11,12 +11,4 @@
 @import "src/sass/CheckoutPage.scss";
 @import "src/sass/ProductEvaluation.scss"
 
-html; body {
-    min-height: 100%;
-}
 
-.content{
-    position: relative;
-    min-height: 100vh;
-    background-color: #f6f6f6;
-}
