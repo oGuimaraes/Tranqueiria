@@ -16,7 +16,7 @@ export class CardProductCart extends Component {
         changeQuantityProduct(product.id, event.target.value);
     }
 
-    render() {
+    render() {      
         const {image,name,brand,category,currency,price,color,quantity} = this.props.product
         return (
             <div className="row">
@@ -34,7 +34,7 @@ export class CardProductCart extends Component {
                             Marca: {brand}
                             <br/>
                             {/* INTL NUMBER FORMAT */}
-                            {currency}: {price}
+                            R$: {price}
                             <canvas width="20px" height="20px" style={{marginLeft:'20px',backgroundColor:color}}>
 
                             </canvas>
