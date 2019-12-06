@@ -10,7 +10,12 @@ import {
   CHANGE_QUANTITY_PRODUCT,
   ADD_COMMENT,
   CHANGE_PRICE_TOTAL,
-  CLEAR_CART
+  CLEAR_CART,
+  CHANGE_PP_ADJ,
+  CHANGE_PP_MAT,
+  CHANGE_PP_OBJ,
+  CHANGE_PP_COR,
+  CHANGE_PP_CAT
 } from "../constants/action-types";
 
 const INITIAL_STATE = {
@@ -22,7 +27,12 @@ const INITIAL_STATE = {
   categoryGroup: "",
   categoryElement: "",
   cart: [],
-  totalPrice:0
+  totalPrice:0,
+  productPageAdjIgual:false,
+  productPageMatIgual:false,
+  productPageObjIgual:false,
+  productPageCorIgual:false,
+  productPageCatIgual:false
 };
 
 function rootReducer(state = INITIAL_STATE, action) {
@@ -107,6 +117,21 @@ function rootReducer(state = INITIAL_STATE, action) {
     }
     case CLEAR_CART: {
       return { ...state, cart: action.payload }
+    }
+    case CHANGE_PP_ADJ:{
+      return { ...state, productPageAdjIgual: action.payload }
+    }
+    case CHANGE_PP_MAT:{
+      return { ...state, productPageMatIgual: action.payload }
+    }
+    case CHANGE_PP_OBJ:{
+      return { ...state, productPageObjIgual: action.payload }
+    }
+    case CHANGE_PP_COR:{
+      return { ...state, productPageCorIgual: action.payload }
+    }
+    case CHANGE_PP_CAT:{
+      return { ...state, productPageCatIgual: action.payload }
     }
     default: {
       return state;

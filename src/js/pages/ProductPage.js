@@ -5,7 +5,13 @@ import Recommendations from "../components/Recommendations";
 import ProductRating from "../components/ProductRating";
 
 const mapStateToProps = state => {
-  return { products: state.products };
+  return { products: state.products,
+            productPageAdjIgual:state.productPageAdjIgual,
+            productPageMatIgual:state.productPageMatIgual,
+            productPageObjIgual:state.productPageObjIgual,
+            productPageCorIgual:state.productPageCorIgual,
+            productPageCatIgual:state.productPageCatIgual
+  };
 };
 
 export class ProductPage extends Component {
