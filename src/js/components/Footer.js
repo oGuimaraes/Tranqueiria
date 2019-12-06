@@ -13,6 +13,7 @@ export class Footer extends Component {
     this.state = {
       grupo: [
         {
+          id:1,
           nome: "Carla D'Abreu",
           linkedin: " /carladabreu",
           linkLi: "https://www.linkedin.com/in/carladabreu/",
@@ -21,6 +22,7 @@ export class Footer extends Component {
           email: " carlaamvieira@gmail.com"
         },
         {
+          id:2,
           nome: "Gabriel Lopes",
           linkedin: " /GabielLopesFerreira",
           linkLi: "https://www.linkedin.com/in/GabrielLopesFerreira/",
@@ -29,6 +31,7 @@ export class Footer extends Component {
           email: " glf7655@gmail.com"
         },
         {
+          id:3,
           nome: "Luiz Gustavo Torres",
           linkedin: " /torresluizg",
           linkLi: "https://www.linkedin.com/in/torresluizg/",
@@ -37,6 +40,7 @@ export class Footer extends Component {
           email: " torresluizgtech@gmail.com"
         },
         {
+          id:4,
           nome: "Otávio Guimarães",
           linkedin: " /otavio-guimaraes",
           linkLi: "https://www.linkedin.com/in/otávio-guimarães",
@@ -61,7 +65,7 @@ export class Footer extends Component {
         </Link>)
         : ''}
         {this.state.grupo.map(elemento => (
-          <p className="controleDeVisao">
+          <div className="controleDeVisao" key={elemento.id}>
             <ul className="nomeTime">
               <li>{elemento.nome}</li>
               <li>
@@ -81,7 +85,7 @@ export class Footer extends Component {
                 {elemento.email}
               </li>
             </ul>
-          </p>
+          </div>
         ))}
       </div>
     );

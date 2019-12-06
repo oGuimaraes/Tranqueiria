@@ -69,7 +69,6 @@ export class ProductPage extends Component {
   }
   renderCard = product => {
     let recommendationProducts = this.generateRecomentations(product)
-    console.log(recommendationProducts)
     return (
       <div className="content">
         <Product product={product} />
